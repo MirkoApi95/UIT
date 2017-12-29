@@ -1,5 +1,6 @@
 package control;
 
-public class Ciao {
-
+public class Ciao
+{
+	
 }
