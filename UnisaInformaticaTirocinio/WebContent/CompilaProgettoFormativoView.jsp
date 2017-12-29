@@ -1,3 +1,6 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia"><head>
   <title>UIT Home</title>
 
@@ -81,53 +84,87 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Form Registrazione UIT</legend>
-
+<legend> Progetto Formativo e di Orientamento</legend>
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Name">Name</label>
+  <label class="col-md-4 control-label" for="Name">Nome  </label>
   <div class="col-md-5">
-  <input id="Name" name="Name" type="text" placeholder="username" class="form-control input-md" required="">
+  <input id="Name" name="Name" type="text" class="form-control input-md" required="">
 
   </div>
 </div>
 
-<!-- Password input-->
+<!-- Cognome input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password</label>
+  <label class="col-md-4 control-label" for="passwordinput">Cognome</label>
   <div class="col-md-5">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
-    <span class="help-block">max 16 characters</span>
+    <input id="surnameinput" name="surnameinput" type="text" class="form-control input-md" required="">
   </div>
 </div>
 
-<!-- Password input-->
+<!-- Address input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="confirm_password">Confirm Password</label>
+  <label class="col-md-4 control-label" for="address">Matricola</label>
   <div class="col-md-5">
-    <input id="confirm_password" name="confirm_password" type="password" placeholder="Re-type password" class="form-control input-md" required="">
+    <input id="matricola" name="matricola" type="text" class="form-control input-md" required="">
   </div>
 </div>
-
-<!-- Multiple Radios (inline) -->
-
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="address">Address</label>
+  <label class="col-md-4 control-label" for="address">CFU Acquisiti</label>
   <div class="col-md-4 col-lg-5">
-    <textarea class="form-control" id="address" name="address">default text</textarea>
+    <input type="text" class="form-control" id="cfu" name="cfu">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="emailId">Email Id</label>
+  <label class="col-md-4 control-label" for="emailId">Anno Iscrizione</label>
   <div class="col-md-5 col-lg-5">
-  <input id="emailId" name="emailId" type="text" placeholder="user@domain.com" class="form-control input-md" required="">
+  <input id="annoiscr" name="annoiscr" type="text" class="form-control input-md" required="">
   </div>
 </div>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailId">Anno in corso</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="annocorso" name="annocorso" type="text" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="azienda">Azienda/Ente Ospitante</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="azienda" name="azienda" type="text" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tutoraziendale">Tutor Aziendale</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="tutoraziendale" name="tutoraziendale" type="text" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Tutor Accademico">Tutor Accademico</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="tutoraccademico" name="tutoraccademico" type="text" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="address">Obiettivi e finalità</label>
+  <div class="col-md-4 col-lg-5">
+    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalità"></textarea>
+  </div>
+</div>
 
 <!-- Button -->
 <div class="form-group">

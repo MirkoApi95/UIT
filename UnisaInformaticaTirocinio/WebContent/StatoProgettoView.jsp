@@ -1,5 +1,8 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia"><head>
-  <title>UIT Home</title>
+  <title>Canna | Contact</title>
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -12,9 +15,8 @@
   <!-- Css -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-icons.css">
-  <link rel="stylesheet" href="revolution/css/settings.css">
-  <link rel="stylesheet" href="css/rev-slider.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_table.css">
   <link rel="stylesheet" href="css/colors/color-mint.css">
 
   <!-- Favicons -->
@@ -23,7 +25,7 @@
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
-</head>
+<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/stats.js"></script></head>
 
 <body>
 
@@ -66,17 +68,18 @@
           <nav id="navbar-collapse" class="nav__wrap navbar-collapse collapse in" aria-expanded="true" style="">
             <ul class="nav__menu">
 
-              <li class="nav__dropdown active">
 
-              </li>
               <li class="nav__dropdown">
-                <a href="#">BenvenutoTU</a>
+                <a href="#">Benvenuto</a>
                 <i class="fa fa-angle-down nav__dropdown-trigger"></i>
                 <ul class="nav__dropdown-menu">
-                  <li><a href="portfolio-4.html">Modifica Account</a></li>
-                  <li><a href="portfolio-single.html">Logout</a></li>
+                  <li><a href="services.html">Modifica account</a></li>
+                  <li><a href="about-us.html">Logout</a></li>
                 </ul>
               </li>
+
+
+
             </ul> <!-- end menu -->
 
           </nav> <!-- end nav-wrap -->
@@ -86,68 +89,29 @@
 
     </div>
   </header> <!-- end navigation -->
+  <main class="main oh">
+    <table>
+  <tr>
+    <th>Numero Pratica</th>
+    <th>Nome e cognome tirocinante</th>
+    <th>Stato TU</th>
+    <th>Stato DD</th>
+    <th>Visualizza</th>
+  </tr>
+  <tr>
+    <td> 214</td>
+    <td> Luciano Califano</td>
+    <td>button</td>
+    <td>button</td>
+    <td>button</td>
+</div>
+</td>
+  </tr>
 
+</table>
+<div> </div>
+    <div class="gmap gmap-hidden" id="google-map" data-address="V Tytana St, Manila, Philippines"></div>
 
-  <div class="main-wrapper oh">
-
-    <!-- Revolution Slider -->
-    <section>
-
-    </section>
-
-
-    <!-- Feature -->
-     <!-- end feature -->
-
-
-    <!-- Video Section -->
-
-
-
-    <!-- Feature 4 (iPad) -->
-     <!-- end feature 4 (ipad) -->
-
-
-    <!-- Mission / Vision / Results -->
-    <section class="section-wrap bg-light pb-90">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-md-offset-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-            <div class="box-shadow">
-              <img src="img/mission/2.png" class="img-fullwidth" alt="">
-              <div class="card">
-                <h4>Lista Progetti Formativo</h4>
-                <p>We possess within us two minds. So far I have written only of the conscious mind. Your subconscious mind contains.</p>
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section> <!-- end mission/vision/results -->
-
-
-    <!-- Selected Works -->
-     <!-- end selected works-->
-
-
-    <!-- Feature Tabs -->
-     <!-- end feature tabs -->
-
-    <!-- Feature Tabs Content -->
-     <!-- end feature tabs content -->
-
-
-    <!-- Results -->
-     <!-- end results-->
-
-
-    <!-- From Blog -->
-     <!-- end from blog -->
-
-    <!-- Call to Action 1 -->
-     <!-- end call to action 1 -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -157,14 +121,14 @@
         <div class="container">
           <div class="row">
 
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6 col-xs-12 text-sm-center">
               <span class="copyright">
-                © Made by UIT Team</a>
+                © 2017 Canna Theme  |  Made by <a href="https://deothemes.com">DeoThemes</a>
               </span>
             </div>
 
-            <div class="col-sm-4 col-sm-offset-2 col-xs-12 clearfix">
-              <div class="socials socials--nobase footer__socials clearfix right">
+            <div class="col-sm-4 col-sm-offset-2 col-xs-12 text-right text-sm-center">
+              <div class="socials socials--nobase footer__socials clearfix">
                 <a href="#"><i class="fa fa-twitter"></i></a>
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -183,28 +147,77 @@
       <a href="#top"><i class="fa fa-angle-up"></i></a>
     </div>
 
-  </div> <!-- end main-wrapper -->
+  </main> <!-- end main-wrapper -->
 
   <!-- jQuery Scripts -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+  <script type="text/javascript" src="js/gmap3.js"></script>
   <script type="text/javascript" src="js/plugins.js"></script>
-  <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-  <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-  <script type="text/javascript" src="js/rev-slider.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
 
-  <!-- Rev Slider Offline Scripts -->
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-  <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 
+  <!-- Google Map -->
+  <script type="text/javascript">
+    $(document).ready( function(){
+
+      function initMap() {
+
+        var gmapDiv = $("#google-map");
+        var gmapMarker = gmapDiv.attr("data-address");
+
+        gmapDiv.gmap3({
+          zoom: 16,
+          address: gmapMarker,
+          oomControl: true,
+          navigationControl: true,
+          scrollwheel: false,
+          styles: [
+            {
+            "featureType":"all",
+            "elementType":"all",
+              "stylers":[
+                { "saturation":"0" }
+              ]
+          }]
+        })
+        .marker({
+          address: gmapMarker,
+          icon: "img/map_pin.png"
+        })
+        .infowindow({
+          content: "V Tytana St, Manila, Philippines"
+        })
+        .then(function (infowindow) {
+          var map = this.get(0);
+          var marker = this.get(1);
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        });
+      }
+
+
+      // Map Button
+      $(".gmap-btn").on("click", function() {
+
+        $(".gmap").slideToggle();
+
+        if ($(this).text() == "Close Map")
+         $(this).text("Open Map")
+        else
+         $(this).text("Close Map");
+      });
+
+      $(".gmap-btn").one("click", function() {
+        setTimeout(function(){
+          initMap();
+        }, 500);
+      });
+
+    });
+  </script>
 
 </body>
 </html>

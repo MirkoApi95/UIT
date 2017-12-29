@@ -1,3 +1,5 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia"><head>
   <title>Canna | Contact</title>
@@ -68,15 +70,26 @@
 
 
               <li class="nav__dropdown">
-                <a href="#">Benvenuto</a>
+                <a href="#">Pages</a>
                 <i class="fa fa-angle-down nav__dropdown-trigger"></i>
                 <ul class="nav__dropdown-menu">
-                  <li><a href="services.html">Modifica account</a></li>
-                  <li><a href="about-us.html">Logout</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="about-us.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="404.html">404</a></li>
                 </ul>
               </li>
 
-
+              <li class="nav__dropdown">
+                <a href="#">Portfolio</a>
+                <i class="fa fa-angle-down nav__dropdown-trigger"></i>
+                <ul class="nav__dropdown-menu">
+                  <li><a href="portfolio-4.html">4 Columns</a></li>
+                  <li><a href="portfolio-3.html">3 Columns</a></li>
+                  <li><a href="portfolio-2.html">2 Columns</a></li>
+                  <li><a href="portfolio-single.html">Single Project</a></li>
+                </ul>
+              </li>
 
             </ul> <!-- end menu -->
 
@@ -90,24 +103,56 @@
   <main class="main oh">
     <table>
   <tr>
-    <th>Numero Pratica</th>
-    <th>Nome e cognome tirocinante</th>
-    <th>Stato TU</th>
-    <th>Stato DD</th>
-    <th>Visualizza</th>
+    <th>Azienda</th>
+    <th>Tutor Universitario</th>
+    <th>Seleziona</th>
   </tr>
   <tr>
-    <td> 214</td>
-    <td> Luciano Califano</td>
-    <td>button</td>
-    <td>button</td>
-    <td>button</td>
+    <td>Alfreds Futterkiste</td>
+    <td><div class="form-group">
+  <select class="form-control" id="sel1">
+    <option>La Torre</option>
+    <option>De Sanctis</option>
+    <option>Abate</option>
+  </select>
+</div></td>
+    <td><div class="radio">
+  <label><input type="radio" name="optradio"></label>
 </div>
 </td>
   </tr>
-
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td><div class="form-group">
+  <select class="form-control" id="sel1">
+    <option>La Torre</option>
+    <option>De Sanctis</option>
+    <option>Abate</option>
+  </select>
+</div></td>
+    <td><div class="radio">
+  <label><input type="radio" name="optradio"></label>
+</div>
+</td>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td><div class="form-group">
+  <select class="form-control" id="sel1">
+    <option>La Torre</option>
+    <option>De Sanctis</option>
+    <option>Abate</option>
+  </select>
+</div></td>
+    <td><div class="radio">
+  <label><input type="radio" name="optradio"></label>
+</div>
+</td>
+  </tr>
 </table>
-<div> </div>
+<div>
+<button type="button" class="btn btn-primary" style="text-align:center">Primary</button>
+</div>
     <div class="gmap gmap-hidden" id="google-map" data-address="V Tytana St, Manila, Philippines"></div>
 
 

@@ -1,14 +1,14 @@
-<html lang="en" class="mediaqueries matchmedia"><head>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia"><head>
   <title>UIT Home</title>
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="">
-
   <!-- Google Fonts -->
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CSource+Sans+Pro:400,300,700,600%7CPlayfair+Display:400,700,400italic" rel="stylesheet">
-
   <!-- Css -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-icons.css">
@@ -54,7 +54,6 @@
                 <img class="logo logo--dark" src="img/logo2.png" alt="logo">
               </a>
             </div>
-
             <button type="button" class="nav__icon-toggle" id="nav__icon-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
               <span class="sr-only">Toggle navigation</span>
               <span class="nav__icon-toggle-bar"></span>
@@ -62,22 +61,8 @@
               <span class="nav__icon-toggle-bar"></span>
             </button>
           </div> <!-- end nav-header -->
-
           <nav id="navbar-collapse" class="nav__wrap navbar-collapse collapse in" aria-expanded="true" style="">
             <ul class="nav__menu">
-
-              <li class="nav__dropdown active">
-
-              </li>
-              <li class="nav__dropdown">
-                <a href="#">BenvenutoDD</a>
-                <i class="fa fa-angle-down nav__dropdown-trigger"></i>
-                <ul class="nav__dropdown-menu">
-                  <li><a href="portfolio-4.html">Modifica Account</a></li>
-                  <li><a href="portfolio-3.html">Logout</a></li>
-
-                </ul>
-              </li>
             </ul> <!-- end menu -->
 
           </nav> <!-- end nav-wrap -->
@@ -89,79 +74,108 @@
   </header> <!-- end navigation -->
 
 
-  <div class="main-wrapper oh">
 
-    <!-- Revolution Slider -->
-    <section>
+    <div class="container">
+	<div class="row">
+	<form class="form-horizontal">
+<fieldset>
 
-    </section>
+<!-- Form Name -->
+<legend> Progetto Formativo e di Orientamento</legend>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Name">Nome  </label>
+  <div class="col-md-5">
+  <input id="Name" name="Name" type="text" class="form-control input-md" required="">
 
+  </div>
+</div>
 
-    <!-- Feature -->
-     <!-- end feature -->
+<!-- Cognome input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Cognome</label>
+  <div class="col-md-5">
+    <input id="surnameinput" name="surnameinput" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
+<!-- Address input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="address">Matricola</label>
+  <div class="col-md-5">
+    <input id="matricola" name="matricola" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
-    <!-- Video Section -->
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="address">CFU Acquisiti</label>
+  <div class="col-md-4 col-lg-5">
+    <input type="text" class="form-control" id="cfu" name="cfu">
+  </div>
+</div>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailId">Anno Iscrizione</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="annoiscr" name="annoiscr" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailId">Anno in corso</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="annocorso" name="annocorso" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
-    <!-- Feature 4 (iPad) -->
-     <!-- end feature 4 (ipad) -->
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="azienda">Azienda/Ente Ospitante</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="azienda" name="azienda" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tutoraziendale">Tutor Aziendale</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="tutoraziendale" name="tutoraziendale" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
-    <!-- Mission / Vision / Results -->
-    <section class="section-wrap bg-light pb-90">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-xs-5  wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <div class="box-shadow">
-              <img src="img/mission/2.png" class="img-fullwidth" alt="">
-              <div class="card">
-                <h4>Lista progetti formativi</h4>
-                <p>We possess within us two minds. So far I have written only of the conscious mind. Your subconscious mind contains.</p>
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-5 col-md-4 mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-            <div class="box-shadow">
-              <img src="img/mission/2.png" class="img-fullwidth" alt="">
-              <div class="card">
-                <h4>Lista registri tirocini</h4>
-                <p>We possess within us two minds. So far I have written only of the conscious mind. Your subconscious mind contains.</p>
-                <a href="#">Read More</a>
-              </div>
-            </div>
-          </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Tutor Accademico">Tutor Accademico</label>
+  <div class="col-md-5 col-lg-5">
+  <input id="tutoraccademico" name="tutoraccademico" type="text" class="form-control input-md" required="">
+  </div>
+</div>
 
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="address">Obiettivi e finalità</label>
+  <div class="col-md-4 col-lg-5">
+    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalità"></textarea>
+  </div>
+</div>
 
-        </div>
-      </div>
-    </section> <!-- end mission/vision/results -->
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4 col-lg-1">
+    <button id="submit" name="submit" class="btn btn-success">Submit</button>
+  </div>
+</div>
 
+</fieldset>
+</form>
+	</div>
+</div>
 
-    <!-- Selected Works -->
-     <!-- end selected works-->
-
-
-    <!-- Feature Tabs -->
-     <!-- end feature tabs -->
-
-    <!-- Feature Tabs Content -->
-     <!-- end feature tabs content -->
-
-
-    <!-- Results -->
-     <!-- end results-->
-
-
-    <!-- From Blog -->
-     <!-- end from blog -->
-
-    <!-- Call to Action 1 -->
-     <!-- end call to action 1 -->
-
-    <!-- Footer -->
     <footer class="footer">
 
 
@@ -171,7 +185,7 @@
 
             <div class="col-sm-6 col-xs-12">
               <span class="copyright">
-                © Made by UIT Team</a>
+                © Made by UIT Team
               </span>
             </div>
 
@@ -195,7 +209,6 @@
       <a href="#top"><i class="fa fa-angle-up"></i></a>
     </div>
 
-  </div> <!-- end main-wrapper -->
 
   <!-- jQuery Scripts -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -218,5 +231,6 @@
   <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 
 
-</body>
-</html>
+
+
+</body></html>

@@ -1,4 +1,4 @@
-package StorageLayer;
+package GestoreStorage;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -113,4 +113,10 @@ public class DriverManagerConnectionPool {
 
 	//lista delle connessioni libere
 	private static List<Connection> freeDBConnections;
+	
+	
+	
+	
+	
+	
 }
