@@ -2,7 +2,7 @@ package entity;
 
 public class ProgettoFormativo 
 {
-	private int id_progetto;								//long o id autogenerato//da correggere
+	private long id_progetto;								//long o id autogenerato//da correggere
 	private String TutorAziendale_Utente_idUtente;
 	private String TutorUniversitario_Utente_idUtente;
 	private String Tirocinante_Utente_idUtente;
@@ -11,7 +11,7 @@ public class ProgettoFormativo
 	private boolean convalidaTU;
 	private String Obiettivi;
 	
-	public ProgettoFormativo(int id_progetto, String tutorAziendale_Utente_idUtente,
+	public ProgettoFormativo(long id_progetto, String tutorAziendale_Utente_idUtente,
 			String tutorUniversitario_Utente_idUtente, String tirocinante_Utente_idUtente,
 			String direttoreDipartimento_idDirettoreDipartimento, Boolean ConvalidaDD , Boolean ConvalidaTU,
 			String obiettivi) {
@@ -31,12 +31,12 @@ public class ProgettoFormativo
 		
 	}
 
-	public int getId_progetto() {
+	public long getId_progetto() {
 		return id_progetto;
 	}
 
-	public void setId_progetto(int id_progetto) {
-		this.id_progetto = id_progetto;
+	public void setId_progetto(long id) {
+		this.id_progetto = id;
 	}
 
 	public String getTutorAziendale_Utente_idUtente() {

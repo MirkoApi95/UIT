@@ -3,6 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entity.ProgettoFormativo;
@@ -13,48 +14,45 @@ public class ProgettoFormativoDao {
 		//****VARIABILI DELLA CLASSE****\\
 	
 		private ProgettoFormativo progetto = new ProgettoFormativo();
-		private ArrayList<ProgettoFormativo> listaProgetti = new ArrayList <ProgettoFormativo>();
 		private Connection connection = null;
 		private PreparedStatement preparedStatement = null;
+		
+		
+		//****QUERY****\\		
 		private final String selectFromIDSQL = "select * FROM ProgettoFormativo WHERE ProgettoFormativo.id= ?";
 		
+		//****COSTRUTTORE****\\
+		public ProgettoFormativoDao(){
+		}
+				
 		//****METODI DI LETTURA****\\
 		
-		public ArrayList<ProgettoFormativo> listaTuttiProgetti() { //BIOGNA DARE LA POSSIBILITA DI ACCEDERE DIRETTAMENTE AGLI OGGETTI DI TIPO PROGETTO DALL'ESTERNO????
-			//query per selezionare tutti i progetti
-			//
-			return listaProgetti;
-		}
-		
-		@SuppressWarnings("finally")//xkè?
-		public boolean VerificaStatoDD(int id) {
+		public ProgettoFormativo doRetrieveByKey(long id)  {
 			try {
 				connection=DriverManagerConnectionPool.getConnection();
 				preparedStatement=connection.prepareStatement(selectFromIDSQL);
-				preparedStatement.setInt(1, id);
+				preparedStatement.setLong(1, id);
 				ResultSet rs=preparedStatement.executeQuery();
-				progetto=(ProgettoFormativo) rs;
-				return progetto.getConvalidaDD();
+				while (rs.next()) {
+					progetto.setId_progetto(rs.getLong("id"));
+					progetto.setTirocinante_Utente_idUtente(rs.getString("tutorAziendale_Utente_idUtente"));
+					progetto.setTutorUniversitario_Utente_idUtente(rs.getString("setTutorUniversitario_Utente_idUtente"));
+					progetto.setTirocinante_Utente_idUtente(rs.getString("tirocinante_Utente_idUtente"));
+					progetto.setDirettoreDipartimento_idDirettoreDipartimento(rs.getString("DirettoreDipartimento_idDirettoreDipartimento"));
+					progetto.setConvalidaDD(rs.getBoolean("ConvalidaDD"));
+					progetto.setConvalidaTU(rs.getBoolean("ConvalidaTU"));
+					progetto.setObiettivi(rs.getString("Obiettivi"));
 				}
-			finally {
-				return false;
-			}
-		}
-		
-		@SuppressWarnings("finally")
-		public boolean VerificaStatoTU(int id) {
-			try {
-				connection=DriverManagerConnectionPool.getConnection();
-				preparedStatement=connection.prepareStatement(selectFromIDSQL);
-				preparedStatement.setInt(1, id);
-				ResultSet rs=preparedStatement.executeQuery();
-				progetto=(ProgettoFormativo) rs;
-				return progetto.getConvalidaTU();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			} finally {
+				try {
+					DriverManagerConnectionPool.releaseConnection(connection);
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
-			finally {
-				return false;
 			}
+			return progetto;	
 		}
-		
 		
 }
