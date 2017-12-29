@@ -104,11 +104,11 @@ public class DriverManagerConnectionPool {
 	 * @param connection connessione da rilasciare
 	 * @throws SQLException
 	 */
-	public static synchronized void releaseConnection(Connection connection)
-			throws SQLException {
-
-		if(connection != null)
+	public static synchronized boolean releaseConnection(Connection connection)throws SQLException {
+		if(connection != null) {
 			freeDBConnections.add(connection);
+			return true;
+		}else return false;
 	}
 
 	//lista delle connessioni libere
