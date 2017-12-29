@@ -1,4 +1,4 @@
-package GestoreStorage;
+package gestoreStorage;
 
 import java.sql.SQLException;
 
