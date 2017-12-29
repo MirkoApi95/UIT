@@ -2,18 +2,18 @@ package entity;
 
 public class ProgettoFormativo 
 {
-	private int id_progetto;
+	private int id_progetto;								//long o id autogenerato//da correggere
 	private String TutorAziendale_Utente_idUtente;
 	private String TutorUniversitario_Utente_idUtente;
 	private String Tirocinante_Utente_idUtente;
 	private String DirettoreDipartimento_idDirettoreDipartimento;
-	private byte convalidaDD;
-	private byte convalidaTU;
+	private boolean convalidaDD;
+	private boolean convalidaTU;
 	private String Obiettivi;
 	
 	public ProgettoFormativo(int id_progetto, String tutorAziendale_Utente_idUtente,
 			String tutorUniversitario_Utente_idUtente, String tirocinante_Utente_idUtente,
-			String direttoreDipartimento_idDirettoreDipartimento, byte convalidaDD, byte convalidaTU,
+			String direttoreDipartimento_idDirettoreDipartimento, Boolean ConvalidaDD , Boolean ConvalidaTU,
 			String obiettivi) {
 		super();
 		this.id_progetto = id_progetto;
@@ -21,9 +21,13 @@ public class ProgettoFormativo
 		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
 		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
 		DirettoreDipartimento_idDirettoreDipartimento = direttoreDipartimento_idDirettoreDipartimento;
-		this.convalidaDD = convalidaDD;
-		this.convalidaTU = convalidaTU;
+		this.convalidaDD = ConvalidaDD;
+		this.convalidaTU = ConvalidaTU;
 		Obiettivi = obiettivi;
+		
+	}
+	
+	public ProgettoFormativo() {
 		
 	}
 
@@ -67,19 +71,19 @@ public class ProgettoFormativo
 		DirettoreDipartimento_idDirettoreDipartimento = direttoreDipartimento_idDirettoreDipartimento;
 	}
 
-	public byte getConvalidaDD() {
+	public boolean getConvalidaDD() {
 		return convalidaDD;
 	}
 
-	public void setConvalidaDD(byte convalidaDD) {
+	public void setConvalidaDD(boolean convalidaDD) {
 		this.convalidaDD = convalidaDD;
 	}
 
-	public byte getConvalidaTU() {
+	public boolean getConvalidaTU() {
 		return convalidaTU;
 	}
 
-	public void setConvalidaTU(byte convalidaTU) {
+	public void setConvalidaTU(boolean convalidaTU) {
 		this.convalidaTU = convalidaTU;
 	}
 
