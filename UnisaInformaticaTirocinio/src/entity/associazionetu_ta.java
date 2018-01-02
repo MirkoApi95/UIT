@@ -21,4 +21,5 @@ public class associazionetu_ta
 		this.tutoraziendale_utente_idUtente = tutoraziendale_utente_idUtente;
 		this.tutoruniveristario_utente_idUtente = tutoruniveristario_utente_idUtente;
 	}
+	//fare DAO
 }
