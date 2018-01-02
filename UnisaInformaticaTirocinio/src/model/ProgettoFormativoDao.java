@@ -22,8 +22,8 @@ public class ProgettoFormativoDao {
 			"ID_ProgettoFormativo,"+"DirettoreDipartimento_idDirettoreDipartimento,"+"ConvalidaDD,"+
 			"ConvalidaTU,"+"Obiettivi)"+
 			"VALUES (?,?,?,?,?,?,?,?)";
-	private final String editConvalidaDD = "UPDATE ProgettoFormativo SET ConvalidaDD = ?, WHERE id = ?";
-	private final String editConvalidaTU = "UPDATE ProgettoFormativo SET ConvalidaTU = ?, WHERE id = ?";
+	private final String editConvalidaDD = "UPDATE ProgettoFormativo SET ConvalidaDD = ? WHERE ID_ProgettoFormativo = ?";
+	private final String editConvalidaTU = "UPDATE ProgettoFormativo SET ConvalidaTU = ? WHERE ID_ProgettoFormativo = ?";
 	
 	//****COSTRUTTORE****\\
 	public ProgettoFormativoDao() throws SQLException{
@@ -94,8 +94,8 @@ public class ProgettoFormativoDao {
 		Object.setConvalidaDD(conv);
 		try {
 			preparedStatement=connection.prepareStatement(editConvalidaDD);
-			preparedStatement.setBoolean(5, Object.getConvalidaDD());
-			preparedStatement.setLong(0, Object.getId_progetto());
+			preparedStatement.setBoolean(1, Object.getConvalidaDD());
+			preparedStatement.setInt(2, Object.getId_progetto());
 			int n = preparedStatement.executeUpdate();
 			if(n!=0)return true;
 			else return false;
@@ -109,8 +109,8 @@ public class ProgettoFormativoDao {
 			Object.setConvalidaDD(conv);
 			try {
 				preparedStatement=connection.prepareStatement(editConvalidaTU);
-				preparedStatement.setBoolean(5, Object.getConvalidaDD());
-				preparedStatement.setLong(0, Object.getId_progetto());
+				preparedStatement.setBoolean(1, Object.getConvalidaDD());
+				preparedStatement.setInt(2, Object.getId_progetto());
 				int n = preparedStatement.executeUpdate();
 				if(n!=0)return true;
 				else return false;

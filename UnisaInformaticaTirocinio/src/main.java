@@ -19,9 +19,16 @@ public class main {
 		PFG.upLoadProject(tre);
 		PFG.upLoadProject(quattro);
 		
+		
+		
 		vuoto=PFG.doRetrieveByKey(2);
-		System.out.println(vuoto.getObiettivi());
+		
+		
+		System.out.println(PFG.UploadConvalidaDD(vuoto, true));
+		
 		System.out.println(PFG.ChiudiConnessione());
+		
+	
 	}
 
 	
