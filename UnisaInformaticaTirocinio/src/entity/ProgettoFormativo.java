@@ -1,8 +1,13 @@
 package entity;
 
+
+
+
 public class ProgettoFormativo 
 {
-	private long id_progetto;								//long o id autogenerato//da correggere
+							//long o id autogenerato//da correggere
+	private static int id_progettoGlob;
+	private int id_ProgettoFormativo;
 	private String TutorAziendale_Utente_idUtente;
 	private String TutorUniversitario_Utente_idUtente;
 	private String Tirocinante_Utente_idUtente;
@@ -11,12 +16,13 @@ public class ProgettoFormativo
 	private boolean convalidaTU;
 	private String Obiettivi;
 	
-	public ProgettoFormativo(long id_progetto, String tutorAziendale_Utente_idUtente,
-			String tutorUniversitario_Utente_idUtente, String tirocinante_Utente_idUtente,
-			String direttoreDipartimento_idDirettoreDipartimento, Boolean ConvalidaDD , Boolean ConvalidaTU,
-			String obiettivi) {
-		super();
-		this.id_progetto = id_progetto;
+	public ProgettoFormativo(String tutorAziendale_Utente_idUtente,
+							 String tutorUniversitario_Utente_idUtente, 
+							 String tirocinante_Utente_idUtente,
+							 String direttoreDipartimento_idDirettoreDipartimento, 
+							 Boolean ConvalidaDD , 
+							 Boolean ConvalidaTU,
+							 String obiettivi) {
 		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
 		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
 		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
@@ -24,19 +30,16 @@ public class ProgettoFormativo
 		this.convalidaDD = ConvalidaDD;
 		this.convalidaTU = ConvalidaTU;
 		Obiettivi = obiettivi;
-		
+		id_ProgettoFormativo=id_progettoGlob++;
 	}
+	public ProgettoFormativo() {}
 	
-	public ProgettoFormativo() {
-		
+	public int getId_progetto() {
+		return id_ProgettoFormativo;
 	}
 
-	public long getId_progetto() {
-		return id_progetto;
-	}
-
-	public void setId_progetto(long id) {
-		this.id_progetto = id;
+	public void setId_progetto(int id) {
+		this.id_ProgettoFormativo = id;
 	}
 
 	public String getTutorAziendale_Utente_idUtente() {

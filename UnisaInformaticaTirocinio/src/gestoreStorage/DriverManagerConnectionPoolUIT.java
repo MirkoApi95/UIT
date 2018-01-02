@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class DriverManagerConnectionPool {
+public class DriverManagerConnectionPoolUIT {
 
 	static{
 		//instanzio la LinkedList
@@ -25,14 +25,13 @@ public class DriverManagerConnectionPool {
 	 * @throws SQLException
 	 */
 	private static synchronized Connection createDBConnection()
-		/*	throws SQLException */{
+	/*	throws SQLException */{
 		//nuova connessione
 		Connection newConnection = null;
 		String ip = "localhost";
 		String port1 = "3306";
 		String port2 = "3306";
 		String db1 = "is_project";
-		String db2 = "universitàdb";
 		String username = "root";
 		String password = "luci";
 
@@ -43,27 +42,19 @@ public class DriverManagerConnectionPool {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Connessione fallita"+ e.getMessage());
-		}
-
-		try {
-			newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port2+"/"+db2, username, password);
-			newConnection.setAutoCommit(false);
-			System.out.println("Connessione ok");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Connessione fallita"+ e.getMessage());
-		}
-		
-		/**
-		 * gli SQL statements sono raggruppati in transizioni quando
-		 * AutoCommit e' settato a false (se fosse settato su true
-		 * gli SQL statements sarebbero eseguiti come transizioni
-		 * individuali)
-		 */
-
-//		newConnection.setAutoCommit(false);
-		return newConnection;
+		}return newConnection;
 	}
+
+
+	/**
+	 * gli SQL statements sono raggruppati in transizioni quando
+	 * AutoCommit e' settato a false (se fosse settato su true
+	 * gli SQL statements sarebbero eseguiti come transizioni
+	 * individuali)
+	 */
+
+	//		newConnection.setAutoCommit(false);
+
 
 	/**
 	 * Crea una connessione DB gestendo connessioni multithread
@@ -113,10 +104,10 @@ public class DriverManagerConnectionPool {
 
 	//lista delle connessioni libere
 	private static List<Connection> freeDBConnections;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }

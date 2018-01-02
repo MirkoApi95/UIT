@@ -6,7 +6,7 @@ public class ProvaDataBase {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		DriverManagerConnectionPool con = new DriverManagerConnectionPool();
+		DriverManagerConnectionPoolUIT con = new DriverManagerConnectionPoolUIT();
 		con.getConnection();
 	}
 
