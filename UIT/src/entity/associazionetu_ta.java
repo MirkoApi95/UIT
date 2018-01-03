@@ -23,4 +23,5 @@ public class associazionetu_ta
 	}
 	//fare DAO
 	//va bene
+	//resa dei conti
 }
