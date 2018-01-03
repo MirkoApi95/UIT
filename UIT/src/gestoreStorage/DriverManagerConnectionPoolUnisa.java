@@ -30,7 +30,7 @@ public class DriverManagerConnectionPoolUnisa {
 		Connection newConnection = null;
 		String ip = "localhost";
 		String port1 = "3306";
-		String db1 = "universitàdb";
+		String db1 = "universitï¿½db";
 		String username = "root";
 		String password = "luci";
 		try {
@@ -100,10 +100,6 @@ public class DriverManagerConnectionPoolUnisa {
 
 	//lista delle connessioni libere
 	private static List<Connection> freeDBConnections;
-
-
-
-
 
 
 }
