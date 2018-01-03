@@ -28,7 +28,7 @@ public class ProgettoFormativoDao {
 			"VALUES(?,?,?,?,?,?,?)";
 	private final String editConvalidaDD = "UPDATE ProgettoFormativo SET ConvalidaDD = ? WHERE ID_ProgettoFormativo = ?";
 	private final String editConvalidaTU = "UPDATE ProgettoFormativo SET ConvalidaTU = ? WHERE ID_ProgettoFormativo = ?";
-	
+
 	//****COSTRUTTORE****\\
 	public ProgettoFormativoDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();
@@ -67,14 +67,8 @@ public class ProgettoFormativoDao {
 	//****METODi DI UPLOAD****\\
 	public boolean upLoadProject(ProgettoFormativo Object) throws SQLException {
 		try {
-			//preparedStatement=connection.prepareStatement(selectFromIDSQL);
-			//preparedStatement.setInt(1, Object.getId_progetto());
-			//ResultSet rs=preparedStatement.executeQuery();
-			//while(rs.next()) {
-			//	if(Object.getId_progetto()==rs.getInt("ID_ProgettoFormativo"))return false;
-			//		}
 			preparedStatement=connection.prepareStatement(insertProgetto);
-		
+
 			preparedStatement.setInt(6, Object.getTutorAziendale_Utente_idUtente());
 			preparedStatement.setInt(5, Object.getTutorUniversitario_Utente_idUtente());
 			preparedStatement.setInt(7, Object.getTirocinante_Utente_idUtente());
@@ -82,9 +76,7 @@ public class ProgettoFormativoDao {
 			preparedStatement.setBoolean(1, Object.getConvalidaDD());
 			preparedStatement.setBoolean(2, Object.getConvalidaTU());
 			preparedStatement.setString(3, Object.getObiettivi());
-			
-			
-			
+
 			int n = preparedStatement.executeUpdate();
 			connection.commit();
 			if (n != 0)return true;
@@ -94,7 +86,7 @@ public class ProgettoFormativoDao {
 			return false;
 		}					
 	}
-	
+
 	//****MEDOTO DI UPLOAD CONVALIDA DD****\\
 	public boolean UploadConvalidaDD(ProgettoFormativo Object,boolean conv){
 		if (Object==null)return false;
@@ -111,22 +103,23 @@ public class ProgettoFormativoDao {
 			e.printStackTrace();
 		}return false;
 	}
+	
 	//****MEDOTO DI UPLOAD CONVALIDA TU****\\
-		public boolean UploadConvalidaTD(ProgettoFormativo Object,boolean conv){
-			if (Object==null)return false;
-			Object.setConvalidaDD(conv);
-			try {
-				preparedStatement=connection.prepareStatement(editConvalidaTU);
-				preparedStatement.setBoolean(1, Object.getConvalidaDD());
-				preparedStatement.setInt(2, Object.getId_progetto());
-				int n = preparedStatement.executeUpdate();
-				connection.commit();
-				if(n!=0)return true;
-				else return false;
-			}catch( SQLException e) {
-				e.printStackTrace();
-			}return false;
-		}
+	public boolean UploadConvalidaTD(ProgettoFormativo Object,boolean conv){
+		if (Object==null)return false;
+		Object.setConvalidaDD(conv);
+		try {
+			preparedStatement=connection.prepareStatement(editConvalidaTU);
+			preparedStatement.setBoolean(1, Object.getConvalidaDD());
+			preparedStatement.setInt(2, Object.getId_progetto());
+			int n = preparedStatement.executeUpdate();
+			connection.commit();
+			if(n!=0)return true;
+			else return false;
+		}catch( SQLException e) {
+			e.printStackTrace();
+		}return false;
+	}
 }
 
 
