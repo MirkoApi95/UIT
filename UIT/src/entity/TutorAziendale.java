@@ -12,6 +12,11 @@ public class TutorAziendale extends Utente{
 		super.setIndirizzo(indirizzo);
 	}
 	
+	public TutorAziendale()
+	{
+		
+	}
+	
 	public String getNomeazienda() {
 		return nomeazienda;
 	}
