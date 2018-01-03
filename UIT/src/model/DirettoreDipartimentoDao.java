@@ -1,37 +1,20 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
 
-import gestoreStorage.DriverManagerConnectionPoolUIT;
-import gestoreStorage.DriverManagerConnectionPoolUnisa;
 
-
-public class DirettoreDipartimentoDao {
-	
-	//****Variabili della classe****//
-	private Connection connectionUIT = null;
-	private Connection connectionUNISA = null;
-	private PreparedStatement preparedStatement = null;
+public class DirettoreDipartimentoDao extends UtenteDao {
 	
 	
-	//****COSTRUTTORE E CREAZIONE CONNESSIONE****\\
+	//****COSTRUTTORE****\\
 	public DirettoreDipartimentoDao() throws SQLException {
-	connectionUIT=DriverManagerConnectionPoolUIT.getConnection();
-	connectionUNISA=DriverManagerConnectionPoolUnisa.getConnection();
+	
+		super();
+		
 		}
 	
-	//****CHIUSURA DELLA CONNESSIONE\\
-	public boolean ChiudiConnessione(){
-			try {
-					return DriverManagerConnectionPoolUIT.releaseConnection(connectionUIT)&&
-						   DriverManagerConnectionPoolUIT.releaseConnection(connectionUNISA);
-				}catch (SQLException e1) {
-						e1.printStackTrace();
-				}
-				return false;
-			}
+	
 	
 	
 	
