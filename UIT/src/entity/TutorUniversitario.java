@@ -8,6 +8,5 @@ public class TutorUniversitario extends Utente {
 		super.setEmail(email);
 		super.setPassword(password);
 		super.setIndirizzo(indirizzo);
-		
 	}
 }
