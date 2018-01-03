@@ -1,39 +1,54 @@
 package entity;
 
-
-
-
 public class ProgettoFormativo 
 {
-							//long o id autogenerato//da correggere
-	private static int id_progettoGlob;
 	private int id_ProgettoFormativo;
-	private String TutorAziendale_Utente_idUtente;
-	private String TutorUniversitario_Utente_idUtente;
-	private String Tirocinante_Utente_idUtente;
-	private String DirettoreDipartimento_idDirettoreDipartimento;
+	private int TutorAziendale_Utente_idUtente;
+	private int TutorUniversitario_Utente_idUtente;
+	private int Tirocinante_Utente_idUtente;
+	private int DirettoreDipartimento_Utente_idUtente;
 	private boolean convalidaDD;
 	private boolean convalidaTU;
 	private String Obiettivi;
-	
-	public ProgettoFormativo(String tutorAziendale_Utente_idUtente,
-							 String tutorUniversitario_Utente_idUtente, 
-							 String tirocinante_Utente_idUtente,
-							 String direttoreDipartimento_idDirettoreDipartimento, 
-							 Boolean ConvalidaDD , 
-							 Boolean ConvalidaTU,
-							 String obiettivi) {
+
+	public ProgettoFormativo(
+			int id,
+			Boolean ConvalidaDD , 
+			Boolean ConvalidaTU,
+			String obiettivi,
+			int tutorAziendale_Utente_idUtente,
+			int tutorUniversitario_Utente_idUtente, 
+			int tirocinante_Utente_idUtente,
+			int direttoreDipartimento_idDirettoreDipartimento){
 		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
 		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
 		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
-		DirettoreDipartimento_idDirettoreDipartimento = direttoreDipartimento_idDirettoreDipartimento;
+		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
 		this.convalidaDD = ConvalidaDD;
 		this.convalidaTU = ConvalidaTU;
 		Obiettivi = obiettivi;
-		id_ProgettoFormativo=id_progettoGlob++;
+		this.id_ProgettoFormativo=id;
+	}
+	
+	public ProgettoFormativo(Boolean ConvalidaDD , 
+			Boolean ConvalidaTU,
+			String obiettivi,
+			int tutorAziendale_Utente_idUtente,
+			int tutorUniversitario_Utente_idUtente, 
+			int tirocinante_Utente_idUtente,
+			int direttoreDipartimento_idDirettoreDipartimento			
+			){
+		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
+		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
+		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
+		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
+		this.convalidaDD = ConvalidaDD;
+		this.convalidaTU = ConvalidaTU;
+		Obiettivi = obiettivi;
+
 	}
 	public ProgettoFormativo() {}
-	
+
 	public int getId_progetto() {
 		return id_ProgettoFormativo;
 	}
@@ -42,36 +57,36 @@ public class ProgettoFormativo
 		this.id_ProgettoFormativo = id;
 	}
 
-	public String getTutorAziendale_Utente_idUtente() {
+	public int getTutorAziendale_Utente_idUtente() {
 		return TutorAziendale_Utente_idUtente;
 	}
 
-	public void setTutorAziendale_Utente_idUtente(String tutorAziendale_Utente_idUtente) {
+	public void setTutorAziendale_Utente_idUtente(int tutorAziendale_Utente_idUtente) {
 		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
 	}
 
-	public String getTutorUniversitario_Utente_idUtente() {
+	public int getTutorUniversitario_Utente_idUtente() {
 		return TutorUniversitario_Utente_idUtente;
 	}
 
-	public void setTutorUniversitario_Utente_idUtente(String tutorUniversitario_Utente_idUtente) {
+	public void setTutorUniversitario_Utente_idUtente(int tutorUniversitario_Utente_idUtente) {
 		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
 	}
 
-	public String getTirocinante_Utente_idUtente() {
+	public int getTirocinante_Utente_idUtente() {
 		return Tirocinante_Utente_idUtente;
 	}
 
-	public void setTirocinante_Utente_idUtente(String tirocinante_Utente_idUtente) {
+	public void setTirocinante_Utente_idUtente(int tirocinante_Utente_idUtente) {
 		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
 	}
 
-	public String getDirettoreDipartimento_idDirettoreDipartimento() {
-		return DirettoreDipartimento_idDirettoreDipartimento;
+	public int getDirettoreDipartimento_idDirettoreDipartimento(){
+		return DirettoreDipartimento_Utente_idUtente;
 	}
 
-	public void setDirettoreDipartimento_idDirettoreDipartimento(String direttoreDipartimento_idDirettoreDipartimento) {
-		DirettoreDipartimento_idDirettoreDipartimento = direttoreDipartimento_idDirettoreDipartimento;
+	public void setDirettoreDipartimento_idDirettoreDipartimento(int direttoreDipartimento_idDirettoreDipartimento) {
+		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
 	}
 
 	public boolean getConvalidaDD() {
@@ -97,5 +112,4 @@ public class ProgettoFormativo
 	public void setObiettivi(String obiettivi) {
 		Obiettivi = obiettivi;
 	}
-	
 }

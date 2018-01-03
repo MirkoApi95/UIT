@@ -9,9 +9,10 @@ import gestoreStorage.DriverManagerConnectionPoolUnisa;
 
 
 public class TirocinanteDao {
+	//****QUERY****\\		
+		private final String selectFromIDSQL = "select * FROM Tirocinante WHERE Tirocinante.ID_ProgettoFormativo= ?";
 	
 	//****VARIABILI DELLA CLASSE****\\
-
 
 	private Connection connectionUIT = null;
 	private Connection connectionUNISA = null;
@@ -33,6 +34,6 @@ public class TirocinanteDao {
 			return false;
 		}
 		//****METODI DI DOWNLOAD****\\
-		//////////////////////////////
+		
 
 }

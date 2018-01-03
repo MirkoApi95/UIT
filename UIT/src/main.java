@@ -7,28 +7,24 @@ public class main {
 
 	public static void main(String[] args) throws SQLException {
 		
-		ProgettoFormativo uno = new ProgettoFormativo("0003", "0001", "0000", "0004", false, false, "laurearmi");
-		ProgettoFormativo due = new ProgettoFormativo("0003", "0001", "0000", "0004", false, false, "laurearmi");
-		ProgettoFormativo tre = new ProgettoFormativo("0003", "0001", "0000", "0004", false, false, "non laurearmi");
-		ProgettoFormativo quattro = new ProgettoFormativo("0003", "0001", "0000", "0004", false, false, "laurearmi");
+		ProgettoFormativo uno = new ProgettoFormativo(false, false, "laurearmi",1,2,3,4);
+		
 		ProgettoFormativoDao PFG = new ProgettoFormativoDao();
+		
 		ProgettoFormativo vuoto = new ProgettoFormativo();
 		
+		
 		PFG.upLoadProject(uno);
-		PFG.upLoadProject(due);
-		PFG.upLoadProject(tre);
-		PFG.upLoadProject(quattro);
 		
+		vuoto=PFG.doRetrieveByKey(6);
+		PFG.UploadConvalidaDD(vuoto, true);
 		
-		
-		vuoto=PFG.doRetrieveByKey(2);
-		
-		
-		System.out.println(PFG.UploadConvalidaDD(vuoto, true));
+		System.out.println(vuoto.getObiettivi());
+		vuoto=PFG.doRetrieveByKey(6);
+		System.out.println(vuoto.getConvalidaDD());
 		
 		System.out.println(PFG.ChiudiConnessione());
 		
-	
 	}
 
 	

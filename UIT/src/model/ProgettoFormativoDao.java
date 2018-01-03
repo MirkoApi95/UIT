@@ -17,11 +17,15 @@ public class ProgettoFormativoDao {
 
 	//****QUERY****\\		
 	private final String selectFromIDSQL = "select * FROM ProgettoFormativo WHERE ProgettoFormativo.ID_ProgettoFormativo= ?";
-	private final String insertProgetto = "INSERT INTO ProgettoFormativo(TutorAziendale_Utente_idUtente,"+
-			"TutorUniversitario_Utente_idUtente,Tirocinante_Utente_idUtente,"+
-			"ID_ProgettoFormativo,"+"DirettoreDipartimento_idDirettoreDipartimento,"+"ConvalidaDD,"+
-			"ConvalidaTU,"+"Obiettivi)"+
-			"VALUES (?,?,?,?,?,?,?,?)";
+	private final String insertProgetto = "INSERT INTO ProgettoFormativo("+
+			"ConvalidaDD,"+
+			"ConvalidaTU,"+
+			"Obiettivi,"+
+			"direttoreDipartimento_utente_id_Utente,"+
+			"tutorUniversitario_utente_id_Utente,"+
+			"tutorAziendale1_utente_id_Utente,"+
+			"tirocinante_utente_id_Utente)"+
+			"VALUES(?,?,?,?,?,?,?)";
 	private final String editConvalidaDD = "UPDATE ProgettoFormativo SET ConvalidaDD = ? WHERE ID_ProgettoFormativo = ?";
 	private final String editConvalidaTU = "UPDATE ProgettoFormativo SET ConvalidaTU = ? WHERE ID_ProgettoFormativo = ?";
 	
@@ -46,11 +50,11 @@ public class ProgettoFormativoDao {
 			preparedStatement.setInt(1, id);
 			ResultSet rs=preparedStatement.executeQuery();
 			while (rs.next()) {
-				progetto.setTirocinante_Utente_idUtente(rs.getString("TutorAziendale_Utente_idUtente"));
-				progetto.setTutorUniversitario_Utente_idUtente(rs.getString("TutorUniversitario_Utente_idUtente"));
-				progetto.setTirocinante_Utente_idUtente(rs.getString("Tirocinante_Utente_idUtente"));
+				progetto.setTirocinante_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
+				progetto.setTutorUniversitario_Utente_idUtente(rs.getInt("tutorUniversitario_utente_id_Utente"));
+				progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));
 				progetto.setId_progetto(rs.getInt("ID_ProgettoFormativo"));
-				progetto.setDirettoreDipartimento_idDirettoreDipartimento(rs.getString("DirettoreDipartimento_idDirettoreDipartimento"));
+				progetto.setDirettoreDipartimento_idDirettoreDipartimento(rs.getInt("direttoreDipartimento_utente_id_Utente"));
 				progetto.setConvalidaDD(rs.getBoolean("ConvalidaDD"));
 				progetto.setConvalidaTU(rs.getBoolean("ConvalidaTU"));
 				progetto.setObiettivi(rs.getString("Obiettivi"));
@@ -63,21 +67,24 @@ public class ProgettoFormativoDao {
 	//****METODi DI UPLOAD****\\
 	public boolean upLoadProject(ProgettoFormativo Object) throws SQLException {
 		try {
-			preparedStatement=connection.prepareStatement(selectFromIDSQL);
-			preparedStatement.setInt(1, Object.getId_progetto());
-			ResultSet rs=preparedStatement.executeQuery();
-			while(rs.next()) {
-				if(Object.getId_progetto()==rs.getInt("ID_ProgettoFormativo"))return false;
-					}
+			//preparedStatement=connection.prepareStatement(selectFromIDSQL);
+			//preparedStatement.setInt(1, Object.getId_progetto());
+			//ResultSet rs=preparedStatement.executeQuery();
+			//while(rs.next()) {
+			//	if(Object.getId_progetto()==rs.getInt("ID_ProgettoFormativo"))return false;
+			//		}
 			preparedStatement=connection.prepareStatement(insertProgetto);
-			preparedStatement.setString(1, Object.getTutorAziendale_Utente_idUtente());
-			preparedStatement.setString(2, Object.getTutorUniversitario_Utente_idUtente());
-			preparedStatement.setString(3, Object.getTirocinante_Utente_idUtente());
-			preparedStatement.setInt(4, Object.getId_progetto());
-			preparedStatement.setString(5, Object.getDirettoreDipartimento_idDirettoreDipartimento());
-			preparedStatement.setBoolean(6, Object.getConvalidaDD());
-			preparedStatement.setBoolean(7, Object.getConvalidaTU());
-			preparedStatement.setString(8, Object.getObiettivi());
+		
+			preparedStatement.setInt(6, Object.getTutorAziendale_Utente_idUtente());
+			preparedStatement.setInt(5, Object.getTutorUniversitario_Utente_idUtente());
+			preparedStatement.setInt(7, Object.getTirocinante_Utente_idUtente());
+			preparedStatement.setInt(4, Object.getDirettoreDipartimento_idDirettoreDipartimento());
+			preparedStatement.setBoolean(1, Object.getConvalidaDD());
+			preparedStatement.setBoolean(2, Object.getConvalidaTU());
+			preparedStatement.setString(3, Object.getObiettivi());
+			
+			
+			
 			int n = preparedStatement.executeUpdate();
 			connection.commit();
 			if (n != 0)return true;
@@ -97,6 +104,7 @@ public class ProgettoFormativoDao {
 			preparedStatement.setBoolean(1, Object.getConvalidaDD());
 			preparedStatement.setInt(2, Object.getId_progetto());
 			int n = preparedStatement.executeUpdate();
+			connection.commit();
 			if(n!=0)return true;
 			else return false;
 		}catch( SQLException e) {
@@ -112,14 +120,13 @@ public class ProgettoFormativoDao {
 				preparedStatement.setBoolean(1, Object.getConvalidaDD());
 				preparedStatement.setInt(2, Object.getId_progetto());
 				int n = preparedStatement.executeUpdate();
+				connection.commit();
 				if(n!=0)return true;
 				else return false;
 			}catch( SQLException e) {
 				e.printStackTrace();
 			}return false;
 		}
-
-
 }
 
 
