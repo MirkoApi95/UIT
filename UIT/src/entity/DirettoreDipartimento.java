@@ -5,7 +5,7 @@ public class DirettoreDipartimento extends Utente{
 	private int identificativo;
 	
 	public DirettoreDipartimento(String nome, String cognome, String email, String password, String indirizzo, int identificativo) {
-		super(nome, cognome, email, password, indirizzo);
+		super();
 		this.setIdentificativo(identificativo);
 	}
 

@@ -5,7 +5,7 @@ public class TutorUniversitario extends Utente{
 	private int identificativo;
 	
 	public TutorUniversitario(String nome, String cognome, String email, String password, String indirizzo, int identificativo) {
-		super(nome, cognome, email, password, indirizzo);
+		super();
 		this.identificativo=identificativo;
 	}
 
