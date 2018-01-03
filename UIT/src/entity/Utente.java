@@ -15,6 +15,15 @@ public class Utente
 		this.email = email;
 		this.password = password;
 		this.indirizzo = indirizzo;
+		this.id=id;
+	}
+	
+	public Utente(String nome, String cognome, String email, String password, String indirizzo) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.password = password;
+		this.indirizzo = indirizzo;
 	}
 	
 	public Utente()
