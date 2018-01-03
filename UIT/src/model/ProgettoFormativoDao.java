@@ -74,7 +74,6 @@ public class ProgettoFormativoDao {
 			//	if(Object.getId_progetto()==rs.getInt("ID_ProgettoFormativo"))return false;
 			//		}
 			preparedStatement=connection.prepareStatement(insertProgetto);
-		
 			preparedStatement.setInt(6, Object.getTutorAziendale_Utente_idUtente());
 			preparedStatement.setInt(5, Object.getTutorUniversitario_Utente_idUtente());
 			preparedStatement.setInt(7, Object.getTirocinante_Utente_idUtente());
