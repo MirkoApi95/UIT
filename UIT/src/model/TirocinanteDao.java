@@ -35,6 +35,6 @@ public class TirocinanteDao extends UtenteDao {
 		}
 		//****METODI DI DOWNLOAD****\\
 		public int prendiId(String Email) {
-			
+			final String selectID="select utente.id_Utente from utente where utente.Email=?";
 		}
 }
