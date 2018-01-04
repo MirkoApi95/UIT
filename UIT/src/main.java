@@ -1,7 +1,9 @@
 import java.sql.SQLException;
 
 import entity.ProgettoFormativo;
+import entity.Utente;
 import model.ProgettoFormativoDao;
+import model.UtenteDao;
 
 public class main {
 
@@ -12,7 +14,15 @@ public class main {
 		ProgettoFormativoDao PFG = new ProgettoFormativoDao();
 		
 		ProgettoFormativo vuoto = new ProgettoFormativo();
+		Utente user = new Utente();
+		user.setCognome("cccc");
+		user.setEmail("sdsdsd");
+		user.setIndirizzo("sdasdad");
+		user.setNome("sdadad");
+		user.setPassword("dasdas");
 		
+		UtenteDao ud= new UtenteDao();
+		ud.upLoadUtente(user);
 		
 		PFG.upLoadProject(uno);
 		
