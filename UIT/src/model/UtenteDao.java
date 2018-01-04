@@ -62,19 +62,17 @@ public class UtenteDao
 	{
 		//Connection conUnisa=null;
 		try {
-			/*conUnisa=DriverManagerConnectionPoolUnisa.getConnection();
+			//CONTROLLO DATABASE UNIVERSITARIO
+			Connection conUnisa = DriverManagerConnectionPoolUnisa.getConnection();
 			preparedStatement=conUnisa.prepareStatement(checkUtente);
 			ResultSet rs=preparedStatement.executeQuery();
 			DriverManagerConnectionPoolUnisa.releaseConnection(conUnisa);
-			if(rs==null) 
-			{
-				return false;
-			}*/
-			//ResultSet rs;
-			//connection=DriverManagerConnectionPoolUIT.getConnection();
-			//preparedStatement=connection.prepareStatement(selectFromEmailSQL);
-			
-			//if(rs!=null)return false;
+			if(rs==null)return false;
+			//CONTROLLO SUL DATABASE INTERNO
+			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
+			rs=preparedStatement.executeQuery();
+			if(rs!=null)return false;
+			//ESEGUE INSERIMENTO
 			preparedStatement=connection.prepareStatement(insertUtente);
 			preparedStatement.setString(1, Object.getNome());
 			preparedStatement.setString(2, Object.getCognome());
