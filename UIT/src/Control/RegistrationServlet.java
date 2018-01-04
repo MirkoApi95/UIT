@@ -23,7 +23,7 @@ import entity.Utente;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import model.UtenteDao;
 
-@WebServlet("/Registrationservlet")
+@WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,27 +32,28 @@ public class RegistrationServlet extends HttpServlet {
 
 		Utente user= new Utente();
 
-		user.setNome(req.getParameter("Nome"));
-		user.setCognome(req.getParameter("Cognome"));
-		user.setEmail(req.getParameter("Email"));
-		user.setPassword(req.getParameter("Password"));
-		user.setIndirizzo(req.getParameter("Indirizzo"));
+		user.setNome(req.getParameter("Name"));
+		user.setCognome(req.getParameter("surname"));
+		user.setEmail(req.getParameter("emailId"));
+		user.setPassword(req.getParameter("passwordinput"));
+		user.setIndirizzo(req.getParameter("address"));
 
 		try {
 			UtenteDao userDao = new UtenteDao();
-			boolean check=userDao.upLoadUtente(user);
-			userDao.ChiudiConnessione();
+			userDao.upLoadUtente(user);
+			System.out.println("Utente inserito!");
+			//userDao.ChiudiConnessione();
 
-			if(check==false) {
+			/*if(check==false) {
 				PrintWriter out = resp.getWriter();
 				out.println("<script>");
 				out.println("alert('ERRORE username già esistente')");
 				out.println("window.history.back()");
 				out.println("</script>");
-			}else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userLogin");
+			}else {*/
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePageViewGenerale.jsp");
 				dispatcher.forward(req, resp);
-			}
+			//}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
