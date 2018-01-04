@@ -65,11 +65,13 @@ public class UtenteDao
 			//CONTROLLO DATABASE UNIVERSITARIO
 			Connection conUnisa = DriverManagerConnectionPoolUnisa.getConnection();
 			preparedStatement=conUnisa.prepareStatement(checkUtente);
+			preparedStatement.setString(1, Object.getEmail());
 			ResultSet rs=preparedStatement.executeQuery();
 			DriverManagerConnectionPoolUnisa.releaseConnection(conUnisa);
 			if(rs==null)return false;
 			//CONTROLLO SUL DATABASE INTERNO
 			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
+			preparedStatement.setString(1, Object.getEmail());
 			rs=preparedStatement.executeQuery();
 			if(rs!=null)return false;
 			//ESEGUE INSERIMENTO
