@@ -27,7 +27,7 @@ public class ProgettoFormativoServlet extends HttpServlet {
 			ProgettoFormativoDao prog= new ProgettoFormativoDao();
 			
 		
-			request.setAttribute("array", lista);
+			//request.setAttribute("array", lista);
 			request.getRequestDispatcher("CompilaProgettoFormativoView.jsp").forward(request, response);
 		}
 		catch(SQLException e){
