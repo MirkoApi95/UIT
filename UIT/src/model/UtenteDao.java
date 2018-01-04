@@ -22,7 +22,7 @@ public class UtenteDao
 	private final String insertUtente = "INSERT INTO utente"+"(Nome, Cognome, Indirizzo, Email, Password)"+"VALUES(?,?,?,?,?)";
 	private final String editaddress="UPDATE utente SET Indirizzo=? WHERE utente.id_Utente=?";
 	private final String editpassword="UPDATE utente SET Password=? WHERE utente.id_Utente=?";
-	private final String checkUtente="SELECT * FROM University WHERE Email=?";
+	private final String checkUtente="SELECT Email FROM university WHERE Email=?";
 
 	//****COSTRUTTORE****\\
 	public UtenteDao() throws SQLException{
@@ -67,13 +67,15 @@ public class UtenteDao
 			preparedStatement=conUnisa.prepareStatement(checkUtente);
 			preparedStatement.setString(1, Object.getEmail());
 			ResultSet rs=preparedStatement.executeQuery();
+			System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 1");
+			if(!rs.next())return false;
 			DriverManagerConnectionPoolUnisa.releaseConnection(conUnisa);
-			if(rs==null)return false;
 			//CONTROLLO SUL DATABASE INTERNO
 			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
 			preparedStatement.setString(1, Object.getEmail());
-			rs=preparedStatement.executeQuery();
-			if(rs!=null)return false;
+			ResultSet rs1=preparedStatement.executeQuery();
+			System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 2");
+			if(rs1.next())return false;
 			//ESEGUE INSERIMENTO
 			preparedStatement=connection.prepareStatement(insertUtente);
 			preparedStatement.setString(1, Object.getNome());
@@ -83,7 +85,7 @@ public class UtenteDao
 			preparedStatement.setString(5, Object.getPassword());
 			int n = preparedStatement.executeUpdate();
 			connection.commit();
-
+			System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 3");
 			if (n != 0)return true;
 			else return false;
 		}catch (SQLException e) {

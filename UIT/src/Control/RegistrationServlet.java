@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import entity.Utente;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
+import model.TirocinanteDao;
 import model.UtenteDao;
 
 @WebServlet("/RegistrationServlet")
@@ -41,6 +42,8 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			UtenteDao userDao = new UtenteDao();
 			userDao.upLoadUtente(user);
+			TirocinanteDao tDao=new TirocinanteDao();
+		
 			System.out.println("Utente inserito!");
 			//userDao.ChiudiConnessione();
 

@@ -8,7 +8,7 @@ import gestoreStorage.DriverManagerConnectionPoolUIT;
 import gestoreStorage.DriverManagerConnectionPoolUnisa;
 
 
-public class TirocinanteDao {
+public class TirocinanteDao extends UtenteDao {
 	//****QUERY****\\		
 		private final String selectFromIDSQL = "select * FROM Tirocinante WHERE Tirocinante.ID_ProgettoFormativo= ?";
 	
@@ -34,6 +34,7 @@ public class TirocinanteDao {
 			return false;
 		}
 		//****METODI DI DOWNLOAD****\\
-		
-
+		public int prendiId(String Email) {
+			
+		}
 }
