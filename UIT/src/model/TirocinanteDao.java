@@ -1,22 +1,24 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import gestoreStorage.DriverManagerConnectionPoolUnisa;
 
 
 public class TirocinanteDao extends UtenteDao {
 	//****QUERY****\\		
-		private final String selectFromIDSQL = "select * FROM Tirocinante WHERE Tirocinante.ID_ProgettoFormativo= ?";
-	
-	//****VARIABILI DELLA CLASSE****\\
+		private final String selectID="select utente.id_Utente from utente where utente.Email=?";
+		private final String inserimentoID="INSERT INTO tirocinante(AnnoIscrizione,CFU,utente_id_utente)"+"VALUES(?,?,?)";
+		private final String selectDatiUnisa="SELECT AnnoIscrzione,CFU,matricola FROM university WHERE Email=?";
+		//****VARIABILI DELLA CLASSE****\\
 
-	private Connection connectionUIT = null;
-	private Connection connectionUNISA = null;
-	private PreparedStatement preparedStatement = null;
+	private Connection connectionUIT;
+	private Connection connectionUNISA;
+	private PreparedStatement preparedStatement;
 	
 	//****COSTRUTTORE E CREAZIONE CONNESSIONE****\\
 	public TirocinanteDao() throws SQLException {
@@ -27,14 +29,41 @@ public class TirocinanteDao extends UtenteDao {
 		public boolean ChiudiConnessione(){
 			try {
 				return DriverManagerConnectionPoolUIT.releaseConnection(connectionUIT)&&
-					   DriverManagerConnectionPoolUIT.releaseConnection(connectionUNISA);
+						DriverManagerConnectionPoolUnisa.releaseConnection(connectionUNISA);
 			}catch (SQLException e1) {
 				e1.printStackTrace();
 			}
 			return false;
 		}
 		//****METODI DI DOWNLOAD****\\
-		public int prendiId(String Email) {
-			final String selectID="select utente.id_Utente from utente where utente.Email=?";
+		public boolean setIdSql(String Email) {
+			try {
+				preparedStatement=connectionUIT.prepareStatement(selectID);
+				preparedStatement.setString(1, Email);
+				ResultSet rs=preparedStatement.executeQuery();
+				int id=rs.getInt(1);
+				preparedStatement=connectionUNISA.prepareStatement(selectDatiUnisa);
+				preparedStatement.setString(1, Email);
+				ResultSet rs1=preparedStatement.executeQuery();
+				Date data;
+				data = rs1.getDate(1);
+				int cfu=rs1.getInt(2);
+				int matricola=rs1.getInt(3);
+				
+				preparedStatement=connectionUIT.prepareStatement(inserimentoID);
+
+				preparedStatement.setDate(1, data);
+				preparedStatement.setInt(2, cfu);
+				preparedStatement.setInt(3,id);
+				preparedStatement.setInt(3,matricola);
+				preparedStatement.executeQuery();
+				
+				connectionUNISA.commit();
+				return true;
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
 		}
 }
