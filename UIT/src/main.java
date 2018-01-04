@@ -1,39 +1,21 @@
 import java.sql.SQLException;
 
 import entity.ProgettoFormativo;
+import entity.Tirocinante;
 import entity.Utente;
 import model.ProgettoFormativoDao;
+import model.TirocinanteDao;
 import model.UtenteDao;
 
 public class main {
 
 	public static void main(String[] args) throws SQLException {
 		
-		ProgettoFormativo uno = new ProgettoFormativo(false, false, "laurearmi",1,2,3,4);
+
+		TirocinanteDao dao2=new TirocinanteDao();
 		
-		ProgettoFormativoDao PFG = new ProgettoFormativoDao();
+		System.out.println(dao2.setIdSql("s.apicella22@studenti.unisa.it"));
 		
-		ProgettoFormativo vuoto = new ProgettoFormativo();
-		Utente user = new Utente();
-		user.setCognome("cccc");
-		user.setEmail("sdsdsd");
-		user.setIndirizzo("sdasdad");
-		user.setNome("sdadad");
-		user.setPassword("dasdas");
-		
-		UtenteDao ud= new UtenteDao();
-		ud.upLoadUtente(user);
-		
-		PFG.upLoadProject(uno);
-		
-		vuoto=PFG.doRetrieveByKey(6);
-		PFG.UploadConvalidaDD(vuoto, true);
-		
-		System.out.println(vuoto.getObiettivi());
-		vuoto=PFG.doRetrieveByKey(6);
-		System.out.println(vuoto.getConvalidaDD());
-		
-		System.out.println(PFG.ChiudiConnessione());
 		
 	}
 

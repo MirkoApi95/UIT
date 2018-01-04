@@ -47,7 +47,7 @@ public class UtenteDao
 			while (rs.next()) {
 				utente.setNome(rs.getString("Nome"));
 				utente.setCognome(rs.getString("Cognome"));
-				utente.setIndirizzo(rs.getString("Indririzzo"));
+				utente.setIndirizzo(rs.getString("Indirizzo"));
 				utente.setEmail(rs.getString("Email"));
 				utente.setPassword(rs.getString("Password"));
 				utente.setId(rs.getInt("id_Utente"));

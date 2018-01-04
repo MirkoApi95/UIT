@@ -12,8 +12,8 @@ import gestoreStorage.DriverManagerConnectionPoolUnisa;
 public class TirocinanteDao extends UtenteDao {
 	//****QUERY****\\		
 		private final String selectID="select utente.id_Utente from utente where utente.Email=?";
-		private final String inserimentoID="INSERT INTO tirocinante(AnnoIscrizione,CFU,utente_id_utente)"+"VALUES(?,?,?)";
-		private final String selectDatiUnisa="SELECT AnnoIscrzione,CFU,matricola FROM university WHERE Email=?";
+		private final String inserimentoID="INSERT INTO tirocinante(AnnoIscrizione,CFU,utente_id_utente,matricola)"+"VALUES(?,?,?,?)";
+		private final String selectDatiUnisa="SELECT AnnoIscrizione,CFU,matricola FROM university WHERE Email=?";
 		//****VARIABILI DELLA CLASSE****\\
 
 	private Connection connectionUIT;
@@ -41,10 +41,14 @@ public class TirocinanteDao extends UtenteDao {
 				preparedStatement=connectionUIT.prepareStatement(selectID);
 				preparedStatement.setString(1, Email);
 				ResultSet rs=preparedStatement.executeQuery();
+				rs.next();
 				int id=rs.getInt(1);
+				
+				
 				preparedStatement=connectionUNISA.prepareStatement(selectDatiUnisa);
 				preparedStatement.setString(1, Email);
 				ResultSet rs1=preparedStatement.executeQuery();
+				rs1.next();
 				Date data;
 				data = rs1.getDate(1);
 				int cfu=rs1.getInt(2);
@@ -55,10 +59,10 @@ public class TirocinanteDao extends UtenteDao {
 				preparedStatement.setDate(1, data);
 				preparedStatement.setInt(2, cfu);
 				preparedStatement.setInt(3,id);
-				preparedStatement.setInt(3,matricola);
-				preparedStatement.executeQuery();
+				preparedStatement.setInt(4,matricola);
+				preparedStatement.executeUpdate();
+				connectionUIT.commit();
 				
-				connectionUNISA.commit();
 				return true;
 				
 			} catch (SQLException e) {
