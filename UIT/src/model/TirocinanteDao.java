@@ -35,7 +35,7 @@ public class TirocinanteDao extends UtenteDao {
 			}
 			return false;
 		}
-		//****METODI DI DOWNLOAD****\\
+		//****METODI DI POPOLAMENTO TIROCINANTE E CHIAVE ESTERNA****\\
 		public boolean setIdSql(String Email) {
 			try {
 				preparedStatement=connectionUIT.prepareStatement(selectID);
