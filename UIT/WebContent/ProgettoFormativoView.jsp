@@ -158,9 +158,9 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="address">Obiettivi e finalitÃ </label>
+  <label class="col-md-4 control-label" for="address">Obiettivi e finalita' </label>
   <div class="col-md-4 col-lg-5">
-    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalitÃ "></textarea>
+    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalita'"></textarea>
   </div>
 </div>
 
@@ -186,7 +186,7 @@
 
             <div class="col-sm-6 col-xs-12">
               <span class="copyright">
-                Â© Made by UIT Team
+                © Made by UIT Team
               </span>
             </div>
 

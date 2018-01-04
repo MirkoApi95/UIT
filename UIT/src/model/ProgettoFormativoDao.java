@@ -28,7 +28,7 @@ public class ProgettoFormativoDao {
 			"VALUES(?,?,?,?,?,?,?)";
 	private final String editConvalidaDD = "UPDATE ProgettoFormativo SET ConvalidaDD = ? WHERE ID_ProgettoFormativo = ?";
 	private final String editConvalidaTU = "UPDATE ProgettoFormativo SET ConvalidaTU = ? WHERE ID_ProgettoFormativo = ?";
-
+	
 	//****COSTRUTTORE****\\
 	public ProgettoFormativoDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();
@@ -64,7 +64,7 @@ public class ProgettoFormativoDao {
 		}
 		return progetto;	
 	}
-	//****METODi DI UPLOAD****\\
+	//****METODI DI UPLOAD****\\
 	public boolean upLoadProject(ProgettoFormativo Object) throws SQLException {
 		try {
 			preparedStatement=connection.prepareStatement(insertProgetto);
