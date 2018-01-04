@@ -30,7 +30,7 @@ public class DriverManagerConnectionPoolUnisa {
 		Connection newConnection = null;
 		String ip = "localhost";
 		String port1 = "3306";
-		String db1 = "universitï¿½db";
+		String db1 = "universitàdb";
 		String username = "root";
 		String password = "luci";
 		try {

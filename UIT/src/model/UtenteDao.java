@@ -19,13 +19,7 @@ public class UtenteDao
 	//****QUERY****\\		
 	private final String selectFromIDSQL = "select * FROM Utente WHERE utente.id_Utente= ?";
 	private final String selectFromEmailSQL = "select * FROM Utente WHERE utente.Email= ?";
-	private final String insertUtente = "INSERT INTO utente("+
-			"Nome,"+
-			"Cognome,"+
-			"Indirizzo,"+
-			"Email,"+
-			"Password,"+
-			"VALUES(?,?,?,?,?)";
+	private final String insertUtente = "INSERT INTO utente"+"(Nome, Cognome, Indirizzo, Email, Password)"+"VALUES(?,?,?,?,?)";
 	private final String editaddress="UPDATE utente SET Indirizzo=? WHERE utente.id_Utente=?";
 	private final String editpassword="UPDATE utente SET Password=? WHERE utente.id_Utente=?";
 	private final String checkUtente="SELECT * FROM University WHERE Email=?";
@@ -66,19 +60,21 @@ public class UtenteDao
 	//****METODi DI UPLOAD****\\
 	public boolean upLoadUtente(Utente Object) throws SQLException 
 	{
-		Connection conUnisa=null;
+		//Connection conUnisa=null;
 		try {
-			conUnisa=DriverManagerConnectionPoolUnisa.getConnection();
+			/*conUnisa=DriverManagerConnectionPoolUnisa.getConnection();
 			preparedStatement=conUnisa.prepareStatement(checkUtente);
 			ResultSet rs=preparedStatement.executeQuery();
 			DriverManagerConnectionPoolUnisa.releaseConnection(conUnisa);
 			if(rs==null) 
 			{
 				return false;
-			}
-			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
-			rs=preparedStatement.executeQuery();
-			if(rs!=null)return false;
+			}*/
+			//ResultSet rs;
+			//connection=DriverManagerConnectionPoolUIT.getConnection();
+			//preparedStatement=connection.prepareStatement(selectFromEmailSQL);
+			
+			//if(rs!=null)return false;
 			preparedStatement=connection.prepareStatement(insertUtente);
 			preparedStatement.setString(1, Object.getNome());
 			preparedStatement.setString(2, Object.getCognome());
