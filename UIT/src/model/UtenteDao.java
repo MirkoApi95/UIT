@@ -17,16 +17,17 @@ public class UtenteDao
 	private PreparedStatement preparedStatement = null;
 
 	//****QUERY****\\		
-	private final String selectFromIDSQL = "select * FROM Utente WHERE Utente.id_Utente= ?";
-	private final String insertUtente = "INSERT INTO Utente("+
+	private final String selectFromIDSQL = "select * FROM Utente WHERE utente.id_Utente= ?";
+	private final String selectFromEmailSQL = "select * FROM Utente WHERE utente.Email= ?";
+	private final String insertUtente = "INSERT INTO utente("+
 			"Nome,"+
 			"Cognome,"+
 			"Indirizzo,"+
 			"Email,"+
 			"Password,"+
 			"VALUES(?,?,?,?,?)";
-	private final String editaddress="UPDATE Utente SET Indirizzo=? WHERE Utente.id_Utente=?";
-	private final String editpassword="UPDATE Utente SET Password=? WHERE Utente.id_Utente=?";
+	private final String editaddress="UPDATE utente SET Indirizzo=? WHERE utente.id_Utente=?";
+	private final String editpassword="UPDATE utente SET Password=? WHERE utente.id_Utente=?";
 	private final String checkUtente="SELECT * FROM University WHERE Email=?";
 
 	//****COSTRUTTORE****\\
@@ -75,6 +76,9 @@ public class UtenteDao
 			{
 				return false;
 			}
+			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
+			rs=preparedStatement.executeQuery();
+			if(rs!=null)return false;
 			preparedStatement=connection.prepareStatement(insertUtente);
 			preparedStatement.setString(1, Object.getNome());
 			preparedStatement.setString(2, Object.getCognome());
@@ -83,6 +87,7 @@ public class UtenteDao
 			preparedStatement.setString(5, Object.getPassword());
 			int n = preparedStatement.executeUpdate();
 			connection.commit();
+
 			if (n != 0)return true;
 			else return false;
 		}catch (SQLException e) {
@@ -90,7 +95,7 @@ public class UtenteDao
 			return false;
 		}					
 	}
-	
+
 	public boolean ModificaIndirizzo(Utente Object,String indirizzo)
 	{
 		if (Object==null)return false;
@@ -106,7 +111,7 @@ public class UtenteDao
 			e.printStackTrace();
 		}return false;
 	}
-	
+
 	public boolean ModificaPassword(Utente Object,String password)
 	{
 		if (Object==null)return false;
