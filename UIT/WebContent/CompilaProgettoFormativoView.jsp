@@ -1,6 +1,10 @@
+<%@page import="java.util.ArrayList" %>
+<%@page import="entity.ProgettoFormativo" %>
+<%@page import="entity.Tirocinante" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<jsp:useBean id="pf" class="entity.ProgettoFormativo" scope="session"></jsp:useBean>
+<jsp:useBean id="tiroc" class="entity.Tirocinante" scope="session"></jsp:useBean>
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia"><head>
   <title>UIT Home</title>
 
@@ -75,8 +79,13 @@
 
     </div>
   </header> <!-- end navigation -->
-
-
+  
+  	<%ArrayList<Tirocinante> listID=new ArrayList<Tirocinante>();
+  	listID=(ArrayList<Tirocinante>)request.getAttribute("listaID");%>
+  	
+	<% ArrayList<ProgettoFormativo> list=new ArrayList<ProgettoFormativo>();
+	list=(ArrayList<ProgettoFormativo>)request.getAttribute("array");%>
+	
 
     <div class="container">
 	<div class="row">
@@ -87,7 +96,7 @@
 <legend> Progetto Formativo e di Orientamento</legend>
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Name">Nome  </label>
+  <label class="col-md-4 control-label" for="Name">Nome</label>
   <div class="col-md-5">
   <input id="Name" name="Name" type="text" class="form-control input-md" required="">
 
@@ -160,9 +169,9 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="address">Obiettivi e finalit√†</label>
+  <label class="col-md-4 control-label" for="address">Obiettivi e finalita'†</label>
   <div class="col-md-4 col-lg-5">
-    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalit√†"></textarea>
+    <textarea class="form-control" id="obiettivi" name="obiettivi" placeholder="Compila il campo con gli obiettivi e le finalita'†"></textarea>
   </div>
 </div>
 
