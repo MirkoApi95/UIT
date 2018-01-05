@@ -1,8 +1,12 @@
+<%@page import="java.util.ArrayList" %>
+<%@page import="entity.TutorAziendale" %>
+<%@page import="entity.TutorUniversitario" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia"><head>
-  <title>Canna | Contact</title>
+  <title>Lista delle Aziende</title>
 
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -26,6 +30,9 @@
   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
 <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/stats.js"></script></head>
+
+<% ArrayList<TutorAziendale> lista=new ArrayList<TutorAziendale>();
+lista=(ArrayList<TutorAziendale>)request.getAttribute("array");%>
 
 <body>
 
@@ -108,7 +115,7 @@
     <th>Seleziona</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td><input type="hidden" name="azienda" value="<%=lista.get(0)%>"></td>
     <td><div class="form-group">
   <select class="form-control" id="sel1">
     <option>La Torre</option>
@@ -122,9 +129,9 @@
 </td>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td><input type="hidden" name="azienda" value="<%=lista.get(1)%>"></td>
     <td><div class="form-group">
-  <select class="form-control" id="sel1">
+  <select class="form-control" id="sel2">
     <option>La Torre</option>
     <option>De Sanctis</option>
     <option>Abate</option>
@@ -136,9 +143,9 @@
 </td>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
+    <td><input type="hidden" name="azienda" value="<%=lista.get(3)%>"></td>
     <td><div class="form-group">
-  <select class="form-control" id="sel1">
+  <select class="form-control" id="sel3">
     <option>La Torre</option>
     <option>De Sanctis</option>
     <option>Abate</option>
@@ -166,7 +173,7 @@
 
             <div class="col-sm-6 col-xs-12 text-sm-center">
               <span class="copyright">
-                © 2017 Canna Theme  |  Made by <a href="https://deothemes.com">DeoThemes</a>
+                2017 Canna Theme  |  Made by <a href="https://deothemes.com">DeoThemes</a>
               </span>
             </div>
 
