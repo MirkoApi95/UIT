@@ -82,12 +82,12 @@
                   <li><a href="contact.html">Contact</a></li>
                   <li><a href="404.html">404</a></li>-->
                   <li>
-                    <form action="/action_page.php">
-                    Nome:<br>
-                    <input type="text" name="nome" value="">
+                    <form action="Login" method="post">
+                    E-mail:<br>
+                    <input type="text" name="emailLogin" value="">
                     <br>
                     Password:<br>
-                    <input type="text" name="password" value=""><br>
+                    <input type="text" name="passwordLogin" value=""><br>
                     <input type="submit" value="Entra">
                   </form>
                   </li>

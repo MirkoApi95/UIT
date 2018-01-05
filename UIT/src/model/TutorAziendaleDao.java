@@ -26,6 +26,7 @@ public class TutorAziendaleDao extends UtenteDao
 	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
 	private final String listaAziende="SELECT NomeAzienda,utente_id_Utente FROM  tutorazendale";
 
+
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();
@@ -75,6 +76,7 @@ public class TutorAziendaleDao extends UtenteDao
 			e.printStackTrace();
 			return false;
 		}
+
 	}
 	//***METODO LISTA AZIENDA
 	public ArrayList<TutorAziendale> listaAziende() {
