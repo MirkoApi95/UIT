@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import entity.ProgettoFormativo;
 import entity.TutorAziendale;
@@ -16,12 +17,12 @@ public class TutorAziendaleDao extends UtenteDao
 	//****VARIABILI DELLA CLASSE****\\
 	private Connection connection = null;
 	private PreparedStatement preparedStatement = null;
-	
-	
+
+
 	//****QUERY****\\		
 	private final String selectfromIDSql="SELECT * FROM tutoraziendale WHERE Utente_id_Utente=?";
 	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
-	
+	private final String listaAziende="SELECT NomeAzienda FROM  tutorazendale";
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();
@@ -57,7 +58,7 @@ public class TutorAziendaleDao extends UtenteDao
 	}
 	//****METODO DI UPLOAD
 	public boolean inserisciTA(String Azienda,String Sede,int id) {
-		
+
 		try {
 			preparedStatement=connection.prepareStatement(insertDati);
 			preparedStatement.setString(1, Azienda);
@@ -67,16 +68,24 @@ public class TutorAziendaleDao extends UtenteDao
 			connection.commit();
 			return true;
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 			return false;
 		}
-
-		
-
-		
 	}
-	
-	
-	
+	//***METODO LISTA AZIENDA
+	public ArrayList<String> listaAziende() {
+		ArrayList<String> lista =new ArrayList<String>();
+		try {
+			preparedStatement=connection.prepareStatement(listaAziende);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				lista.add(rs.getString(1));
+			}
+			return lista;
+		}catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
