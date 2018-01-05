@@ -1,6 +1,6 @@
 package entity;
 
-public class associazionetu_ta
+public class Associazionetu_ta
 {
 	private int tutoraziendale_utente_idUtente;
 	private int tutoruniveristario_utente_idUtente;
@@ -16,7 +16,7 @@ public class associazionetu_ta
 	public void setTutoruniveristario_utente_idUtente(int tutoruniveristario_utente_idUtente) {
 		this.tutoruniveristario_utente_idUtente = tutoruniveristario_utente_idUtente;
 	}
-	public associazionetu_ta(int tutoraziendale_utente_idUtente, int tutoruniveristario_utente_idUtente) {
+	public Associazionetu_ta(int tutoraziendale_utente_idUtente, int tutoruniveristario_utente_idUtente) {
 		super();
 		this.tutoraziendale_utente_idUtente = tutoraziendale_utente_idUtente;
 		this.tutoruniveristario_utente_idUtente = tutoruniveristario_utente_idUtente;
