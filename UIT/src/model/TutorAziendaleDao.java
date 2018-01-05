@@ -24,12 +24,9 @@ public class TutorAziendaleDao extends UtenteDao
 	//****QUERY****\\		
 	private final String selectfromIDSql="SELECT * FROM tutoraziendale WHERE Utente_id_Utente=?";
 	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
-<<<<<<< HEAD
-	
-=======
 	private final String listaAziende="SELECT NomeAzienda,utente_id_Utente FROM  tutorazendale";
 
->>>>>>> refs/remotes/origin/master
+
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();
@@ -79,12 +76,7 @@ public class TutorAziendaleDao extends UtenteDao
 			e.printStackTrace();
 			return false;
 		}
-<<<<<<< HEAD
 
-		
-		
-=======
->>>>>>> refs/remotes/origin/master
 	}
 	//***METODO LISTA AZIENDA
 	public ArrayList<TutorAziendale> listaAziende() {
