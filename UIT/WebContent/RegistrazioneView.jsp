@@ -97,7 +97,7 @@
 	<div class="container">
 		<div class="row">
 			<form class="form-horizontal" name='registration' action="RegistrationServlet" method="post" onSubmit="return validateForm(this);">
-
+	<fieldset>
 					<!-- Form Name -->
 					<legend>Form Registrazione UIT</legend>
 
@@ -169,6 +169,7 @@
 								<button id="submit" name="submit" class="btn btn-success">Conferma</button>
 							</div>
 						</div>
+						</fieldset>
 					</form>
 		</div>
 	</div>
