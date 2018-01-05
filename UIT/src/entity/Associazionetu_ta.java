@@ -3,6 +3,8 @@ package entity;
 public class Associazionetu_ta
 {
 	private int tutoraziendale_utente_idUtente;
+	private String nomeazienda;
+	private String nominativo;
 	private int tutoruniveristario_utente_idUtente;
 	public int getTutoraziendale_utente_idUtente() {
 		return tutoraziendale_utente_idUtente;
@@ -20,5 +22,18 @@ public class Associazionetu_ta
 		super();
 		this.tutoraziendale_utente_idUtente = tutoraziendale_utente_idUtente;
 		this.tutoruniveristario_utente_idUtente = tutoruniveristario_utente_idUtente;
+	}
+	public Associazionetu_ta() {}
+	public String getNomeazienda() {
+		return nomeazienda;
+	}
+	public void setNomeazienda(String nomeazienda) {
+		this.nomeazienda = nomeazienda;
+	}
+	public String getNominativo() {
+		return nominativo;
+	}
+	public void setNominativo(String nominativo) {
+		this.nominativo = nominativo;
 	}
 }
