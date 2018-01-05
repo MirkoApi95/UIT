@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entity.ProgettoFormativo;
+
 import entity.TutorAziendale;
 import entity.Utente;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
-import gestoreStorage.DriverManagerConnectionPoolUnisa;
+
 
 public class TutorAziendaleDao extends UtenteDao
 {
