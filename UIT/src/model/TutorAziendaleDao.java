@@ -21,13 +21,9 @@ public class TutorAziendaleDao extends UtenteDao
 
 	//****QUERY****\\		
 	private final String selectfromIDSql="SELECT * FROM tutoraziendale WHERE Utente_id_Utente=?";
-<<<<<<< HEAD
 	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
 	private final String listaAziende="SELECT NomeAzienda FROM  tutorazendale";
-=======
-	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_idUtente)"+"VALUES(?,?,?)";
 	
->>>>>>> 9d66fb54f9c1394a981aecc69e42b9368f4591a7
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
 		connection=DriverManagerConnectionPoolUIT.getConnection();

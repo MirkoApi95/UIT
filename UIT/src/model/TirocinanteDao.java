@@ -44,7 +44,6 @@ public class TirocinanteDao extends UtenteDao {
 				rs.next();
 				int id=rs.getInt(1);
 				
-				
 				preparedStatement=connectionUNISA.prepareStatement(selectDatiUnisa);
 				preparedStatement.setString(1, Email);
 				ResultSet rs1=preparedStatement.executeQuery();
@@ -55,16 +54,13 @@ public class TirocinanteDao extends UtenteDao {
 				int matricola=rs1.getInt(3);
 				
 				preparedStatement=connectionUIT.prepareStatement(inserimentoID);
-
 				preparedStatement.setDate(1, data);
 				preparedStatement.setInt(2, cfu);
 				preparedStatement.setInt(3,id);
 				preparedStatement.setInt(4,matricola);
 				preparedStatement.executeUpdate();
 				connectionUIT.commit();
-				
 				return true;
-				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
