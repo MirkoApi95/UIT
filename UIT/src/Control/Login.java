@@ -69,6 +69,8 @@ public class Login extends HttpServlet {
 						break;
 					case "@direttoredip.unisa.it":
 						request.getRequestDispatcher("HomePageDirettoreDipView.jsp").forward(request, response);
+						break;
+					default : break;
 					}
 
 				}if(!u.getPassword().equals(password)) 
