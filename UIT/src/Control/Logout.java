@@ -28,7 +28,7 @@ public class Logout extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		out.println("<script>");
 		out.println("alert('SEI USCITO!')");
-		out.println("window.open('http://localhost:8080/SOSTITUIRE CON PERCORSO HOME PAGE");
+		out.println("window.open('http://localhost:8080/HomePageViewGenerale.jsp");
 		out.println("</script>");
 	}
 	

@@ -20,7 +20,7 @@ public class TutorAziendaleDao extends UtenteDao
 	
 	//****QUERY****\\		
 	private final String selectfromIDSql="SELECT * FROM tutoraziendale WHERE Utente_id_Utente=?";
-	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_idUtente)"+"VALUES(?,?,?)";
+	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
 	
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
@@ -73,7 +73,6 @@ public class TutorAziendaleDao extends UtenteDao
 		}
 
 		
-
 		
 	}
 	

@@ -12,7 +12,7 @@ import gestoreStorage.DriverManagerConnectionPoolUnisa;
 public class UtenteDao 
 {
 	//****VARIABILI DELLA CLASSE****\
-	private Utente utente = new Utente();
+	
 	private Connection connection = null;
 	private PreparedStatement preparedStatement = null;
 
@@ -40,6 +40,7 @@ public class UtenteDao
 
 	//****METODI DI DOWNLOAD****\\
 	public Utente doRetrieveByKey(int id)  {
+		 Utente utente = new Utente();
 		try {
 			preparedStatement=connection.prepareStatement(selectFromIDSQL);
 			preparedStatement.setInt(1, id);
@@ -54,7 +55,27 @@ public class UtenteDao
 			}
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		}
+		}if(utente.getId()==0)return null;
+		return utente;	
+	}
+	
+	public Utente doRetrieveByMail(String mail)  {
+		 Utente utente= new Utente();
+		try {
+			preparedStatement=connection.prepareStatement(selectFromEmailSQL);
+			preparedStatement.setString(1, mail);
+			ResultSet rs=preparedStatement.executeQuery();
+			while (rs.next()) {
+				utente.setNome(rs.getString("Nome"));
+				utente.setCognome(rs.getString("Cognome"));
+				utente.setIndirizzo(rs.getString("Indirizzo"));
+				utente.setEmail(rs.getString("Email"));
+				utente.setPassword(rs.getString("Password"));
+				utente.setId(rs.getInt("id_Utente"));
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}if(utente.getId()==0)return null;
 		return utente;	
 	}
 	//****METODi DI UPLOAD****\\
