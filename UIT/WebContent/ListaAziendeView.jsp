@@ -31,8 +31,8 @@
 
 <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/31/3/intl/it_ALL/stats.js"></script></head>
 
-<% ArrayList<String> lista=new ArrayList<String>();
-lista=(ArrayList<String>)request.getAttribute("array");%>
+<% ArrayList<TutorAziendale> lista=new ArrayList<TutorAziendale>();
+lista=(ArrayList<TutorAziendale>)request.getAttribute("array");%>
 
 <body>
 

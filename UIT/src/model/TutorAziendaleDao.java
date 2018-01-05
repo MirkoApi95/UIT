@@ -75,18 +75,20 @@ public class TutorAziendaleDao extends UtenteDao
 		}
 	}
 	//***METODO LISTA AZIENDA
-	public ArrayList<String> listaAziende() {
-		ArrayList<String> lista =new ArrayList<String>();
+	public ArrayList<TutorAziendale> listaAziende() {
+		ArrayList<TutorAziendale> lista =new ArrayList<TutorAziendale>();
 		try {
 			preparedStatement=connection.prepareStatement(listaAziende);
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
-				lista.add(rs.getString(1));
+				TutorAziendale ta=new TutorAziendale();
+				ta.setNome(rs.getString("NomeAzienda"));
+				ta.setId(rs.getInt("utente_id_Utente"));
+				lista.add(ta);
 			}
-			return lista;
 		}catch (SQLException e) {
 			e.printStackTrace();
-			return null;
 		}
+		return lista;
 	}
 }
