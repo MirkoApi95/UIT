@@ -17,12 +17,14 @@ public class TutorAziendaleDao extends UtenteDao
 	//****VARIABILI DELLA CLASSE****\\
 	private Connection connection = null;
 	private PreparedStatement preparedStatement = null;
+	private ArrayList<TutorAziendale> lista =new ArrayList<TutorAziendale>();
+	private TutorAziendale ta=new TutorAziendale();
 
 
 	//****QUERY****\\		
 	private final String selectfromIDSql="SELECT * FROM tutoraziendale WHERE Utente_id_Utente=?";
 	private final String insertDati="INSERT INTO tutoraziendale (NomeAzienda,Sede,utente_id_Utente)"+"VALUES(?,?,?)";
-	private final String listaAziende="SELECT NomeAzienda FROM  tutorazendale";
+	private final String listaAziende="SELECT NomeAzienda,utente_id_Utente FROM  tutorazendale";
 	
 	//****COSTRUTTORE****\\
 	public TutorAziendaleDao() throws SQLException{
@@ -75,13 +77,15 @@ public class TutorAziendaleDao extends UtenteDao
 		}
 	}
 	//***METODO LISTA AZIENDA
-	public ArrayList<String> listaAziende() {
-		ArrayList<String> lista =new ArrayList<String>();
+	public ArrayList<TutorAziendale> listaAziende() {
+		
 		try {
 			preparedStatement=connection.prepareStatement(listaAziende);
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
-				lista.add(rs.getString(1));
+				ta.setNome(rs.getString(1));
+				ta.setId(rs.getInt(2));
+				lista.add(ta);
 			}
 			return lista;
 		}catch (SQLException e) {
