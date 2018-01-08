@@ -101,7 +101,7 @@
 						class="nav__wrap navbar-collapse collapse in" aria-expanded="true"
 						style="">
 						<ul class="nav__menu">
-						
+
 						</ul>
 						<!-- end menu -->
 
@@ -123,7 +123,7 @@
 			<th>Tutor Universitario</th>
 			<th>Seleziona</th>
 		</tr>
-	<%for(int i=0;i<lista.size(); i++){%>
+		<%for(int i=0;i<lista.size(); i++){%>
 		<tr>
 			<td><form name="prendiazienda" action="PrendiNomeAzienda"
 					method="post">
@@ -132,8 +132,9 @@
 				</form></td>
 			<td><div class="form-group">
 					<select class="form-control" name="sel">
-					<%for(int j=0;j<list.size(); j++){%>
-						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
+						<%for(int j=0;j<list.size(); j++){%>
+						<option><%=list.get(i).getNome()%>
+							<%=list.get(i).getCognome()%></option>
 						<%}%>
 					</select>
 				</div></td>
@@ -142,9 +143,9 @@
 				</div></td>
 		</tr>
 		<%} %>
-		
-		
-		
+
+
+
 		<!-- <tr>
 			<td><form name="prendiazienda" action="PrendiNomeAzienda"
 					method="post"></form>
@@ -200,9 +201,9 @@
 			}
 		%>
 		-->
-		
-		
-		
+
+
+
 	</table>
 	<div>
 		<button type="button" class="btn btn-primary"

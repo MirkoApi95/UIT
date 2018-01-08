@@ -12,28 +12,30 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-   
-    public Logout() {
-        super();
-    }
+  private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-		session.removeAttribute("username");
-		session.removeAttribute("password");
-		session.invalidate();
-		PrintWriter out=response.getWriter();
-		out.println("<script>");
-		out.println("alert('SEI USCITO!')");
-		out.println("window.open('http://localhost:8080/HomePageViewGenerale.jsp");
-		out.println("</script>");
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+
+  public Logout() {
+    super();
+  }
+
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    HttpSession session = request.getSession();
+    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    session.removeAttribute("username");
+    session.removeAttribute("password");
+    session.invalidate();
+    PrintWriter out = response.getWriter();
+    out.println("<script>");
+    out.println("alert('SEI USCITO!')");
+    out.println("window.open('http://localhost:8080/HomePageViewGenerale.jsp");
+    out.println("</script>");
+  }
+
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    doGet(request, response);
+  }
 
 }

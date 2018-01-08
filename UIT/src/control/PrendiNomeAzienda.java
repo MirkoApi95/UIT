@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Associazionetu_taDao;
+import model.AssociazioneTuTaDao;
 
 /** Servlet implementation class PrendiNomeAzienda. */
 @WebServlet("/PrendiNomeAzienda")
@@ -30,7 +30,7 @@ public class PrendiNomeAzienda extends HttpServlet {
     TutorAziendale ta = (TutorAziendale)request.getSession().getAttribute("tutoraziendale");
 
     try {
-      Associazionetu_taDao assTu = new Associazionetu_taDao();
+      AssociazioneTuTaDao assTu = new AssociazioneTuTaDao();
 
       ta.setNome(tutor.getNome());
       ta.setCognome(tutor.getCognome());

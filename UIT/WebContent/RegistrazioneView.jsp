@@ -96,41 +96,43 @@
 
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal" name='registration' action="RegistrationServlet" method="post" onSubmit="return validateForm(this);">
-	<fieldset>
+			<form class="form-horizontal" name='registration'
+				action="RegistrationServlet" method="post"
+				onSubmit="return validateForm(this);">
+				<fieldset>
 					<!-- Form Name -->
 					<legend>Form Registrazione UIT</legend>
 
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="Name">Nome</label>
-							<div class="col-md-5">
-								<input id="Name" name="Name" type="text" placeholder="nome"
-									class="form-control input-md" required="">
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="Name">Nome</label>
+						<div class="col-md-5">
+							<input id="Name" name="Name" type="text" placeholder="nome"
+								class="form-control input-md" required="">
 
-							</div>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="surname">Cognome</label>
-							<div class="col-md-5">
-								<input id="surname" name="surname" type="text"
-									placeholder="cognome" class="form-control input-md" required="">
-							</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="surname">Cognome</label>
+						<div class="col-md-5">
+							<input id="surname" name="surname" type="text"
+								placeholder="cognome" class="form-control input-md" required="">
 						</div>
+					</div>
 
-						<!-- Password input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="passwordinput">Password</label>
-							<div class="col-md-5">
-								<input id="passwordinput" name="passwordinput" type="password"
-									placeholder="" class="form-control input-md" required="">
-								<!-- <span class="help-block">max 16 characters</span>-->
-							</div>
+					<!-- Password input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="passwordinput">Password</label>
+						<div class="col-md-5">
+							<input id="passwordinput" name="passwordinput" type="password"
+								placeholder="" class="form-control input-md" required="">
+							<!-- <span class="help-block">max 16 characters</span>-->
 						</div>
+					</div>
 
-						<!-- Password input-->
-						<!-- <div class="form-group">
+					<!-- Password input-->
+					<!-- <div class="form-group">
 							<label class="col-md-4 control-label" for="confirm_password">Conferma
 								Password</label>
 							<div class="col-md-5">
@@ -140,37 +142,37 @@
 							</div>
 						</div>-->
 
-						<!-- Multiple Radios (inline) -->
+					<!-- Multiple Radios (inline) -->
 
 
-						<!-- Textarea -->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="address">Indirizzo</label>
-							<div class="col-md-4 col-lg-5">
-								<textarea class="form-control" id="address" name="address"></textarea>
-							</div>
+					<!-- Textarea -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="address">Indirizzo</label>
+						<div class="col-md-4 col-lg-5">
+							<textarea class="form-control" id="address" name="address"></textarea>
 						</div>
+					</div>
 
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="emailId">Email</label>
-							<div class="col-md-5 col-lg-5">
-								<input id="emailId" name="emailId" type="text"
-									placeholder="user@domain.com" class="form-control input-md"
-									required="">
-							</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="emailId">Email</label>
+						<div class="col-md-5 col-lg-5">
+							<input id="emailId" name="emailId" type="text"
+								placeholder="user@domain.com" class="form-control input-md"
+								required="">
 						</div>
+					</div>
 
 
-						<!-- Button -->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="submit"></label>
-							<div class="col-md-4 col-lg-1">
-								<button id="submit" name="submit" class="btn btn-success">Conferma</button>
-							</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="submit"></label>
+						<div class="col-md-4 col-lg-1">
+							<button id="submit" name="submit" class="btn btn-success">Conferma</button>
 						</div>
-						</fieldset>
-					</form>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 

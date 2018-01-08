@@ -1,115 +1,116 @@
 package entity;
 
-public class ProgettoFormativo 
-{
-	private int id_ProgettoFormativo;
-	private int TutorAziendale_Utente_idUtente;
-	private int TutorUniversitario_Utente_idUtente;
-	private int Tirocinante_Utente_idUtente;
-	private int DirettoreDipartimento_Utente_idUtente;
-	private boolean convalidaDD;
-	private boolean convalidaTU;
-	private String Obiettivi;
+public class ProgettoFormativo {
+  private int idProgettoFormativo;
+  private int tutorAziendaleUtenteIdUtente;
+  private int tutorUniversitarioUtenteIdUtente;
+  private int tirocinanteUtenteIdUtente;
+  private int direttoreDipartimentoUtenteIdUtente;
+  private boolean convalidaDd;
+  private boolean convalidaTu;
+  private String obiettivi;
 
-	public ProgettoFormativo(
-			int id,
-			Boolean ConvalidaDD , 
-			Boolean ConvalidaTU,
-			String obiettivi,
-			int tutorAziendale_Utente_idUtente,
-			int tutorUniversitario_Utente_idUtente, 
-			int tirocinante_Utente_idUtente,
-			int direttoreDipartimento_idDirettoreDipartimento){
-		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
-		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
-		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
-		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
-		this.convalidaDD = ConvalidaDD;
-		this.convalidaTU = ConvalidaTU;
-		Obiettivi = obiettivi;
-		this.id_ProgettoFormativo=id;
-	}
-	
-	public ProgettoFormativo(Boolean ConvalidaDD , 
-			Boolean ConvalidaTU,
-			String obiettivi,
-			int tutorAziendale_Utente_idUtente,
-			int tutorUniversitario_Utente_idUtente, 
-			int tirocinante_Utente_idUtente,
-			int direttoreDipartimento_idDirettoreDipartimento			
-			){
-		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
-		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
-		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
-		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
-		this.convalidaDD = ConvalidaDD;
-		this.convalidaTU = ConvalidaTU;
-		Obiettivi = obiettivi;
+  public ProgettoFormativo(
+      int id,
+      Boolean convalidaDd,
+      Boolean convalidaTu,
+      String obiettivi,
+      int tutorAziendaleUtenteIdUtente,
+      int tutorUniversitarioUtenteIdUtente, 
+      int tirocinanteUtenteIdUtente,
+      int direttoreDipartimentoIdDirettoreDipartimento) {
+    this.tutorAziendaleUtenteIdUtente = tutorAziendaleUtenteIdUtente;
+    this.tutorUniversitarioUtenteIdUtente = tutorUniversitarioUtenteIdUtente;
+    this.tirocinanteUtenteIdUtente = tirocinanteUtenteIdUtente;
+    this.direttoreDipartimentoUtenteIdUtente = direttoreDipartimentoIdDirettoreDipartimento;
+    this.convalidaDd = convalidaDd;
+    this.convalidaTu = convalidaTu;
+    this.obiettivi = obiettivi;
+    this.idProgettoFormativo = id;
+  }
 
-	}
-	public ProgettoFormativo() {}
+  public ProgettoFormativo(
+      Boolean convalidaDd,
+      Boolean convalidaTu,
+      String obiettivi,
+      int tutorAziendaleUtenteIdUtente,
+      int tutorUniversitarioUtenteIdUtente,
+      int tirocinanteUtenteIdUtente,
+      int direttoreDipartimentoIdDirettoreDipartimento) {
+    this.tutorAziendaleUtenteIdUtente = tutorAziendaleUtenteIdUtente;
+    this.tutorUniversitarioUtenteIdUtente = tutorUniversitarioUtenteIdUtente;
+    this.tirocinanteUtenteIdUtente = tirocinanteUtenteIdUtente;
+    this.direttoreDipartimentoUtenteIdUtente = direttoreDipartimentoIdDirettoreDipartimento;
+    this.convalidaDd = convalidaDd;
+    this.convalidaTu = convalidaTu;
+    this.obiettivi = obiettivi;
 
-	public int getId_progetto() {
-		return id_ProgettoFormativo;
-	}
+  }
 
-	public void setId_progetto(int id) {
-		this.id_ProgettoFormativo = id;
-	}
+  public ProgettoFormativo() {}
 
-	public int getTutorAziendale_Utente_idUtente() {
-		return TutorAziendale_Utente_idUtente;
-	}
+  public int getId_progetto() {
+    return idProgettoFormativo;
+  }
 
-	public void setTutorAziendale_Utente_idUtente(int tutorAziendale_Utente_idUtente) {
-		TutorAziendale_Utente_idUtente = tutorAziendale_Utente_idUtente;
-	}
+  public void setId_progetto(int id) {
+    this.idProgettoFormativo = id;
+  }
 
-	public int getTutorUniversitario_Utente_idUtente() {
-		return TutorUniversitario_Utente_idUtente;
-	}
+  public int getTutorAziendale_Utente_idUtente() {
+    return tutorAziendaleUtenteIdUtente;
+  }
 
-	public void setTutorUniversitario_Utente_idUtente(int tutorUniversitario_Utente_idUtente) {
-		TutorUniversitario_Utente_idUtente = tutorUniversitario_Utente_idUtente;
-	}
+  public void setTutorAziendale_Utente_idUtente(int tutorAziendaleUtenteIdUtente) {
+    this.tutorAziendaleUtenteIdUtente = tutorAziendaleUtenteIdUtente;
+  }
 
-	public int getTirocinante_Utente_idUtente() {
-		return Tirocinante_Utente_idUtente;
-	}
+  public int getTutorUniversitario_Utente_idUtente() {
+    return tutorUniversitarioUtenteIdUtente;
+  }
 
-	public void setTirocinante_Utente_idUtente(int tirocinante_Utente_idUtente) {
-		Tirocinante_Utente_idUtente = tirocinante_Utente_idUtente;
-	}
+  public void setTutorUniversitario_Utente_idUtente(int tutorUniversitarioUtenteIdUtente) {
+    this.tutorUniversitarioUtenteIdUtente = tutorUniversitarioUtenteIdUtente;
+  }
 
-	public int getDirettoreDipartimento_idDirettoreDipartimento(){
-		return DirettoreDipartimento_Utente_idUtente;
-	}
+  public int getTirocinante_Utente_idUtente() {
+    return tirocinanteUtenteIdUtente;
+  }
 
-	public void setDirettoreDipartimento_idDirettoreDipartimento(int direttoreDipartimento_idDirettoreDipartimento) {
-		DirettoreDipartimento_Utente_idUtente = direttoreDipartimento_idDirettoreDipartimento;
-	}
+  public void setTirocinante_Utente_idUtente(int tirocinanteUtenteIdUtente) {
+    this.tirocinanteUtenteIdUtente = tirocinanteUtenteIdUtente;
+  }
 
-	public boolean getConvalidaDD() {
-		return convalidaDD;
-	}
+  public int getDirettoreDipartimento_idDirettoreDipartimento() {
+    return direttoreDipartimentoUtenteIdUtente;
+  }
 
-	public void setConvalidaDD(boolean convalidaDD) {
-		this.convalidaDD = convalidaDD;
-	}
+  public void setDirettoreDipartimento_idDirettoreDipartimento(
+      int direttoreDipartimentoIdDirettoreDipartimento) {
+    this.direttoreDipartimentoUtenteIdUtente = direttoreDipartimentoIdDirettoreDipartimento;
+  }
 
-	public boolean getConvalidaTU() {
-		return convalidaTU;
-	}
+  public boolean getConvalidaDd() {
+    return convalidaDd;
+  }
 
-	public void setConvalidaTU(boolean convalidaTU) {
-		this.convalidaTU = convalidaTU;
-	}
+  public void setConvalidaDd(boolean convalidaDd) {
+    this.convalidaDd = convalidaDd;
+  }
 
-	public String getObiettivi() {
-		return Obiettivi;
-	}
+  public boolean getConvalidaTu() {
+    return convalidaTu;
+  }
 
-	public void setObiettivi(String obiettivi) {
-		Obiettivi = obiettivi;
-	}
+  public void setConvalidaTu(boolean convalidaTu) {
+    this.convalidaTu = convalidaTu;
+  }
+
+  public String getObiettivi() {
+    return obiettivi;
+  }
+
+  public void setObiettivi(String obiettivi) {
+    this.obiettivi = obiettivi;
+  }
 }
