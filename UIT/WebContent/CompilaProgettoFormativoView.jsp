@@ -258,8 +258,6 @@
 	<div id="back-to-top" class="">
 		<a href="#top"><i class="fa fa-angle-up"></i></a>
 	</div>
-
-
 	<!-- jQuery Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -290,9 +288,5 @@
 		src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
 	<script type="text/javascript"
 		src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-
-
-
-
 </body>
 </html>

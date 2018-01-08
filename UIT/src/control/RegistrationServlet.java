@@ -13,8 +13,12 @@ import model.TirocinanteDao;
 import model.TutorUniversitarioDao;
 import model.UtenteDao;
 
-/*
- * Servlet implementation class RegistrationServlet
+/**
+ *Classe servlet di registrazione.
+ *
+ * @author Francesco Mancuso Milite
+ *
+ * @version 1.0
  */
 
 @WebServlet("/RegistrationServlet")
@@ -25,6 +29,15 @@ public class RegistrationServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {}
 
+
+  /**
+   *Classe servlet di registrazione.
+   *Metodo doPost @req richiesta @resp risposta
+   *
+   * @author Francesco Mancuso Milite
+   *
+   * @version 1.0
+   */
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
