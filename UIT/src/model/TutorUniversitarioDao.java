@@ -84,7 +84,7 @@ public class TutorUniversitarioDao extends UtenteDao {
       ResultSet rs=preparedStatement.executeQuery();
 
       while (rs.next()){
-        risultato=rs.getInt("conteggio");
+        risultato=rs.getInt("count(*)");
   }
 }catch(SQLException e) { e.printStackTrace();}
     return risultato;

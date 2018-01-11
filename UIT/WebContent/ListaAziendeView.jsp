@@ -122,6 +122,11 @@
 	@SuppressWarnings("unchecked")
 	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
 %>
+	
+<%
+	@SuppressWarnings("unchecked")
+	ArrayList<TutorUniversitario> listaprof=(ArrayList<TutorUniversitario>)request.getAttribute("listaprof");
+%>
 
 <%
 	ArrayList<AssociazioneTuTa> vettore=new ArrayList<AssociazioneTuTa>();
@@ -129,12 +134,14 @@
 		<tr>
 			<td>
 					<select class="form-control" name="azienda">
-					
-					<option><%=lista.get(0).getNomeazienda() %></option>
-					
+					<%for (int i=0;i<lista.size();i++) {%>
+					<option><%=lista.get(i).getNomeazienda() %></option>
+					<%	} %>
 					</select>
 				</td>
-			<td> <%= lista.get(0).getNome() %> </td>
+				<% for(int k=0;k<listaprof.size();k++) {%>
+			<td> <%= listaprof.get(k).getNome() %> <%= listaprof.get(k).getCognome() %> </td>
+			<%	} %>
 			<td><div class="radio">
 					<label><input type="radio" name="optradio"></label>
 				</div></td>

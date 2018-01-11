@@ -52,7 +52,7 @@ public class MostraTutorUni extends HttpServlet {
 	      }
 	      ArrayList<TutorUniversitario> tunidef=new ArrayList<TutorUniversitario>();
 	      tunidef.add(tuni);
-	      request.setAttribute("lista", tunidef);
+	      request.setAttribute("listaprof", tunidef);
 	      request.getRequestDispatcher("/ListaAziendeView.jsp").forward(request, response);
 	    } catch (SQLException e) {
 	      e.printStackTrace();
