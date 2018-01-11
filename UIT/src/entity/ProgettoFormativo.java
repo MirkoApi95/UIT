@@ -132,40 +132,67 @@ public class ProgettoFormativo {
   public int getTirocinante_Utente_idUtente() {
     return tirocinanteUtenteIdUtente;
   }
-
+/**
+ *  Metodo per settare l'id del tirocinante interessato
+ * @param tirocinanteUtenteIdUtente è un intero che rappresenta l'id
+ */
   public void setTirocinante_Utente_idUtente(int tirocinanteUtenteIdUtente) {
     this.tirocinanteUtenteIdUtente = tirocinanteUtenteIdUtente;
   }
-
+/**
+ * Metodo per restituire il direttore dipartimento associato al progetto formativo
+ * @return è un intero che rappresenta l'id del direttore del dipartimento
+ */
   public int getDirettoreDipartimento_idDirettoreDipartimento() {
     return direttoreDipartimentoUtenteIdUtente;
   }
-
+  /**
+   * Metodo per settare l'id del direttore dipartimento associato al progetto formativo
+   * @param direttoreDipartimentoIdDirettoreDipartimento è un interno che rappresenta l'id del direttore del dipartimento
+   */
   public void setDirettoreDipartimento_idDirettoreDipartimento(
       int direttoreDipartimentoIdDirettoreDipartimento) {
     this.direttoreDipartimentoUtenteIdUtente = direttoreDipartimentoIdDirettoreDipartimento;
   }
-
+/**
+ *  Metodo per visualizzare se la convalida da parte de direttore del dipartimento è avvenuta
+ * @return un boolean true=validato false=non validato
+ */
   public boolean getConvalidaDd() {
     return convalidaDd;
   }
-
+  /**
+   * Metodo per cambiare lo stato della pratica da parte del direttore del dipartimento
+   * @param convalidaDd un booleano per settare lo stato di convalida
+   */
   public void setConvalidaDd(boolean convalidaDd) {
     this.convalidaDd = convalidaDd;
   }
-
+  /**
+   *  Metodo per visualizzare la convalida da parte del tutor universitario se è avvenuta
+   * @return un boolean true=validato false=non validato
+   */
   public boolean getConvalidaTu() {
     return convalidaTu;
   }
-
+  /**
+   * Metodo per cambiare lo stato della pratica da parte del tutor universitario
+   * @param convalidaTu un booleano per settare lo stato di convalida
+   */
   public void setConvalidaTu(boolean convalidaTu) {
     this.convalidaTu = convalidaTu;
   }
-
+/**
+ * Metodo per visualizzare gli obiettivi inseriti dal tirocinante
+ * @return una stringa con gli obiettivi
+ */
   public String getObiettivi() {
     return obiettivi;
   }
-
+/**
+ * Metodo per inserire gli obiettivi del tirocinante 
+ * @param obiettivi stringa contente gli obbiettivi
+ */
   public void setObiettivi(String obiettivi) {
     this.obiettivi = obiettivi;
   }
