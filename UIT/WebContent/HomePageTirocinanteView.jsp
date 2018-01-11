@@ -84,11 +84,11 @@
 							<li class="nav__dropdown"><a href="#">Benvenuto</a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
-									<li><a href="portfolio-4.html">Modifica Account</a></li>
-									<li><a href="portfolio-3.html">Stato Progetto
+									<li><a href="AccountView.jsp">Modifica Account</a></li>
+									<li><a href="StatoProgettoView.jsp">Stato Progetto
 											Formativo</a></li>
-									<li><a href="portfolio-2.html">Registro di tirocinio</a></li>
-									<li><a href="portfolio-single.html">Logout</a></li>
+									<li><a href="">Registro di tirocinio</a></li>
+									<li><a href="Logout">Logout</a></li>
 								</ul></li>
 						</ul>
 						<!-- end menu -->
@@ -137,7 +137,7 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="ListaAziendeView.jsp">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 								<h4>Progetto Formativo</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="CompilaProgettoFormativoView.jsp">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -163,7 +163,7 @@
 								<h4>Questionari</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="">Compila Questionario</a>
 							</div>
 						</div>
 					</div>

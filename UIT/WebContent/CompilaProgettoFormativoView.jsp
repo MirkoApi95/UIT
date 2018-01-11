@@ -110,9 +110,8 @@
 
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="ProgettoFormativoServlet" method="post">
 				<fieldset>
-
 					<!-- Form Name -->
 					<legend> Progetto Formativo e di Orientamento</legend>
 					<!-- Text input-->

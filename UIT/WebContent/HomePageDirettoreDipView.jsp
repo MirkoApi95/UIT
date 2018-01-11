@@ -84,8 +84,8 @@
 							<li class="nav__dropdown"><a href="#">BenvenutoDD</a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
-									<li><a href="portfolio-4.html">Modifica Account</a></li>
-									<li><a href="portfolio-3.html">Logout</a></li>
+									<li><a href="AccountView.jsp">Modifica Account</a></li>
+									<li><a href="Logout.jsp">Logout</a></li>
 
 								</ul></li>
 						</ul>
@@ -135,7 +135,7 @@
 								<h4>Lista progetti formativi</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="ListaProgettiFormativiView">Visualizza progetti formativi</a>
 							</div>
 						</div>
 					</div>
@@ -148,7 +148,7 @@
 								<h4>Lista registri tirocini</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="">Visualizza registri di tirocinio</a>
 							</div>
 						</div>
 					</div>

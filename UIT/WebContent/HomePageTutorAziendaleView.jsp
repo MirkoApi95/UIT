@@ -84,7 +84,7 @@
 							<li class="nav__dropdown"><a href="#">BenvenutoTA</a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
-									<li><a href="portfolio-4.html">Modifica Account</a></li>
+									<li><a href="AccountView.jsp">Modifica Account</a></li>
 									<li><a href="portfolio-3.html">Logout</a></li>
 
 								</ul></li>

@@ -147,7 +147,7 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="ListaAziendeView.jsp">Seleziona Azienda</a>
 							</div>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 								<h4>Progetto Formativo</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="CompilaProgettoFormativoView.jsp">Compila Progetto Formativo</a>
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@
 								<h4>Questionari</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="">Compila Questionario</a>
 							</div>
 						</div>
 					</div>

@@ -58,7 +58,8 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
-							<a href="index.html" class="logo__link"> <img
+						<!-- effettuare controllo su sessione per vedere a quale home ricondurre -->
+							<a href="" class="logo__link"> <img
 								class="logo logo--dark" src="img/logo2.png" alt="logo">
 							</a>
 						</div>
