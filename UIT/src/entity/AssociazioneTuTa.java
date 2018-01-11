@@ -16,6 +16,8 @@ public class AssociazioneTuTa {
 
   private TutorAziendale ta;
   private List<TutorUniversitario> listaTU;
+  private String Nomeazienda;
+  private String nome;
 
   public void addTa(TutorAziendale ta) {
     this.ta=ta;
@@ -30,5 +32,21 @@ public class AssociazioneTuTa {
   }
   public TutorAziendale getTa() {
     return ta;
+  }
+
+  public String getNomeazienda() {
+    return Nomeazienda;
+  }
+
+  public void setNomeazienda(String nomeazienda) {
+    Nomeazienda = nomeazienda;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
   }
 }

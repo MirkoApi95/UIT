@@ -26,7 +26,6 @@ public class ConfermaAzienda extends HttpServlet {
       throws ServletException, IOException {
     response.getWriter().append("Served at: ").append(request.getContextPath());
   }
-
   @SuppressWarnings("unchecked")
   protected void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
@@ -46,7 +45,7 @@ public class ConfermaAzienda extends HttpServlet {
       session.setAttribute("azienda", azienda);
       session.setAttribute("nominativo", nominativo);
       oggetto.setNomeazienda(azienda);
-      oggetto.setNominativo(nominativo);
+      oggetto.setNome(nominativo);
       selectlist.add(oggetto);
     }
     session.setAttribute("", selectlist);

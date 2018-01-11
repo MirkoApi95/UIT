@@ -31,11 +31,11 @@ public class PrendiNomeAzienda extends HttpServlet {
 
     try {
       AssociazioneTuTaDao assTu = new AssociazioneTuTaDao();
-
+      ta.setId(1);
       ta.setNome(tutor.getNome());
       ta.setCognome(tutor.getCognome());
       ArrayList<TutorUniversitario> list = assTu.listaAssociazioniTU_TA(ta);
-      request.setAttribute("lista", list);
+      request.setAttribute("array", list);
       RequestDispatcher rs = request.getRequestDispatcher("/ListaAziendaView.jsp");
       rs.forward(request, response);
     } catch (SQLException e) {

@@ -93,4 +93,26 @@ public class TutorAziendaleDao extends UtenteDao {
     }
     return lista;
   }
+  
+  public static synchronized ArrayList<TutorAziendale> selectTutornames() throws SQLException{
+    final String sqlselect="SELECT NomeAzienda,utente_id_Utente FROM  tutoraziendale";
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ArrayList<TutorAziendale> tutorList = new ArrayList<TutorAziendale>();
+
+    try {
+        connection=DriverManagerConnectionPoolUIT.getConnection();
+        preparedStatement=connection.prepareStatement(sqlselect);
+        ResultSet rs=preparedStatement.executeQuery();
+
+        while (rs.next()){
+            TutorAziendale t=new TutorAziendale();
+            t.setNomeazienda(rs.getString("NomeAzienda"));
+            tutorList.add(t);
+        }
+}catch (SQLException e) {
+    e.printStackTrace();
+}
+    return tutorList;
+}
 }

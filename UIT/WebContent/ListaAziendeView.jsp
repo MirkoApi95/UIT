@@ -1,10 +1,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.TutorAziendale"%>
 <%@page import="entity.TutorUniversitario"%>
+<%@page import="entity.AssociazioneTuTa"%>
+<%@page import="model.AssociazioneTuTaDao"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:useBean id="tutoraziendale" class="entity.TutorAziendale"
-	scope="session"></jsp:useBean>
+<jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
@@ -47,12 +48,11 @@
 
 <%
 	ArrayList<TutorAziendale> lista = new ArrayList<TutorAziendale>();
-	lista = (ArrayList<TutorAziendale>) request.getAttribute("array");
+	lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
 %>
 
 <%
-	ArrayList<TutorUniversitario> list = new ArrayList<TutorUniversitario>();
-	list = (ArrayList<TutorUniversitario>) request.getAttribute("lista");
+	ArrayList<AssociazioneTuTa> vettore=new ArrayList<AssociazioneTuTa>();
 %>
 
 <body>
@@ -123,88 +123,31 @@
 			<th>Tutor Universitario</th>
 			<th>Seleziona</th>
 		</tr>
-		<%
-			for (int i = 0; i < lista.size(); i++) {
-		%>
-		<tr>
-			<td><form name="prendiazienda" action="PrendiNomeAzienda"
-					method="post">
-					<input type="hidden" name="azienda"
-						value="<%=lista.get(i).getNomeazienda()%>">
-				</form></td>
-			<td><div class="form-group">
-					<select class="form-control" name="sel">
-						<%
-							for (int j = 0; j < list.size(); j++) {
-						%>
-						<option><%=list.get(i).getNome()%>
-							<%=list.get(i).getCognome()%></option>
-						<%
-							}
-						%>
-					</select>
-				</div></td>
-			<td><div class="radio">
-					<label><input type="radio" name="optradio"></label>
-				</div></td>
-		</tr>
-		<%
-			}
-		%>
-
-		 <tr>
-			<td><form name="prendiazienda" action="PrendiNomeAzienda"
-					method="post"></form>
-				<input type="hidden" name="azienda"
-				value="<%=lista.get(1).getNomeazienda()%>"></td>
-			<td><div class="form-group">
-					<select class="form-control" id="sel2">
-						<%for (int i = 0; i < list.size(); i++) {%>
-						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
-						<%}%>
-					</select>
-				</div></td>
-			<td><div class="radio">
-					<label><input type="radio" name="optradio"></label>
-				</div></td>
-		</tr>
-		<tr>
-			<td><form name="prendiazienda" action="PrendiNomeAzienda"
-					method="post"></form>
-				<input type="hidden" name="azienda"
-				value="<%=lista.get(2).getNomeazienda()%>"></td>
-			<td><div class="form-group">
-					<select class="form-control" id="sel3">
-						<%for (int i = 0; i < list.size(); i++) {%>
-						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
-						<%}%>
-					</select>
-				</div></td>
-			<td><div class="radio">
-					<label><input type="radio" name="optradio"></label>
-				</div></td>
-		</tr>
-		<%if (lista.size() > 2) {%>
-		<tr>
-			<td><form name="prendiazienda" action="PrendiNomeAzienda"
-					method="post"></form>
-				<input type="hidden" name="azienda"
-				value="<%=lista.get(3).getNomeazienda()%>"></td>
-			<td><div class="form-group">
-					<select class="form-control" id="sel3">
-						<%for (int i = 0; i < list.size(); i++) {%>
-						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
-						<%}%>
-					</select>
-				</div></td>
-			<td><div class="radio">
-					<label><input type="radio" name="optradio"></label>
-				</div></td>
-		</tr>
-		<%}%>
 		
-
-
+		<tr>
+			<td>
+					<select class="form-control" name="azienda">
+					<%for (int i = 0; i < lista.size(); i++) {%> 
+					<option><%= lista.get(i).getNomeazienda() %></option>
+					<%
+						}
+					%>
+					
+					</select>
+				</td>
+			<td> <%= lista.get(0).getNome() %> </td>
+			<td><div class="radio">
+					<label><input type="radio" name="optradio"></label>
+				</div></td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div class="radio">
+				<label><input type="radio" name="optradio"></label>
+			</div>
+			</td>
+		</tr>
 
 	</table>
 	<div>
