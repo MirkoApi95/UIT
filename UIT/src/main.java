@@ -1,17 +1,22 @@
+
 import java.sql.SQLException;
+import java.util.List;
+import entity.TutorAziendale;
+import model.TutorAziendaleDao;
 
 
 
 
 public class main {
   public static void main(String[] args) throws SQLException {
-    String email = "s.apicella@studenti.unisa.it";
-    String dominio;
 
-    int ini = email.indexOf('@');
-
-    dominio = email.substring(ini);
-
-    System.out.println(dominio);
+    List<TutorAziendale> lista;
+ TutorAziendaleDao dao=new TutorAziendaleDao();
+   lista=dao.listaAziende();
+   
+   for(int i=0;i<lista.size();i++) {
+     System.out.println(lista.get(i).getNomeazienda());
+   }
+  
   }
 }

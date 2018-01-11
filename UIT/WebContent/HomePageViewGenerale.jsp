@@ -94,7 +94,7 @@
 										<form action="Login" method="post">
 											E-mail:<br> <input type="text" name="emailLogin"
 												value=""> <br> Password:<br> <input
-												type="text" name="passwordLogin" value=""><br>
+												type="password" name="passwordLogin" value=""><br>
 											<input type="submit" value="Entra">
 										</form>
 									</li>
@@ -147,7 +147,7 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="ListaAziendeView.jsp">Seleziona Azienda</a>
+								<a href="SelezioneAzienda">Seleziona Azienda</a>
 							</div>
 						</div>
 					</div>

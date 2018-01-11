@@ -88,7 +88,7 @@
 									<li><a href="StatoProgettoView.jsp">Stato Progetto
 											Formativo</a></li>
 									<li><a href="">Registro di tirocinio</a></li>
-									<li><a href="Logout">Logout</a></li>
+									<li><a href="logout.jsp">Logout</a></li>
 								</ul></li>
 						</ul>
 						<!-- end menu -->
@@ -137,7 +137,7 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="ListaAziendeView.jsp">Read More</a>
+								<a href="SelezioneAzienda">Vai</a>
 							</div>
 						</div>
 					</div>

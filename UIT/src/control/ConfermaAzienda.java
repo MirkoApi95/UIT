@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-/*
+/**
  * Servlet implementation class ConfermaAzienda
  */
+
 @WebServlet("/ConfermaAzienda")
 public class ConfermaAzienda extends HttpServlet {
   private static final long serialVersionUID = 1L;

@@ -13,7 +13,7 @@ public class TutorAziendaleDao extends UtenteDao {
   //****VARIABILI DELLA CLASSE****\\
   private Connection connection = null;
   private PreparedStatement preparedStatement = null;
-  private TutorAziendale ta = new TutorAziendale();
+  private TutorAziendale ta=null;
 
 
   //****QUERY****\\
@@ -21,7 +21,7 @@ public class TutorAziendaleDao extends UtenteDao {
   private final String insertDati = "INSERT INTO tutoraziendale ("
       + "NomeAzienda,Sede,utente_id_Utente)"
       + "VALUES(?,?,?)";
-  private final String listaAziende = "SELECT NomeAzienda,utente_id_Utente FROM  tutorazendale";
+  private final String listaAziende = "SELECT NomeAzienda,utente_id_Utente FROM  tutoraziendale";
 
 
   //****COSTRUTTORE****\\
@@ -81,12 +81,11 @@ public class TutorAziendaleDao extends UtenteDao {
     try {
       preparedStatement = connection.prepareStatement(listaAziende);
       ResultSet rs = preparedStatement.executeQuery();
+     
       while (rs.next()) {
-        ta.setNome(rs.getString(1));
+        ta=new TutorAziendale();
+        ta.setNomeazienda(rs.getString(1));
         ta.setId(rs.getInt(2));
-        TutorAziendale ta = new TutorAziendale();
-        ta.setNome(rs.getString("NomeAzienda"));
-        ta.setId(rs.getInt("utente_id_Utente"));
         lista.add(ta);
       }
     } catch (SQLException e) {

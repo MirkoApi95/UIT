@@ -51,8 +51,8 @@
 %>
 
 <%
-	ArrayList<TutorUniversitario> list=new ArrayList<TutorUniversitario>();
-	list=(ArrayList<TutorUniversitario>) request.getAttribute("lista");
+	ArrayList<TutorUniversitario> list = new ArrayList<TutorUniversitario>();
+	list = (ArrayList<TutorUniversitario>) request.getAttribute("lista");
 %>
 
 <body>
@@ -123,7 +123,9 @@
 			<th>Tutor Universitario</th>
 			<th>Seleziona</th>
 		</tr>
-		<%for(int i=0;i<lista.size(); i++){%>
+		<%
+			for (int i = 0; i < lista.size(); i++) {
+		%>
 		<tr>
 			<td><form name="prendiazienda" action="PrendiNomeAzienda"
 					method="post">
@@ -132,28 +134,32 @@
 				</form></td>
 			<td><div class="form-group">
 					<select class="form-control" name="sel">
-						<%for(int j=0;j<list.size(); j++){%>
+						<%
+							for (int j = 0; j < list.size(); j++) {
+						%>
 						<option><%=list.get(i).getNome()%>
 							<%=list.get(i).getCognome()%></option>
-						<%}%>
+						<%
+							}
+						%>
 					</select>
 				</div></td>
 			<td><div class="radio">
 					<label><input type="radio" name="optradio"></label>
 				</div></td>
 		</tr>
-		<%} %>
+		<%
+			}
+		%>
 
-
-
-		<!-- <tr>
+		 <tr>
 			<td><form name="prendiazienda" action="PrendiNomeAzienda"
 					method="post"></form>
 				<input type="hidden" name="azienda"
 				value="<%=lista.get(1).getNomeazienda()%>"></td>
 			<td><div class="form-group">
 					<select class="form-control" id="sel2">
-						<%for(int i=0;i<list.size(); i++){%>
+						<%for (int i = 0; i < list.size(); i++) {%>
 						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
 						<%}%>
 					</select>
@@ -169,7 +175,7 @@
 				value="<%=lista.get(2).getNomeazienda()%>"></td>
 			<td><div class="form-group">
 					<select class="form-control" id="sel3">
-						<%for(int i=0;i<list.size(); i++){%>
+						<%for (int i = 0; i < list.size(); i++) {%>
 						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
 						<%}%>
 					</select>
@@ -178,9 +184,7 @@
 					<label><input type="radio" name="optradio"></label>
 				</div></td>
 		</tr>
-		<%
-			if (lista.size() > 2) {
-		%>
+		<%if (lista.size() > 2) {%>
 		<tr>
 			<td><form name="prendiazienda" action="PrendiNomeAzienda"
 					method="post"></form>
@@ -188,7 +192,7 @@
 				value="<%=lista.get(3).getNomeazienda()%>"></td>
 			<td><div class="form-group">
 					<select class="form-control" id="sel3">
-						<%for(int i=0;i<list.size(); i++){%>
+						<%for (int i = 0; i < list.size(); i++) {%>
 						<option><%=list.get(i).getNome()%> <%=list.get(i).getCognome()%></option>
 						<%}%>
 					</select>
@@ -197,10 +201,8 @@
 					<label><input type="radio" name="optradio"></label>
 				</div></td>
 		</tr>
-		<%
-			}
-		%>
-		-->
+		<%}%>
+		
 
 
 
