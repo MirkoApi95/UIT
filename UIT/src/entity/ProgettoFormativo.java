@@ -1,5 +1,13 @@
+/**
+ * pakckage entity rappresentano le entità del database UIT 
+ */
+
 package entity;
 
+/**
+ * Classe che rappresenta l'entità ProgettoFormativo presente nel database UIT
+ * @author Mirko
+ */
 public class ProgettoFormativo {
   private int idProgettoFormativo;
   private int tutorAziendaleUtenteIdUtente;
@@ -10,6 +18,19 @@ public class ProgettoFormativo {
   private boolean convalidaTu;
   private String obiettivi;
 
+  /**
+   * Costruttore della classe che prende anche l'id, quindi utilizzato per le pratiche già presenti in data base
+   * @param id l'id vine generato automaticamente da MySql è un intero
+   * @param convalidaDd rappresenta se il progetto è stato validato dal Direttore del Dipartimento,
+   * è un booleano settato inizialmente a false
+   * @param convalidaTu rappresenta se il progetto è stato validato dal Tutor universitario scelto,
+   * è un booleano settato inizialmente a false
+   * @param obiettivi è di tipo string contine gli obiettivi e finalità del tirocinante 
+   * @param tutorAziendaleUtenteIdUtente è un intenro rappresenta l'id del tutor Aziendale selezionato per il progetto
+   * @param tutorUniversitarioUtenteIdUtente è un intenro rappresenta l'id del tutor Universitario selezionato per il progetto
+   * @param tirocinanteUtenteIdUtente è un intenro rappresenta l'id del tirocinante per il progetto
+   * @param direttoreDipartimentoIdDirettoreDipartimento è un intenro rappresenta l'id del direttore del dipartimento per il progetto
+   */
   public ProgettoFormativo(
       int id,
       Boolean convalidaDd,
@@ -28,7 +49,18 @@ public class ProgettoFormativo {
     this.obiettivi = obiettivi;
     this.idProgettoFormativo = id;
   }
-
+  /**
+   * Costruttore della classe senza id, utilizzato per creare un nuovo progetto, l'id sarà generato automaticamente da MySql
+   * @param convalidaDd rappresenta se il progetto è stato validato dal Direttore del Dipartimento,
+   * è un booleano settato inizialmente a false
+   * @param convalidaTu rappresenta se il progetto è stato validato dal Tutor universitario scelto,
+   * è un booleano settato inizialmente a false
+   * @param obiettivi è di tipo string contine gli obiettivi e finalità del tirocinante 
+   * @param tutorAziendaleUtenteIdUtente è un intenro rappresenta l'id del tutor Aziendale selezionato per il progetto
+   * @param tutorUniversitarioUtenteIdUtente è un intenro rappresenta l'id del tutor Universitario selezionato per il progetto
+   * @param tirocinanteUtenteIdUtente è un intenro rappresenta l'id del tirocinante per il progetto
+   * @param direttoreDipartimentoIdDirettoreDipartimento è un intenro rappresenta l'id del direttore del dipartimento per il progetto
+   */
   public ProgettoFormativo(
       Boolean convalidaDd,
       Boolean convalidaTu,
@@ -46,33 +78,57 @@ public class ProgettoFormativo {
     this.obiettivi = obiettivi;
 
   }
-
+  /**
+   * Cotruttore vuoto della classe
+   */
   public ProgettoFormativo() {}
 
+  /**
+   * Metodo che restituisce l'id del progetto formativo
+   * @return un intero che rappresenta l'id assegnato al progetto formativo
+   */
   public int getId_progetto() {
     return idProgettoFormativo;
   }
-
+  /**
+   * Setta l'id al progetto feromativo, l'id deve essere preso dal DataBase
+   * @param id è un intero che rappresenta l'id
+   */
   public void setId_progetto(int id) {
     this.idProgettoFormativo = id;
   }
-
+  /**
+   * Metodo che restituisce l'id del tutor aziendale
+   * @return un interno che rappresenta l' id del Tutor Aziendale presente in questo progetto
+   */
   public int getTutorAziendale_Utente_idUtente() {
     return tutorAziendaleUtenteIdUtente;
   }
-
+  /**
+   * Metodo che setta l'id del tutor aziendale scelto, l'id è preso dal database UIT
+   * @param tutorAziendaleUtenteIdUtente è un intero che rappresenta l'id
+   */
   public void setTutorAziendale_Utente_idUtente(int tutorAziendaleUtenteIdUtente) {
     this.tutorAziendaleUtenteIdUtente = tutorAziendaleUtenteIdUtente;
   }
-
+  /**
+   * Metodo che restituisce l'id del tutor universitario
+   * @return un interno che rappresenta l' id del Tutor universitario presente in questo progetto
+   */
   public int getTutorUniversitario_Utente_idUtente() {
     return tutorUniversitarioUtenteIdUtente;
   }
-
+  /**
+   * Metodo che setta l'id del tutor universitario scelto, l'id è preso dal database UIT
+   * @param tutorAziendaleUtenteIdUtente è un intero che rappresenta l'id
+   */
   public void setTutorUniversitario_Utente_idUtente(int tutorUniversitarioUtenteIdUtente) {
     this.tutorUniversitarioUtenteIdUtente = tutorUniversitarioUtenteIdUtente;
   }
-
+  /**
+   * Meotodo che restituisce l'id del tirocinante
+   * @return un interno che rappresenta l'id del tirocinante
+   */
   public int getTirocinante_Utente_idUtente() {
     return tirocinanteUtenteIdUtente;
   }

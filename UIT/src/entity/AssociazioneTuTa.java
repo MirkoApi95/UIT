@@ -1,3 +1,7 @@
+/**
+ * pakckage entity rappresentano le entità del database UIT 
+ */
+
 package entity;
 
 /**
@@ -77,10 +81,10 @@ public class AssociazioneTuTa {
   public String getNominativo() {
     return nominativo;
   }
-/**
- * Metodo per settare il nome del tutor aziendale
- * @param nominativo rappresenta il nome del tutor aziendale da settare
- */
+  /**
+   * Metodo per settare il nome del tutor aziendale
+   * @param nominativo rappresenta il nome del tutor aziendale da settare
+   */
   public void setNominativo(String nominativo) {
     this.nominativo = nominativo;
   }
