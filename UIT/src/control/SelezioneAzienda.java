@@ -37,7 +37,7 @@ public class SelezioneAzienda extends HttpServlet {
         listatatu.get(j).addListTu(tutadao.listaAssociazioniTU_TA(listata.get(j)));
       }
 
-      request.setAttribute("array", );
+      request.setAttribute("array", ??????????????);
       request.getRequestDispatcher("/ListaAziendeView.jsp").forward(request, response);
     } catch (SQLException e) {
       e.printStackTrace();
