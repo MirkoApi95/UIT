@@ -1,5 +1,5 @@
 /**
- * pakckage entity rappresentano le entità del database UIT 
+ * pakckage entity rappresentano le entitï¿½ del database UIT 
  */
 package entity;
 /**
@@ -33,7 +33,7 @@ public class Utente {
     this.id = id;
   }
   /**
-   * Costruttore della classe senza id, serve quando hai bisogno di inserire un nuovo utente perchè l'id lo   *genererà mysql
+   * Costruttore della classe senza id, serve quando hai bisogno di inserire un nuovo utente perchï¿½ l'id lo   *genererï¿½ mysql
    * @param nome stringa contente il nome del utente
    * @param cognome stringa contente il cognome dell'utente
    * @param email stringa contente l'email dell'utente
@@ -69,44 +69,71 @@ public class Utente {
   }
 /**
  * metodo per restituire l'email
- * @return
+ * @return string contenente l'email
  */
   public String getEmail() {
     return email;
   }
-
+  /**
+   * metodo per settare l'email
+   * @param email stringa contenente l'email
+   */
   public void setEmail(String email) {
     this.email = email;
   }
-
+  /**
+   * metodo per restituire il cognome
+   * @return string contenente il cognome
+   */
   public String getCognome() {
     return cognome;
   }
-
+  /**
+   * metodo per settare il cognome
+   * @param email stringa contenente il cognome
+   */
   public void setCognome(String cognome) {
     this.cognome = cognome;
   }
-
+  /**
+   * metodo per restituire la password
+   * @return string contenente la password
+   */
   public String getPassword() {
     return password;
   }
-
+  /**
+   * metodo per settare la password
+   * @param email stringa contenente la password
+   */
   public void setPassword(String password) {
     this.password = password;
   }
-
+  /**
+   * metodo per restituire l'indirizzo
+   * @return string contenente l'indirizzo
+   */
   public String getIndirizzo() {
     return indirizzo;
   }
-
+  /**
+   * metodo per settare l'indirizzo
+   * @param email stringa contenente l'indirizzo
+   */
   public void setIndirizzo(String indirizzo) {
     this.indirizzo = indirizzo;
   }
-
+  /**
+   * metodo per restituire l'id utente
+   * @return id intero contenente l'id utente
+   */
   public int getId() {
     return id;
   }
-
+  /**
+   * metodo per settare l'id
+   * @param id intero contenente l'id
+   */
   public void setId(int id) {
     this.id = id;
   }
