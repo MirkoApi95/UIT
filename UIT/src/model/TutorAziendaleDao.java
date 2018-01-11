@@ -108,7 +108,9 @@ public class TutorAziendaleDao extends UtenteDao {
         while (rs.next()){
             TutorAziendale t=new TutorAziendale();
             t.setNomeazienda(rs.getString("NomeAzienda"));
+            t.setId((rs.getInt("utente_id_Utente")));
             tutorList.add(t);
+            System.out.println(t);
         }
 }catch (SQLException e) {
     e.printStackTrace();

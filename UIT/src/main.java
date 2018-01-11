@@ -12,7 +12,7 @@ public class main {
 
     List<TutorAziendale> lista;
     TutorAziendaleDao dao=new TutorAziendaleDao();
-    lista=dao.selectTutornames();
+    lista=TutorAziendaleDao.selectTutornames();
    
    for(int i=0;i<lista.size();i++) {
      System.out.println(lista.get(i).getNomeazienda());

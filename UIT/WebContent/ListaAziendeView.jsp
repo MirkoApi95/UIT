@@ -47,14 +47,6 @@
 </head>
 
 
-<%
-	@SuppressWarnings("unchecked")
-	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
-%>
-
-<%
-	ArrayList<AssociazioneTuTa> vettore=new ArrayList<AssociazioneTuTa>();
-%>
 
 <body>
 
@@ -125,6 +117,14 @@
 			<th>Seleziona</th>
 		</tr>
 		
+<%
+	@SuppressWarnings("unchecked")
+	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
+%>
+
+<%
+	ArrayList<AssociazioneTuTa> vettore=new ArrayList<AssociazioneTuTa>();
+%>
 		<tr>
 			<td>
 					<select class="form-control" name="azienda">
