@@ -14,7 +14,7 @@ import model.UtenteDao;
 /**
  * Servlet implementation class Login
  * Gestisce il login dell'utente.
- * @author AntonioEsposito GiuseppeAdinolfi
+ * @author Francesco Mancuso Milite
  * 
  */
 
@@ -53,19 +53,19 @@ public class Login extends HttpServlet {
           dominio = email.substring(ini);
           switch (dominio) {
             case "@studenti.unisa.it": 
-              request.getRequestDispatcher("HomePageTirocinanteView.jsp").forward(
+              request.getRequestDispatcher("/HomePageTirocinanteView.jsp").forward(
                   request, response);
               break;
             case "@docenti.unisa.it":
-              request.getRequestDispatcher("HomePageTutorUniversitarioView.jsp").forward(
+              request.getRequestDispatcher("/HomePageTutorUniversitarioView.jsp").forward(
                   request, response);
               break;
             case "@azienda.unisa.it":
-              request.getRequestDispatcher("HomePageTutorAziendaleView.jsp").forward(
+              request.getRequestDispatcher("/HomePageTutorAziendaleView.jsp").forward(
                   request, response);
               break;
             case "@direttoredip.unisa.it":
-              request.getRequestDispatcher("HomePageDirettoreDipView.jsp").forward(
+              request.getRequestDispatcher("/HomePageDirettoreDipView.jsp").forward(
                   request, response);
               break;
             default : break;

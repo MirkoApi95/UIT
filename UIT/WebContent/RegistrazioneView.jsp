@@ -132,7 +132,7 @@
 					</div>
 
 					<!-- Password input-->
-					<!-- <div class="form-group">
+					<div class="form-group">
 							<label class="col-md-4 control-label" for="confirm_password">Conferma
 								Password</label>
 							<div class="col-md-5">
@@ -140,7 +140,7 @@
 									type="password" placeholder="Re-inserisci password"
 									class="form-control input-md" required="">
 							</div>
-						</div>-->
+						</div>
 
 					<!-- Multiple Radios (inline) -->
 

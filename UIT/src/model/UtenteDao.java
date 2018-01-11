@@ -16,17 +16,17 @@ public class UtenteDao {
   private PreparedStatement preparedStatement = null;
 
   //****QUERY****\\
-  private final String selectFromIdSql = "select * FROM Utente"
+  private final String selectFromIdSql = "select * FROM Utente "
       + "WHERE utente.id_Utente= ?";
-  private final String selectFromEmailSql = "select * FROM Utente"
+  private final String selectFromEmailSql = "select * FROM Utente "
       + "WHERE utente.Email= ?";
-  private final String insertUtente = "INSERT INTO utente" 
-      + "(Nome, Cognome, Indirizzo, Email, Password)" + "VALUES(?,?,?,?,?)";
-  private final String editaddress = "UPDATE utente SET Indirizzo=?"
+  private final String insertUtente = "INSERT INTO Utente " 
+      + "(Nome, Cognome, Indirizzo, Email, Password) " + "VALUES(?,?,?,?,?)";
+  private final String editaddress = "UPDATE utente SET Indirizzo=? "
       + "WHERE utente.id_Utente=?";
-  private final String editpassword = "UPDATE utente SET Password=?"
+  private final String editpassword = "UPDATE utente SET Password=? "
       + "WHERE utente.id_Utente=?";
-  private final String checkUtente = "SELECT Email FROM university"
+  private final String checkUtente = "SELECT Email FROM university "
       + "WHERE Email=?";
 
   //****COSTRUTTORE****\\
