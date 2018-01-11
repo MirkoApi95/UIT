@@ -28,9 +28,6 @@ public class SelezioneAzienda extends HttpServlet {
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
-      /*ArrayList <TutorAziendale> listata;
-      TutorAziendaleDao tad=new TutorAziendaleDao();
-      listata=tad.listaAziende();*/
       ArrayList<TutorAziendale> listata=TutorAziendaleDao.selectTutornames();
       request.setAttribute("lista", listata);
       request.getRequestDispatcher("/ListaAziendeView.jsp").forward(request, response);
