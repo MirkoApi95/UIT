@@ -3,6 +3,7 @@
 <%@page import="entity.TutorUniversitario"%>
 <%@page import="entity.AssociazioneTuTa"%>
 <%@page import="model.AssociazioneTuTaDao"%>
+<%@page import="control.SelezioneAzienda" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
@@ -47,8 +48,8 @@
 
 
 <%
-	ArrayList<TutorAziendale> lista = new ArrayList<TutorAziendale>();
-	lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
+	@SuppressWarnings("unchecked")
+	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
 %>
 
 <%
@@ -127,11 +128,8 @@
 		<tr>
 			<td>
 					<select class="form-control" name="azienda">
-					<%for (int i = 0; i < lista.size(); i++) {%> 
-					<option><%= lista.get(i).getNomeazienda() %></option>
-					<%
-						}
-					%>
+					
+					<option><%=lista.get(0).getNomeazienda() %></option>
 					
 					</select>
 				</td>
