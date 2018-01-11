@@ -24,4 +24,8 @@ public class TutorUniversitario extends Utente {
     super.setPassword(password);
     super.setIndirizzo(indirizzo);
   }
+
+public TutorUniversitario() {
+  // TODO Auto-generated constructor stub
+}
 }

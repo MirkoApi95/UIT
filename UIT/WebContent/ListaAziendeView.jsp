@@ -6,6 +6,7 @@
 <%@page import="control.SelezioneAzienda" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="tuni" class="entity.TutorUniversitario" scope="session" />
 <jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">

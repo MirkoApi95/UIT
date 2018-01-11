@@ -3,7 +3,11 @@ package model;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import entity.TutorAziendale;
+import entity.TutorUniversitario;
 
 public class TutorUniversitarioDao extends UtenteDao {
 
@@ -44,4 +48,45 @@ public class TutorUniversitarioDao extends UtenteDao {
       return false;
     }
   }
+  public static synchronized ArrayList<TutorUniversitario> selectTutorNames(String azienda) throws SQLException{
+    ArrayList<TutorUniversitario> tuList=new ArrayList<TutorUniversitario>();
+    final String sqlselect="SELECT Nome, Cognome FROM utente, tutoruniversitario, tutoraziendale, associazionetu_ta WHERE tutoruniversitario.utente_id_Utente=associazionetu_ta.tutoruniversitario_utente_id_Utente AND associazionetu_ta.tutorAziendale1_utente_id_Utente=tutoraziendale.utente_id_Utente AND utente.id_Utente=tutoruniversitario.utente_id_Utente AND tutoraziendale.NomeAzienda=?;";
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    
+    try {
+      connection=DriverManagerConnectionPoolUIT.getConnection();
+      preparedStatement=connection.prepareStatement(sqlselect);
+      preparedStatement.setString(1, azienda);
+      ResultSet rs=preparedStatement.executeQuery();
+
+      while (rs.next()){
+          TutorUniversitario t=new TutorUniversitario();
+          t.setNome(rs.getString("Nome"));
+          t.setCognome(rs.getString("Cognome"));
+          tuList.add(t);
+    }
+  }catch(SQLException e) {
+    e.printStackTrace();
+  }
+    return tuList;
+}
+  public static synchronized int countTutor (String azienda) {
+    int risultato=0;
+    final String sqlcount="select count(*) from (SELECT Nome, Cognome FROM utente, tutoruniversitario, tutoraziendale, associazionetu_ta WHERE tutoruniversitario.utente_id_Utente=associazionetu_ta.tutoruniversitario_utente_id_Utente AND associazionetu_ta.tutorAziendale1_utente_id_Utente=tutoraziendale.utente_id_Utente AND utente.id_Utente=tutoruniversitario.utente_id_Utente AND tutoraziendale.NomeAzienda=?) as conteggio";
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    
+    try {
+      connection=DriverManagerConnectionPoolUIT.getConnection();
+      preparedStatement=connection.prepareStatement(sqlcount);
+      preparedStatement.setString(1, azienda);
+      ResultSet rs=preparedStatement.executeQuery();
+
+      while (rs.next()){
+        risultato=rs.getInt("conteggio");
+  }
+}catch(SQLException e) { e.printStackTrace();}
+    return risultato;
+}
 }
