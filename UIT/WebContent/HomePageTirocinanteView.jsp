@@ -1,6 +1,10 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<<<<<<< HEAD
+	
+=======
 	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+>>>>>>> 81f9a2aee820f40be163432c7a606f806630195d
 <html lang="en" class="mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>

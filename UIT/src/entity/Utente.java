@@ -13,6 +13,7 @@ public class Utente {
   private String cognome;
   private String email;
   private String password;
+  private String confirmpassword;
   private String indirizzo;
   /**
    * Costruttore della classe 
@@ -136,5 +137,11 @@ public class Utente {
    */
   public void setId(int id) {
     this.id = id;
+  }
+  public String getConfirmpassword() {
+    return confirmpassword;
+  }
+  public void setConfirmpassword(String confirmpassword) {
+    this.confirmpassword = confirmpassword;
   }
 }
