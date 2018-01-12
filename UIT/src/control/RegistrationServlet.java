@@ -46,6 +46,7 @@ public class RegistrationServlet extends HttpServlet {
     Utente user = new Utente();
     user.setEmail(req.getParameter("emailId"));
     user.setPassword(req.getParameter("passwordinput"));
+    user.setConfirmpassword("confirm_password");
 
 
     try {
@@ -60,7 +61,15 @@ public class RegistrationServlet extends HttpServlet {
         out.println("location='RegistrazioneView.jsp';");
         out.println("</script>");
         
-      }else {
+      }else if(!user.getPassword().equals(user.getConfirmpassword())){
+        System.out.println("errore utente non inserito");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('La password di conferma è diversa dalla password inserita');");
+        out.println("location='RegistrazioneView.jsp';");
+        out.println("</script>");
+      }
+        else {
+      }
         System.out.println("Utente inserito!");
         user = userDao.doRetrieveByMail(user.getEmail());
         String dominio;
@@ -82,7 +91,7 @@ public class RegistrationServlet extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
             "/HomePageViewGenerale.jsp");
         dispatcher.forward(req, resp);
-      }} catch (SQLException e) {
+      } catch (SQLException e) {
         e.printStackTrace();
       }
     }

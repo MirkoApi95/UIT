@@ -3,8 +3,10 @@
 <%@page import="entity.Tirocinante"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:useBean id="pf" class="entity.ProgettoFormativo" scope="session"></jsp:useBean>
-<jsp:useBean id="tiroc" class="entity.Tirocinante" scope="session"></jsp:useBean>
+	
+	<jsp:useBean id="tu" class="entity.TutorUniversitario" scope="session"></jsp:useBean>
+	<%String prova=(String)session.getAttribute("tutorUni");%>
+	<%System.out.println("Stampo---" +prova); %>
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>
@@ -96,17 +98,6 @@
 		</div>
 	</header>
 	<!-- end navigation -->
-
-	<%
-		ArrayList<Tirocinante> listID = new ArrayList<Tirocinante>();
-		listID = (ArrayList<Tirocinante>) request.getAttribute("listaID");
-	%>
-
-	<%
-		ArrayList<ProgettoFormativo> list = new ArrayList<ProgettoFormativo>();
-		list = (ArrayList<ProgettoFormativo>) request.getAttribute("array");
-	%>
-
 
 	<div class="container">
 		<div class="row">

@@ -5,8 +5,11 @@
 <%@page import="model.AssociazioneTuTaDao"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:useBean id="tuni" class="entity.TutorUniversitario" scope="session" />
-<jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+
+<jsp:useBean id="ta" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<%String prova=(String)session.getAttribute("tutoraziendale");%>
+<%System.out.println("Stampo---" +prova); %>
+
 <%
 	@SuppressWarnings("unchecked")
 	ArrayList<TutorUniversitario> lista = (ArrayList<TutorUniversitario>)request.getAttribute("listatutoruni");
@@ -120,7 +123,7 @@
 		</tr>
 		<tr>
 			<td>
-			<select name="dropdpwn">
+			<select name="dropdown">
 			<% for(int i=0; i<lista.size(); i++) {%>
 				<option><%= lista.get(i).getCognome()%> <%= lista.get(i).getNome() %></option>
 				<% } %>

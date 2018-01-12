@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import entity.TutorAziendale;
 import entity.TutorUniversitario;
 import model.TutorAziendaleDao;
@@ -41,10 +42,12 @@ public class VisualizzaTutorUniversitari extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String nome=(String) request.getParameter("dropdown");
+	    String nomeazienda=(String) request.getParameter("dropdown");
         ArrayList<TutorUniversitario> listatu=null;
+        HttpSession session=request.getSession();
+        session.setAttribute("tutoraziendale", nomeazienda);
 	  try {
-	      listatu=TutorUniversitarioDao.selectTutorNames(nome);
+	      listatu=TutorUniversitarioDao.selectTutorNames(nomeazienda);
 	      request.setAttribute("listatutoruni", listatu);
 	      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListaTutorUniversitarioView.jsp");
 	      dispatcher.forward(request, response);
