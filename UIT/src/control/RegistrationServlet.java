@@ -46,12 +46,8 @@ public class RegistrationServlet extends HttpServlet {
     Utente user = new Utente();
     user.setEmail(req.getParameter("emailId"));
     user.setPassword(req.getParameter("passwordinput"));
-<<<<<<< HEAD
     user.setConfirmpassword("confirm_password");
 
-=======
-    
->>>>>>> 81f9a2aee820f40be163432c7a606f806630195d
 
     try {
 
