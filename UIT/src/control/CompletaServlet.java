@@ -39,6 +39,16 @@ public class CompletaServlet extends HttpServlet {
 	    String nominativo=(String) request.getParameter("dropdown");
 	    HttpSession session=request.getSession();
 	    session.setAttribute("tutorUni", nominativo);
+
+	        String nome;
+	        int id=0;
+	        int index = 0;
+	        index=nominativo.lastIndexOf(' ');
+	        nome=nominativo.substring(0, index);
+	        nominativo=nominativo.substring(index+1);
+	        id=Integer.parseInt(nominativo);
+	        System.out.println(nome);
+	        System.out.println(id);
 	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Completato.jsp");
         dispatcher.forward(request, response);
 	}

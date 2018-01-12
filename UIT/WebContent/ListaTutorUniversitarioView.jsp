@@ -124,10 +124,11 @@
 			<th>Nome Tutor Universitario</th>
 		</tr>
 		<tr>
+		<%int identificativo=0; %>
 			<td>
 			<select name="dropdown">
 			<% for(int i=0; i<lista.size(); i++) {%>
-				<option><%=lista.get(i).getCognome()%> <%= lista.get(i).getNome() %></option>
+				<option><%=lista.get(i).getCognome()%> <%= lista.get(i).getNome() %>  <%= identificativo=lista.get(i).getId()%></option>
 				<% } %>
 			</select>
 			</td>

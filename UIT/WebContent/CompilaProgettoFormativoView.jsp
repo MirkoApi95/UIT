@@ -7,8 +7,8 @@
 	<jsp:useBean id="tu" class="entity.TutorUniversitario" scope="session"></jsp:useBean>
 	<%String prova=(String)session.getAttribute("tutorUni");%>
 	<%String prova1=(String)session.getAttribute("tutoraziendale");%>
-	<%System.out.println("Stampo---" +prova);%>
-	<%System.out.println("Stampo---" +prova1);%>
+	<%System.out.println("Stampofgg---" +prova);%>
+	<%System.out.println("Stampofgg1---" +prova1);%>
 	
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>

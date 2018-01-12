@@ -13,12 +13,17 @@ import model.TutorUniversitarioDao;
 public class main {
   public static void main(String[] args) throws SQLException {
 
-    ArrayList<TutorUniversitario> lista=new ArrayList<TutorUniversitario>();
-    ArrayList<TutorUniversitario> lista1=new ArrayList<TutorUniversitario>();
-    lista=TutorUniversitarioDao.selectTutorNames("a");
-    for(int i=0;i<lista.size();i++) {
-      System.out.println("juj"+lista.size());
-      System.out.println("stampo"+lista.get(i).getNome());
-    }
-}
+    String nome = null;
+    int id;
+    int index = 0;
+    String nomeId ="opera ciao 13342";
+
+    index=nomeId.lastIndexOf(' ');
+    nome=nomeId.substring(0, index);
+    nomeId=nomeId.substring(index+1);
+    id=Integer.parseInt(nomeId);
+    System.out.println(id);
+    
+  }
+
 }

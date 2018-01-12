@@ -50,7 +50,7 @@ public class TutorUniversitarioDao extends UtenteDao {
   }
   public static synchronized ArrayList<TutorUniversitario> selectTutorNames(String azienda) throws SQLException{
     ArrayList<TutorUniversitario> tuList=new ArrayList<TutorUniversitario>();
-    final String sqlselect="SELECT Nome, Cognome FROM utente, tutoruniversitario, tutoraziendale, associazionetu_ta WHERE tutoruniversitario.utente_id_Utente=associazionetu_ta.tutoruniversitario_utente_id_Utente AND associazionetu_ta.tutorAziendale1_utente_id_Utente=tutoraziendale.utente_id_Utente AND utente.id_Utente=tutoruniversitario.utente_id_Utente AND tutoraziendale.NomeAzienda=?;";
+    final String sqlselect="SELECT Nome, Cognome,id_Utente FROM utente, tutoruniversitario, tutoraziendale, associazionetu_ta WHERE tutoruniversitario.utente_id_Utente=associazionetu_ta.tutoruniversitario_utente_id_Utente AND associazionetu_ta.tutorAziendale1_utente_id_Utente=tutoraziendale.utente_id_Utente AND utente.id_Utente=tutoruniversitario.utente_id_Utente AND tutoraziendale.NomeAzienda=?;";
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     
@@ -64,6 +64,7 @@ public class TutorUniversitarioDao extends UtenteDao {
           TutorUniversitario t=new TutorUniversitario();
           t.setNome(rs.getString("Nome"));
           t.setCognome(rs.getString("Cognome"));
+          t.setId(rs.getInt("id_Utente"));
           tuList.add(t);
     }
   }catch(SQLException e) {
