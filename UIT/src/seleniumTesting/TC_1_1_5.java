@@ -5,7 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TC1 {
+public class TC_1_1_5 {
+  /**
+   * 
+   * @author Mirko
+   * La calsse testa testa la registrazione inserendo come campo errato nulla in conferma password
+   */
   public static void main(String[] args) {
     System.setProperty("webdriver.chrome.driver", "D:\\Utenti\\Mirko\\Desktop\\chromedriver.exe");
     WebDriver driver= new ChromeDriver();
@@ -19,7 +24,7 @@ public class TC1 {
     inputpassword= driver.findElement(By.id("passwordinput"));
     inputpassword.sendKeys("apicella22");
     confirm_password= driver.findElement(By.id("confirm_password"));
-    confirm_password.sendKeys("apicella22");
+    confirm_password.sendKeys("");
     button=driver.findElement(By.id("submit"));
     button.click();
   }
