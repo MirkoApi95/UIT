@@ -92,10 +92,10 @@
                   <li><a href="404.html">404</a></li>-->
 									<li>
 										<form action="Login" method="post">
-											E-mail:<br> <input type="text" name="emailLogin"
-												value=""> <br> Password:<br> <input
+											E-mail:<br> <input id="emailId"  type="text" name="emailLogin"
+												value=""> <br> Password:<br> <input id="passwordinput" 
 												type="password" name="passwordLogin" value=""><br>
-											<input type="submit" value="Entra">
+											<input id="entra" type="submit" value="Entra">
 										</form>
 									</li>
 								</ul></li>
