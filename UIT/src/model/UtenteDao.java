@@ -28,7 +28,7 @@ public class UtenteDao {
       + "WHERE utente.id_Utente=?";
   private final String checkUtente = "SELECT Email FROM university "
       + "WHERE Email=?";
-  private final String datiUnisa = "SELECT * FROM university";
+  private final String datiUnisa = "SELECT Nome,Cognome,Indirizzo FROM university WHERE Email=?";
   //****COSTRUTTORE****\\
   public UtenteDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();
@@ -112,15 +112,18 @@ public class UtenteDao {
         return false;
       }
       //POPOLAMENTO CAMPI MANCANTI
+      
       preparedStatement = conUnisa.prepareStatement(datiUnisa);
+      preparedStatement.setString(1, Object.getEmail());
       ResultSet rs2 = preparedStatement.executeQuery();
-      System.out.println("DOWLOAD DATI DA UNISA");
-      Object.setNome(rs2.getString(1));
-      Object.setCognome(rs2.getString(2));
-      Object.setIndirizzo(rs.getString(7));
-      if (!rs2.next()) {
-        return false;
+      System.out.println("DOWNLOAD DATI DA UNISA");
+      while(rs2.next()) {
+      Object.setNome(rs2.getString("Nome"));
+      Object.setCognome(rs2.getString("Cognome"));
+      Object.setIndirizzo(rs2.getString("Indirizzo"));
+      System.out.println("FINE DOWNLOAD");
       }
+
       
       //ESEGUE INSERIMENTO
       preparedStatement = connection.prepareStatement(insertUtente);
@@ -136,8 +139,8 @@ public class UtenteDao {
         return true;
       } else {
         return false;
-      }
-    } catch (SQLException e) {
+      }}
+     catch (SQLException e) {
       e.printStackTrace();
       return false;
     }
