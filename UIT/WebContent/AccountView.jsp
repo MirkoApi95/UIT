@@ -58,9 +58,9 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
-						<!-- effettuare controllo su sessione per vedere a quale home ricondurre -->
-							<a href="" class="logo__link"> <img
-								class="logo logo--dark" src="img/logo2.png" alt="logo">
+							<!-- effettuare controllo su sessione per vedere a quale home ricondurre -->
+							<a href="" class="logo__link"> <img class="logo logo--dark"
+								src="img/logo2.png" alt="logo">
 							</a>
 						</div>
 						<button type="button" class="nav__icon-toggle"
@@ -102,26 +102,6 @@
 					<!-- Form Name -->
 					<legend>Profilo Utente</legend>
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="Name">Nome</label>
-						<div class="col-md-5">
-							<input id="Name" name="Name" type="text" placeholder="username"
-								class="form-control input-md" required="">
-
-						</div>
-					</div>
-
-					<!-- Password input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="passwordinput">Password</label>
-						<div class="col-md-5">
-							<input id="passwordinput" name="passwordinput" type="password"
-								placeholder="" class="form-control input-md" required="">
-							<span class="help-block">max 16 characters</span>
-						</div>
-					</div>
-
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="passwordinput">Nuova
 							Password</label>
@@ -133,39 +113,12 @@
 					</div>
 					<!-- Password input-->
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="confirm_password">Confirm
+						<label class="col-md-4 control-label" for="confirm_password">Conferma
 							Password:</label>
 						<div class="col-md-5">
 							<input id="confirm_password" name="confirm_password"
 								type="password" placeholder="Re-type password"
 								class="form-control input-md" required="">
-						</div>
-					</div>
-
-					<!-- Textarea -->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="address">Address:</label>
-						<div class="col-md-4 col-lg-5">
-							<textarea class="form-control" id="address" name="address">default text</textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="address">Nuovo
-							Indirizzo:</label>
-						<div class="col-md-4 col-lg-5">
-							<textarea class="form-control" id="address" name="address">default text</textarea>
-						</div>
-					</div>
-
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="emailId">Email
-							Id</label>
-						<div class="col-md-5 col-lg-5">
-							<input id="emailId" name="emailId" type="text"
-								placeholder="user@domain.com" class="form-control input-md"
-								required="">
 						</div>
 					</div>
 
