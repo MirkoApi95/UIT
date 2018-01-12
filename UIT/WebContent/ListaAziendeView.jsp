@@ -3,11 +3,10 @@
 <%@page import="entity.TutorUniversitario"%>
 <%@page import="entity.AssociazioneTuTa"%>
 <%@page import="model.AssociazioneTuTaDao"%>
-<<<<<<< HEAD
-=======
+
 <%@page import="control.SelezioneAzienda" %>
-<%@page import="control.MostraTutorUni" %>
->>>>>>> 78535f7799650cff33bb6c3f66d8ef008448566f
+
+
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="tuni" class="entity.TutorUniversitario" scope="session" />

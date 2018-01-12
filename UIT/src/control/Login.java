@@ -39,7 +39,10 @@ public class Login extends HttpServlet {
     String email = request.getParameter("emailLogin");
     String password = request.getParameter("passwordLogin");
     PrintWriter out = response.getWriter();
+    HttpSession session = request.getSession();
+    
     Utente u;
+    
     try {
       UtenteDao udao = new UtenteDao();
       u = udao.doRetrieveByMail(email);
@@ -47,7 +50,7 @@ public class Login extends HttpServlet {
       String dominio;
       if (u != null) {
         if (u.getPassword().equals(password) && u.getEmail().equals(email)) {
-          HttpSession session = request.getSession();
+          
           session.setAttribute("utente", u);
           int ini = email.indexOf('@');
           dominio = email.substring(ini);

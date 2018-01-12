@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>
@@ -96,42 +97,42 @@
 
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal">
+			<form action="ModificaPassword" method="post" class="form-horizontal">
 				<fieldset>
 
 					<!-- Form Name -->
 					<legend>Profilo Utente</legend>
-
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="passwordinput">Nuova
-							Password</label>
-						<div class="col-md-5">
-							<input id="passwordinput" name="passwordinput" type="password"
-								placeholder="" class="form-control input-md" required="">
-							<span class="help-block">max 16 characters</span>
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="passwordinput">Nuova
+								Password</label>
+							<div class="col-md-5">
+								<input id="passwordinput" name="passwordinput" type="password"
+									placeholder="" class="form-control input-md" required="">
+								<span class="help-block">max 16 characters</span>
+							</div>
 						</div>
-					</div>
-					<!-- Password input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="confirm_password">Conferma
-							Password:</label>
-						<div class="col-md-5">
-							<input id="confirm_password" name="confirm_password"
-								type="password" placeholder="Re-type password"
-								class="form-control input-md" required="">
+						<!-- Password input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="confirm_password">Conferma
+								Password:</label>
+							<div class="col-md-5">
+								<input id="confirm_password" name="confirm_password"
+									type="password" placeholder="Re-type password"
+									class="form-control input-md" required="">
+							</div>
 						</div>
-					</div>
 
 
-					<!-- Button -->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="submit"></label>
-						<div class="col-md-4 col-lg-1">
-							<button type="button" class="btn">Modifica Account</button>
+						<!-- Button -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="submit"></label>
+							<div class="col-md-4 col-lg-1">
+								<button type="submit" class="btn">Conferma</button>
+							</div>
 						</div>
-					</div>
 				</fieldset>
-			</form>
+	</form>
+			
 		</div>
 	</div>
 
