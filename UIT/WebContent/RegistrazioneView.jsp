@@ -103,23 +103,6 @@
 					<!-- Form Name -->
 					<legend>Form Registrazione UIT</legend>
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="Name">Nome</label>
-						<div class="col-md-5">
-							<input id="Name" name="Name" type="text" placeholder="nome"
-								class="form-control input-md" required="">
-
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="surname">Cognome</label>
-						<div class="col-md-5">
-							<input id="surname" name="surname" type="text"
-								placeholder="cognome" class="form-control input-md" required="">
-						</div>
-					</div>
 
 					<!-- Password input-->
 					<div class="form-group">
@@ -145,13 +128,6 @@
 					<!-- Multiple Radios (inline) -->
 
 
-					<!-- Textarea -->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="address">Indirizzo</label>
-						<div class="col-md-4 col-lg-5">
-							<textarea class="form-control" id="address" name="address"></textarea>
-						</div>
-					</div>
 
 					<!-- Text input-->
 					<div class="form-group">

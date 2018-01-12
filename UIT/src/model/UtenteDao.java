@@ -28,7 +28,7 @@ public class UtenteDao {
       + "WHERE utente.id_Utente=?";
   private final String checkUtente = "SELECT Email FROM university "
       + "WHERE Email=?";
-
+  private final String datiUnisa = "SELECT * FROM university";
   //****COSTRUTTORE****\\
   public UtenteDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();
@@ -98,7 +98,7 @@ public class UtenteDao {
       preparedStatement = conUnisa.prepareStatement(checkUtente);
       preparedStatement.setString(1, Object.getEmail());
       ResultSet rs = preparedStatement.executeQuery();
-      System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 1");
+      System.out.println("CONTROLLO NEL DATABASE UNIVERSITARIO");
       if (!rs.next()) {
         return false;
       }
@@ -107,10 +107,21 @@ public class UtenteDao {
       preparedStatement = connection.prepareStatement(selectFromEmailSql);
       preparedStatement.setString(1, Object.getEmail());
       ResultSet rs1 = preparedStatement.executeQuery();
-      System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 2");
+      System.out.println("CONTROLLO NEL DATABASE INTERNO");
       if (rs1.next()) {
         return false;
       }
+      //POPOLAMENTO CAMPI MANCANTI
+      preparedStatement = conUnisa.prepareStatement(datiUnisa);
+      ResultSet rs2 = preparedStatement.executeQuery();
+      System.out.println("DOWLOAD DATI DA UNISA");
+      Object.setNome(rs2.getString(1));
+      Object.setCognome(rs2.getString(2));
+      Object.setIndirizzo(rs.getString(7));
+      if (!rs2.next()) {
+        return false;
+      }
+      
       //ESEGUE INSERIMENTO
       preparedStatement = connection.prepareStatement(insertUtente);
       preparedStatement.setString(1, Object.getNome());
@@ -120,7 +131,7 @@ public class UtenteDao {
       preparedStatement.setString(5, Object.getPassword());
       int n = preparedStatement.executeUpdate();
       connection.commit();
-      System.out.println("SONO QUI!!!!!!!!!!!!!!!!!! 3");
+      System.out.println("INSERITO NELLA TABELLA UTENTE");
       if (n != 0) {
         return true;
       } else {

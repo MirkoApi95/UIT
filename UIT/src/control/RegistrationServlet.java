@@ -2,9 +2,11 @@ package control;
 
 import entity.Utente;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,39 +44,47 @@ public class RegistrationServlet extends HttpServlet {
       throws ServletException, IOException {
 
     Utente user = new Utente();
-    user.setNome(req.getParameter("Name"));
-    user.setCognome(req.getParameter("surname"));
     user.setEmail(req.getParameter("emailId"));
     user.setPassword(req.getParameter("passwordinput"));
-    user.setIndirizzo(req.getParameter("address"));
+
 
     try {
+
+      PrintWriter out = resp.getWriter();
       UtenteDao userDao = new UtenteDao();
-      userDao.upLoadUtente(user);
-      System.out.println("Utente inserito!");
-      user = userDao.doRetrieveByMail(user.getEmail());
-      String dominio;
-      int ini = user.getEmail().indexOf('@');
-      dominio = user.getEmail().substring(ini);
-      TirocinanteDao t = new TirocinanteDao();
-      TutorUniversitarioDao tu = new TutorUniversitarioDao();
+      boolean check=userDao.upLoadUtente(user);
+      if(check==false) {
+        System.out.println("errore utente non inserito");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('email già esistente o non presente nel database universitario');");
+        out.println("location='RegistrazioneView.jsp';");
+        out.println("</script>");
+        
+      }else {
+        System.out.println("Utente inserito!");
+        user = userDao.doRetrieveByMail(user.getEmail());
+        String dominio;
+        int ini = user.getEmail().indexOf('@');
+        dominio = user.getEmail().substring(ini);
+        TirocinanteDao t = new TirocinanteDao();
+        TutorUniversitarioDao tu = new TutorUniversitarioDao();
 
-      switch (dominio) {
-        case "@studenti.unisa.it":
-          t.setIdSql(user.getEmail());
-          break;
-        case "@docenti.unisa.it":
-          tu.inserisciTU(user.getId());
-          break;
-        default : break;
+        switch (dominio) {
+          case "@studenti.unisa.it":
+            t.setIdSql(user.getEmail());
+            break;
+          case "@docenti.unisa.it":
+            tu.inserisciTU(user.getId());
+            break;
+          default : break;
+        }
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
+            "/HomePageViewGenerale.jsp");
+        dispatcher.forward(req, resp);
+      }} catch (SQLException e) {
+        e.printStackTrace();
       }
-
-      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
-          "/HomePageViewGenerale.jsp");
-      dispatcher.forward(req, resp);
-    } catch (SQLException e) {
-      e.printStackTrace();
     }
-  }
 }
 
