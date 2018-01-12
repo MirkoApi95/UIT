@@ -125,8 +125,6 @@
 			<td>button</td>
 			<td>button</td>
 			<td>button</td>
-			</div>
-			</td>
 		</tr>
 
 	</table>

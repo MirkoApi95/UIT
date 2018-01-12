@@ -137,7 +137,7 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="SelezioneAzienda">Vai</a>
+								<a href="VisualizzaAzienda">Vai</a>
 							</div>
 						</div>
 					</div>

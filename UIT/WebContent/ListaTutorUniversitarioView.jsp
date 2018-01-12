@@ -9,12 +9,12 @@
 <jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
 <%
 	@SuppressWarnings("unchecked")
-	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("arrayaziende");
+	ArrayList<TutorUniversitario> lista = (ArrayList<TutorUniversitario>)request.getAttribute("listatutoruni");
 %>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
-<title>Lista delle Aziende</title>
+<title>Lista dei Tutor Universitari</title>
 
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -114,16 +114,15 @@
 	</header>
 	<!-- end navigation -->
 	<main class="main oh">
-	<form action="VisualizzaTutorUniversitari" method="post">
 	<table>
 		<tr>
-			<th>Nome Azienda</th>
+			<th>Nome Tutor Universitario</th>
 		</tr>
 		<tr>
 			<td>
-			<select name="dropdown">
+			<select name="dropdpwn">
 			<% for(int i=0; i<lista.size(); i++) {%>
-				<option><%= lista.get(i).getNomeazienda() %></option>
+				<option><%= lista.get(i).getCognome()%> <%= lista.get(i).getNome() %></option>
 				<% } %>
 			</select>
 			</td>
@@ -135,7 +134,6 @@
 							<button type="submit" name="submit" class="btn btn-success">Conferma</button>
 						</div>
 				</div>
-	</form>
 
 
 

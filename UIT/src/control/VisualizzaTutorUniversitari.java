@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +17,14 @@ import model.TutorUniversitarioDao;
 /**
  * Servlet implementation class MostraTutorUni
  */
-@WebServlet("/MostraTutorUni")
-public class MostraTutorUni extends HttpServlet {
+@WebServlet("/VisualizzaTutorUniversitari")
+public class VisualizzaTutorUniversitari extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MostraTutorUni() {
+    public VisualizzaTutorUniversitari() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,20 +41,13 @@ public class MostraTutorUni extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String nome=request.getParameter("azienda");
-        TutorUniversitario tuni = (TutorUniversitario)request.getSession().getAttribute("tuni");
+	    String nome=(String) request.getParameter("dropdown");
         ArrayList<TutorUniversitario> listatu=null;
 	  try {
 	      listatu=TutorUniversitarioDao.selectTutorNames(nome);
-	      int contatore=TutorUniversitarioDao.countTutor(nome);
-	      for(int j=0;j<contatore;j++) {
-	        tuni.setCognome(listatu.get(j).getCognome());
-	        tuni.setNome(listatu.get(j).getNome());
-	      }
-	      ArrayList<TutorUniversitario> tunidef=new ArrayList<TutorUniversitario>();
-	      tunidef.add(tuni);
-	      request.setAttribute("listaprof", tunidef);
-	      request.getRequestDispatcher("/ListaAziendeView.jsp").forward(request, response);
+	      request.setAttribute("listatutoruni", listatu);
+	      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListaTutorUniversitarioView.jsp");
+	      dispatcher.forward(request, response);
 	    } catch (SQLException e) {
 	      e.printStackTrace();
 	    }
