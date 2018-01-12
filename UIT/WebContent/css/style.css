@@ -2373,12 +2373,6 @@ to {
 	user-select: none;
 }
 
-.btn:hover {
-	color: #fff;
-	opacity: .9;
-	border-color: transparent;
-}
-
 .btn:focus {
 	outline: none;
 	color: #fff;

@@ -3,12 +3,19 @@
 <%@page import="entity.TutorUniversitario"%>
 <%@page import="entity.AssociazioneTuTa"%>
 <%@page import="model.AssociazioneTuTaDao"%>
+<<<<<<< HEAD
+=======
 <%@page import="control.SelezioneAzienda" %>
 <%@page import="control.MostraTutorUni" %>
+>>>>>>> 78535f7799650cff33bb6c3f66d8ef008448566f
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="tuni" class="entity.TutorUniversitario" scope="session" />
 <jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<%
+	@SuppressWarnings("unchecked")
+	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("arrayaziende");
+%>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
@@ -112,55 +119,31 @@
 	</header>
 	<!-- end navigation -->
 	<main class="main oh">
+	<form action="VisualizzaTutorUniversitari" method="post">
 	<table>
 		<tr>
-			<th>Azienda</th>
-			<th>Tutor Universitario</th>
-			<th>Seleziona</th>
+			<th>Nome Azienda</th>
 		</tr>
-		
-<%
-	@SuppressWarnings("unchecked")
-	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("lista");
-%>
-	
-<%
-	@SuppressWarnings("unchecked")
-	ArrayList<TutorUniversitario> listaprof=(ArrayList<TutorUniversitario>)request.getAttribute("listaprof");
-%>
-
-<%
-	ArrayList<AssociazioneTuTa> vettore=new ArrayList<AssociazioneTuTa>();
-%>
 		<tr>
 			<td>
-					<select class="form-control" name="azienda">
-					<%for (int i=0;i<lista.size();i++) {%>
-					<option><%=lista.get(i).getNomeazienda() %></option>
-					<%	} %>
-					</select>
-				</td>
-				<% for(int k=0;k<listaprof.size();k++) {%>
-			<td> <%= listaprof.get(k).getNome() %> <%= listaprof.get(k).getCognome() %> </td>
-			<%	} %>
-			<td><div class="radio">
-					<label><input type="radio" name="optradio"></label>
-				</div></td>
-		</tr>
-		
-		<tr>
-			<td>
-			<div class="radio">
-				<label><input type="radio" name="optradio"></label>
-			</div>
+			<select name="dropdown">
+			<% for(int i=0; i<lista.size(); i++) {%>
+				<option><%= lista.get(i).getNomeazienda() %></option>
+				<% } %>
+			</select>
 			</td>
 		</tr>
-
 	</table>
-	<div>
-		<button type="button" class="btn btn-primary"
-			style="text-align: center">Primary</button>
-	</div>
+				<div class="form-group">
+						<label class="col-md-4 control-label" for="submit"></label>
+						<div class="col-md-4 col-lg-1">
+							<button type="submit" name="submit" class="btn btn-success">Conferma</button>
+						</div>
+				</div>
+	</form>
+
+
+
 	<div class="gmap gmap-hidden" id="google-map"
 		data-address="V Tytana St, Manila, Philippines"></div>
 
