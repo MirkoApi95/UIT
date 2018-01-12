@@ -1,9 +1,6 @@
-
 package control;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,22 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import entity.TutorAziendale;
-import entity.TutorUniversitario;
-import model.TutorAziendaleDao;
-import model.TutorUniversitarioDao;
 
 /**
- * Servlet implementation class MostraTutorUni
+ * Servlet implementation class CompletaServlet
  */
-@WebServlet("/VisualizzaTutorUniversitari")
-public class VisualizzaTutorUniversitari extends HttpServlet {
+@WebServlet("/CompletaServlet")
+public class CompletaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VisualizzaTutorUniversitari() {
+    public CompletaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,19 +36,11 @@ public class VisualizzaTutorUniversitari extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String nomeazienda=(String) request.getParameter("dropdown");
-	    
-        ArrayList<TutorUniversitario> listatu=null;
-        HttpSession session=request.getSession();
-        session.setAttribute("tutoraziendale", nomeazienda);
-	  try {
-	      listatu=TutorUniversitarioDao.selectTutorNames(nomeazienda);
-	      request.setAttribute("listatutoruni", listatu);
-	      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListaTutorUniversitarioView.jsp");
-	      dispatcher.forward(request, response);
-	    } catch (SQLException e) {
-	      e.printStackTrace();
-	    }
+	    String nominativo=(String) request.getParameter("dropdown");
+	    HttpSession session=request.getSession();
+	    session.setAttribute("tutorUni", nominativo);
+	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Completato.jsp");
+        dispatcher.forward(request, response);
 	}
 
 }

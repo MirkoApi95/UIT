@@ -6,7 +6,10 @@
 	
 	<jsp:useBean id="tu" class="entity.TutorUniversitario" scope="session"></jsp:useBean>
 	<%String prova=(String)session.getAttribute("tutorUni");%>
-	<%System.out.println("Stampo---" +prova); %>
+	<%String prova1=(String)session.getAttribute("tutoraziendale");%>
+	<%System.out.println("Stampo---" +prova);%>
+	<%System.out.println("Stampo---" +prova1);%>
+	
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>

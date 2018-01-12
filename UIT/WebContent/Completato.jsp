@@ -183,7 +183,7 @@
 					<div class="row">
 
 						<div class="col-sm-6 col-xs-12">
-							<span class="copyright"> © Made by UIT Team</a>
+							<span class="copyright"> Made by UIT Team</a>
 							</span>
 						</div>
 

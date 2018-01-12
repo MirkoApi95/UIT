@@ -3,18 +3,11 @@
 <%@page import="entity.TutorUniversitario"%>
 <%@page import="entity.AssociazioneTuTa"%>
 <%@page import="model.AssociazioneTuTaDao"%>
-<<<<<<< HEAD
 <%@page import="control.SelezioneAzienda" %>
-=======
-
-<%@page import="control.SelezioneAzienda" %>
-
-
->>>>>>> 81f9a2aee820f40be163432c7a606f806630195d
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:useBean id="tuni" class="entity.TutorUniversitario" scope="session" />
-<jsp:useBean id="tutoraziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+	
+	<jsp:useBean id="ta" class="entity.TutorAziendale" scope="session"></jsp:useBean>
 <%
 	@SuppressWarnings("unchecked")
 	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("arrayaziende");
@@ -127,11 +120,12 @@
 		<tr>
 			<th>Nome Azienda</th>
 		</tr>
+		<%int identificativo=0;%>
 		<tr>
 			<td>
 			<select name="dropdown">
 			<% for(int i=0; i<lista.size(); i++) {%>
-				<option><%= lista.get(i).getNomeazienda() %></option>
+				<option><%= lista.get(i).getNomeazienda() %> <%= identificativo=lista.get(i).getId()%></option>
 				<% } %>
 			</select>
 			</td>

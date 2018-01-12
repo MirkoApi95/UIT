@@ -27,10 +27,11 @@ public class ProgettoFormativoServlet extends HttpServlet {
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    ArrayList<String> listacompleta=new ArrayList<String>();
+    
     String nominativo=(String) request.getParameter("dropdown");
     HttpSession session=request.getSession();
     session.setAttribute("tutorUni", nominativo);
+    
     
     
     request.getRequestDispatcher("/CompilaProgettoFormativoView.jsp").forward(request, response);
