@@ -131,7 +131,7 @@
 			<td><%=vettore.get(j).getTirocinante_Utente_idUtente()%></td>
 			<td><%=vettore.get(j).getConvalidaTu() %></td>
 			<td><%=vettore.get(j).getConvalidaDd() %></td>
-			<td></td>
+			<td><input type="button" onclick="ProgettoFormativoViewTuTa.jsp" value="Visualizza"></td>
 		</tr><%} %>
 
 	</table>
