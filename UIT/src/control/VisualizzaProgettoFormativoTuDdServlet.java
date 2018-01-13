@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.catalina.SessionEvent;
 import entity.ProgettoFormativo;
 import entity.Tirocinante;
 import entity.TutorAziendale;
@@ -38,7 +39,7 @@ public class VisualizzaProgettoFormativoTuDdServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     TutorAziendale ta = null;
     String iD =  request.getParameter("idProgetto");
-    
+    HttpSession session =request.getSession();
     Utente utentetirocinante = null;
     Tirocinante tirocinante = null;
     ProgettoFormativo progetto= null;
@@ -65,6 +66,7 @@ public class VisualizzaProgettoFormativoTuDdServlet extends HttpServlet {
     request.setAttribute("datiAzienda", ta);
     request.setAttribute("datiUtenteTirocinante", utentetirocinante);
     request.setAttribute("progetto", progetto);
+    session.setAttribute("pratica", progetto);
     request.getRequestDispatcher("/ProgettoFormativoViewTuTa.jsp").forward(request, response);
   }
 

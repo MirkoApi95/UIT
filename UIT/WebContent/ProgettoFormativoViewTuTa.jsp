@@ -7,9 +7,9 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
-<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<jsp:useBean id="pratica" class="entity.ProgettoFormativo"
+	scope="session"></jsp:useBean>
 
-	
 
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
@@ -105,17 +105,21 @@
 
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal" action="ProgettoFormativoServlet" method="post">
+			<form class="form-horizontal" action="ConvalidaPraticaServlet"
+				method="post">
 				<fieldset>
 					<!-- Form Name -->
 					<legend> Progetto Formativo e di Orientamento</legend>
 					<!-- Text input-->
-					<%Utente utentet=(Utente)request.getAttribute("datiUtenteTirocinante");%>
+					<%
+						Utente utentet = (Utente) request.getAttribute("datiUtenteTirocinante");
+					%>
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Name">Nome</label>
 						<div class="col-md-5">
-							<input id="Name" name="Name" type="text" value="<%=utentet.getNome() %>"
-								class="form-control input-md" readonly>
+							<input id="Name" name="Name" type="text"
+								value="<%=utentet.getNome()%>" class="form-control input-md"
+								readonly>
 
 						</div>
 					</div>
@@ -124,17 +128,21 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="passwordinput">Cognome</label>
 						<div class="col-md-5">
-							<input id="surnameinput" name="surnameinput" type="text" value="<%=utentet.getCognome() %>"
-								class="form-control input-md" readonly>
+							<input id="surnameinput" name="surnameinput" type="text"
+								value="<%=utentet.getCognome()%>" class="form-control input-md"
+								readonly>
 						</div>
 					</div>
 
 					<!-- Address input-->
-					<%Tirocinante tirocinante=(Tirocinante)request.getAttribute("datiTirocinante");%>
+					<%
+						Tirocinante tirocinante = (Tirocinante) request.getAttribute("datiTirocinante");
+					%>
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="address">Matricola</label>
 						<div class="col-md-5">
-							<input id="matricola" name="matricola" type="text" value="<%=tirocinante.getMatricola() %>"
+							<input id="matricola" name="matricola" type="text"
+								value="<%=tirocinante.getMatricola()%>"
 								class="form-control input-md" readonly>
 						</div>
 					</div>
@@ -144,7 +152,8 @@
 						<label class="col-md-4 control-label" for="address">CFU
 							Acquisiti</label>
 						<div class="col-md-4 col-lg-5">
-							<input type="text" value="<%=tirocinante.getNumeroCfu() %>" class="form-control" id="cfu" name="cfu" readonly>
+							<input type="text" value="<%=tirocinante.getNumeroCfu()%>"
+								class="form-control" id="cfu" name="cfu" readonly>
 						</div>
 					</div>
 
@@ -153,8 +162,9 @@
 						<label class="col-md-4 control-label" for="emailId">Anno
 							Iscrizione</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="annoiscr" name="annoiscr" type="text" value="<%=tirocinante.getAnno()%>"
-								class="form-control input-md" readonly >
+							<input id="annoiscr" name="annoiscr" type="text"
+								value="<%=tirocinante.getAnno()%>" class="form-control input-md"
+								readonly>
 						</div>
 					</div>
 
@@ -173,10 +183,13 @@
 						<label class="col-md-4 control-label" for="azienda">Azienda/Ente
 							Ospitante</label>
 						<div class="col-md-5 col-lg-5">
-						<%TutorAziendale ta=(TutorAziendale)request.getAttribute("datiAzienda");%>
+							<%
+								TutorAziendale ta = (TutorAziendale) request.getAttribute("datiAzienda");
+							%>
 
-							<input id="azienda" name="azienda" type="text" value="<%=ta.getNomeazienda()%>"
-								class="form-control input-md" readonly>
+							<input id="azienda" name="azienda" type="text"
+								value="<%=ta.getNomeazienda()%>" class="form-control input-md"
+								readonly>
 						</div>
 					</div>
 
@@ -185,8 +198,11 @@
 						<label class="col-md-4 control-label" for="Tutor Accademico">Tutor
 							Accademico</label>
 						<div class="col-md-5 col-lg-5">
-						<%Utente tu=(Utente)request.getAttribute("datiUtenteTirocinante");%>
-							<input id="tutoraccademico" name="tutoraccademico" type="text" value="<%=utente.getCognome() +" "+ utente.getNome()%>"
+							<%
+								Utente tu = (Utente) request.getAttribute("datiUtenteTirocinante");
+							%>
+							<input id="tutoraccademico" name="tutoraccademico" type="text"
+								value="<%=utente.getCognome() + " " + utente.getNome()%>"
 								class="form-control input-md" readonly>
 						</div>
 					</div>
@@ -196,51 +212,64 @@
 						<label class="col-md-4 control-label" for="address">Obiettivi
 							e finalita' </label>
 						<div class="col-md-4 col-lg-5">
-						<%ProgettoFormativo pj=(ProgettoFormativo)request.getAttribute("progetto");%>
-							<input class="form-control" id="obiettivi" name="obiettivi" value="<%= pj.getObiettivi() %>" readonly>
+							<%
+								ProgettoFormativo pj = (ProgettoFormativo) request.getAttribute("progetto");
+							%>
+							<input class="form-control" id="obiettivi" name="obiettivi"
+								value="<%=pj.getObiettivi()%>" readonly>
 						</div>
 					</div>
 
 					<!-- Button -->
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="address"> Convalida Direttore Dipartimento </label>
+						<label class="col-md-4 control-label" for="address">
+							Convalida Direttore Dipartimento </label>
 						<div class="col-md-4 col-lg-5">
-							<% if (pj.getConvalidaDd()==true) {%>
-								<span> La pratica è stata accettata </span>
-								<img alt="ConvalidaDDAccettata" src="img/verde.png" style="float:right">
-								<%}  else{%>
-								<span> La pratica non è ancora stata accettata </span>
-								<img alt="ConvalidaDDNonAccettata" src="img/arancio.png" style="float:right">
-							
-								<%} %>
+							<%
+								if (pj.getConvalidaDd() == true) {
+							%>
+							<span> La pratica è stata accettata </span> <img
+								alt="ConvalidaDDAccettata" src="img/verde.png"
+								style="float: right">
+							<%
+								} else {
+							%>
+							<span> La pratica non è ancora stata accettata </span> <img
+								alt="ConvalidaDDNonAccettata" src="img/arancio.png"
+								style="float: right">
+
+							<%
+								}
+							%>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="address"> Convalida Tutor Universitario </label>
+						<label class="col-md-4 control-label" for="address">
+							Convalida Tutor Universitario </label>
 						<div class="col-md-4 col-lg-5">
-							<% if (pj.getConvalidaTu()==true) {%>
-								<span>La pratica è stata accettata </span>
-								<img alt="ConvalidaTUAccettata" src="img/verde.png" style="float:right">
-								<%} else{%>
-								<span> La pratica non è ancora stata accettata </span>
-								<img alt="ConvalidaTUNonAccettata" src="img/arancio.png" style="float:right">
-						<%} %>
+							<%
+								if (pj.getConvalidaTu() == true) {
+							%>
+							<span>La pratica è stata accettata </span> <img
+								alt="ConvalidaTUAccettata" src="img/verde.png"
+								style="float: right">
+							<%
+								} else {
+							%>
+							<span> La pratica non è ancora stata accettata </span> <img
+								alt="ConvalidaTUNonAccettata" src="img/arancio.png"
+								style="float: right">
+							<%
+								}
+							%>
 						</div>
 					</div>
+					<button id="submit" name="submit" class="btn btn-success">Convalida</button>
 				</fieldset>
+
 			</form>
-			
-			<!-- form per convalida di TU -->
-			<form class="form-horizontal" action="" method="">
-				<button id="submit" name="submit" class="btn btn-success">Convalida</button>
-			</form>
-			
-			<!-- form per convalida di TA -->
-			<form class="form-horizontal" action="" method="">
-				<button id="submit" name="submit" class="btn btn-success">Convalida</button>
-			</form>
-			
+
 		</div>
 	</div>
 
