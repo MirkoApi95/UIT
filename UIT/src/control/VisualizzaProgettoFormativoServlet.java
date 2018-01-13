@@ -28,10 +28,6 @@ public class VisualizzaProgettoFormativoServlet extends HttpServlet {
   
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    response.getWriter().append("Served at: ").append(request.getContextPath());
-  }
-  
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     HttpSession session = request.getSession();
     ProgettoFormativoDao daopf;
     try {
@@ -40,14 +36,18 @@ public class VisualizzaProgettoFormativoServlet extends HttpServlet {
       UtenteDao daou= new UtenteDao();
       ProgettoFormativo project=(ProgettoFormativo) daopf.doRetrieveByKeyUtente(u.getId());
       TutorAziendale ta;
-      TutorUniversitario tu;
+      Utente tu;
       TutorAziendaleDao daota=new TutorAziendaleDao();
       ta=daota.doRetrieveByKey(project.getTutorAziendale_Utente_idUtente());
-      tu=(TutorUniversitario)daou.doRetrieveByKey(project.getTutorUniversitario_Utente_idUtente());
+      
+      tu=(Utente)daou.doRetrieveByKey(project.getTutorUniversitario_Utente_idUtente());
+      
+      System.out.println("ta=" + ta.getNomeazienda());
       
       request.setAttribute("progetto", project);
       request.setAttribute("tutorUniversitario", tu);
       request.setAttribute("tutorAziendale", ta);
+      
       
     } catch (SQLException e) {
       
@@ -57,5 +57,9 @@ public class VisualizzaProgettoFormativoServlet extends HttpServlet {
     
     request.getRequestDispatcher("/ProgettoFormativoView.jsp").forward(request, response);
   }
-
+    
+  
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.getWriter().append("Served at: ").append(request.getContextPath());
+}
 }

@@ -19,7 +19,7 @@ public class ProgettoFormativoDao {
   
   private final String selectFromIdSql = "select * FROM ProgettoFormativo WHERE"
       + "ProgettoFormativo.ID_ProgettoFormativo= ?";
-  private final String selectFromIsUtente ="SELECT * FORM ProgettoFormativo WHERE tirocinante_utente_id_Utente =?";
+  private final String selectFromIsUtente ="SELECT * FROM ProgettoFormativo WHERE tirocinante_utente_id_Utente =?";
   private final String insertProgetto = "INSERT INTO ProgettoFormativo("
       + "ConvalidaDD,"
       + "ConvalidaTU,"
@@ -55,7 +55,7 @@ public class ProgettoFormativoDao {
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
       while (rs.next()) {
-        progetto.setTirocinante_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
+        progetto.setTutorAziendale_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
         progetto.setTutorUniversitario_Utente_idUtente(
             rs.getInt("tutorUniversitario_utente_id_Utente"));
         progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));
@@ -78,7 +78,7 @@ public class ProgettoFormativoDao {
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
       while (rs.next()) {
-        progetto.setTirocinante_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
+        progetto.setTutorAziendale_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
         progetto.setTutorUniversitario_Utente_idUtente(
             rs.getInt("tutorUniversitario_utente_id_Utente"));
         progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));

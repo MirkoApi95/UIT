@@ -1,7 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="entity.ProgettoFormativo"%>
+<%@page import="entity.Tirocinante"%>
+<%@page import="entity.TutorAziendale"%>
+<%@page import="entity.TutorUniversitario"%>
+<%@page import="entity.Utente"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
 <jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
+
+	
 
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
@@ -33,6 +41,7 @@
 	href="img/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="img/apple-touch-icon-114x114.png">
+
 </head>
 
 <body>
@@ -94,21 +103,18 @@
 	</header>
 	<!-- end navigation -->
 
-
-
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="ProgettoFormativoServlet" method="post">
 				<fieldset>
-
 					<!-- Form Name -->
 					<legend> Progetto Formativo e di Orientamento</legend>
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="Name">Nome </label>
+						<label class="col-md-4 control-label" for="Name">Nome</label>
 						<div class="col-md-5">
-							<input id="Name" name="Name" type="text"
-								class="form-control input-md" required="">
+							<input id="Name" name="Name" type="text" value="<%=utente.getNome() %>"
+								class="form-control input-md" readonly>
 
 						</div>
 					</div>
@@ -117,8 +123,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="passwordinput">Cognome</label>
 						<div class="col-md-5">
-							<input id="surnameinput" name="surnameinput" type="text"
-								class="form-control input-md" required="">
+							<input id="surnameinput" name="surnameinput" type="text" value="<%=utente.getCognome() %>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -126,8 +132,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="address">Matricola</label>
 						<div class="col-md-5">
-							<input id="matricola" name="matricola" type="text"
-								class="form-control input-md" required="">
+							<input id="matricola" name="matricola" type="text" value="<%=tirocinante.getMatricola() %>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -136,7 +142,7 @@
 						<label class="col-md-4 control-label" for="address">CFU
 							Acquisiti</label>
 						<div class="col-md-4 col-lg-5">
-							<input type="text" class="form-control" id="cfu" name="cfu">
+							<input type="text" value="<%=tirocinante.getNumeroCfu() %>" class="form-control" id="cfu" name="cfu" readonly>
 						</div>
 					</div>
 
@@ -145,8 +151,8 @@
 						<label class="col-md-4 control-label" for="emailId">Anno
 							Iscrizione</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="annoiscr" name="annoiscr" type="text"
-								class="form-control input-md" required="">
+							<input id="annoiscr" name="annoiscr" type="text" value="<%=tirocinante.getAnno()%>"
+								class="form-control input-md" readonly >
 						</div>
 					</div>
 
@@ -155,8 +161,8 @@
 						<label class="col-md-4 control-label" for="emailId">Anno
 							in corso</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="annocorso" name="annocorso" type="text"
-								class="form-control input-md" required="">
+							<input id="annocorso" name="annocorso" type="text" value="2018"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -165,18 +171,10 @@
 						<label class="col-md-4 control-label" for="azienda">Azienda/Ente
 							Ospitante</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="azienda" name="azienda" type="text"
-								class="form-control input-md" required="">
-						</div>
-					</div>
+						<%TutorAziendale ta=(TutorAziendale)request.getAttribute("tutorAziendale");%>
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="tutoraziendale">Tutor
-							Aziendale</label>
-						<div class="col-md-5 col-lg-5">
-							<input id="tutoraziendale" name="tutoraziendale" type="text"
-								class="form-control input-md" required="">
+							<input id="azienda" name="azienda" type="text" value="<%=ta.getNomeazienda()%>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -185,8 +183,9 @@
 						<label class="col-md-4 control-label" for="Tutor Accademico">Tutor
 							Accademico</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="tutoraccademico" name="tutoraccademico" type="text"
-								class="form-control input-md" required="">
+						<%Utente tu=(Utente)request.getAttribute("tutorUniversitario");%>
+							<input id="tutoraccademico" name="tutoraccademico" type="text" value="<%=tu.getCognome() +" "+ tu.getNome()%>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -195,16 +194,36 @@
 						<label class="col-md-4 control-label" for="address">Obiettivi
 							e finalita' </label>
 						<div class="col-md-4 col-lg-5">
-							<textarea class="form-control" id="obiettivi" name="obiettivi"
-								placeholder="Compila il campo con gli obiettivi e le finalita'"></textarea>
+						<%ProgettoFormativo pj=(ProgettoFormativo)request.getAttribute("progetto");%>
+							<input class="form-control" id="obiettivi" name="obiettivi" value="<%= pj.getObiettivi() %>" readonly>
 						</div>
 					</div>
 
 					<!-- Button -->
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="submit"></label>
-						<div class="col-md-4 col-lg-1">
-							<button id="submit" name="submit" class="btn btn-success">Submit</button>
+						<label class="col-md-4 control-label" for="address"> Convalida Direttore Dipartimento </label>
+						<div class="col-md-4 col-lg-5">
+							<% if (pj.getConvalidaDd()==true) {%>
+								<span> La pratica è stata accettata </span>
+								<img alt="ConvalidaDDAccettata" src="img/verde.png" style="float:right">
+								<%}  else{%>
+								<span> La pratica non è ancora stata accettata </span>
+								<img alt="ConvalidaDDNonAccettata" src="img/arancio.png" style="float:right">
+							
+								<%} %>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="address"> Convalida Tutor Universitario </label>
+						<div class="col-md-4 col-lg-5">
+							<% if (pj.getConvalidaTu()==true) {%>
+								<span>La pratica è stata accettata </span>
+								<img alt="ConvalidaTUAccettata" src="img/verde.png" style="float:right">
+								<%} else{%>
+								<span> La pratica non è ancora stata accettata </span>
+								<img alt="ConvalidaTUNonAccettata" src="img/arancio.png" style="float:right">
+						<%} %>
 						</div>
 					</div>
 
@@ -221,7 +240,7 @@
 				<div class="row">
 
 					<div class="col-sm-6 col-xs-12">
-						<span class="copyright"> © Made by UIT Team </span>
+						<span class="copyright"> Made by UIT Team </span>
 					</div>
 
 					<div class="col-sm-4 col-sm-offset-2 col-xs-12 clearfix">
@@ -246,8 +265,6 @@
 	<div id="back-to-top" class="">
 		<a href="#top"><i class="fa fa-angle-up"></i></a>
 	</div>
-
-
 	<!-- jQuery Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -278,9 +295,5 @@
 		src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
 	<script type="text/javascript"
 		src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-
-
-
-
 </body>
 </html>

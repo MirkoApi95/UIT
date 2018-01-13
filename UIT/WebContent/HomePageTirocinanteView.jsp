@@ -88,6 +88,7 @@
 							<li class="nav__dropdown"><a href="#">Benvenuto</a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
+									<li><a href="VisualizzaProgettoFormativoServlet">Visualizza Progetto Formativo</a></li>
 									<li><a href="AccountView.jsp">Modifica Account</a></li>
 									<li><a href="StatoProgettoView.jsp">Stato Progetto
 											Formativo</a></li>
