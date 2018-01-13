@@ -227,9 +227,19 @@
 						<%} %>
 						</div>
 					</div>
-
 				</fieldset>
 			</form>
+			
+			<!-- form per convalida di TU -->
+			<form class="form-horizontal" action="" method="">
+				<button id="submit" name="submit" class="btn btn-success">Convalida</button>
+			</form>
+			
+			<!-- form per convalida di TA -->
+			<form class="form-horizontal" action="" method="">
+				<button id="submit" name="submit" class="btn btn-success">Convalida</button>
+			</form>
+			
 		</div>
 	</div>
 
