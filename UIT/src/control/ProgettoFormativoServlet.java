@@ -46,7 +46,7 @@ public class ProgettoFormativoServlet extends HttpServlet {
     HttpSession sessione= request.getSession();
     Utente utente=(Utente)sessione.getAttribute("utente");
     Utente tutorUniversitario=(Utente)sessione.getAttribute("tutorUniversitario");
-    TutorAziendale tutorAziendale=(TutorAziendale)sessione.getAttribute("TutorAziendale");
+    TutorAziendale tutorAziendale=(TutorAziendale)sessione.getAttribute("tutorAziendale");
     ProgettoFormativo project = new ProgettoFormativo();
     project.setConvalidaDd(false);
     project.setConvalidaTu(false);
@@ -54,13 +54,14 @@ public class ProgettoFormativoServlet extends HttpServlet {
     project.setDirettoreDipartimento_idDirettoreDipartimento(4);
     project.setTirocinante_Utente_idUtente(utente.getId());
     project.setTutorUniversitario_Utente_idUtente(tutorUniversitario.getId());
+    System.out.println("L'id è:"+tutorAziendale.getId());
     project.setTutorAziendale_Utente_idUtente(tutorAziendale.getId());
     try {
       ProgettoFormativoDao pdao = new ProgettoFormativoDao();
       pdao.upLoadProject(project);
       System.out.println("fatto.");
       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
-          "/HomePagePageTirocinanteView.jsp");
+          "/HomePageTirocinanteView.jsp");
       dispatcher.forward(request, response);
     } catch (SQLException e) {
       e.printStackTrace();

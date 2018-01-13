@@ -6,8 +6,9 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
-	<jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
-	<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.Utente" scope="session"></jsp:useBean>
 
 <%
 	@SuppressWarnings("unchecked")

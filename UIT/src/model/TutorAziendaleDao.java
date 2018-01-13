@@ -49,6 +49,7 @@ public class TutorAziendaleDao extends UtenteDao {
       rs.next();
       otherUser.setNomeazienda(rs.getString("NomeAzienda"));
       otherUser.setSede(rs.getString("Sede"));
+      otherUser.setId(id);
       return otherUser;
     } catch (SQLException e) {
       e.printStackTrace();
