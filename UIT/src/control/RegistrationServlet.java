@@ -61,7 +61,15 @@ public class RegistrationServlet extends HttpServlet {
           out.println("alert('La password di conferma è diversa dalla password inserita');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
-        } else check=userDao.upLoadUtente(user);
+        } else if(user.getPassword().length()<8) {
+          System.out.println("errore utente non inserito");
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('La password di conferma è minore di 8 caratteri');");
+          out.println("location='RegistrazioneView.jsp';");
+          out.println("</script>");
+        }else {   
+          check=userDao.upLoadUtente(user);
+        }
         if(check==false) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");

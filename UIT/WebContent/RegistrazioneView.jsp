@@ -1,5 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+ pageEncoding="ISO-8859-1"%>
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>
@@ -102,7 +101,15 @@
 				<fieldset>
 					<!-- Form Name -->
 					<legend>Form Registrazione UIT</legend>
-
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="emailId">Email</label>
+						<div class="col-md-5 col-lg-5">
+							<input id="emailId" name="emailId" type="text"
+								placeholder="user@domain.com" class="form-control input-md"
+								required="">
+						</div>
+					</div>
 
 					<!-- Password input-->
 					<div class="form-group">
@@ -116,28 +123,20 @@
 
 					<!-- Password input-->
 					<div class="form-group">
-							<label class="col-md-4 control-label" for="confirm_password">Conferma
-								Password</label>
-							<div class="col-md-5">
-								<input id="confirm_password" name="confirm_password"
-									type="password" placeholder="Re-inserisci password"
-									class="form-control input-md" required="">
-							</div>
+						<label class="col-md-4 control-label" for="confirm_password">Conferma
+							Password</label>
+						<div class="col-md-5">
+							<input id="confirm_password" name="confirm_password"
+								type="password" placeholder="Re-inserisci password"
+								class="form-control input-md" required="">
 						</div>
+					</div>
 
 					<!-- Multiple Radios (inline) -->
 
 
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="emailId">Email</label>
-						<div class="col-md-5 col-lg-5">
-							<input id="emailId" name="emailId" type="text"
-								placeholder="user@domain.com" class="form-control input-md"
-								required="">
-						</div>
-					</div>
+
 
 					<!-- Button -->
 					<div class="form-group">
