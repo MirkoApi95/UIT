@@ -58,6 +58,10 @@ public class CompletaServlet extends HttpServlet {
 	        try {
             UtenteDao daoutu= new UtenteDao();
             tutorUniversitario=daoutu.doRetrieveByKey(id);
+            boolean check=(boolean)session.getAttribute("check1");
+            check=true;
+            session.setAttribute("check1", check);
+            
             
             session.setAttribute("tutorUniversitario", tutorUniversitario);
           } catch (SQLException e) {

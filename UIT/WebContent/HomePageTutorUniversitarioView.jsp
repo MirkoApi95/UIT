@@ -1,5 +1,7 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.Utente" scope="session"></jsp:useBean>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
 <title>UIT Home</title>
@@ -81,11 +83,11 @@
 						<ul class="nav__menu">
 
 							<li class="nav__dropdown active"></li>
-							<li class="nav__dropdown"><a href="#">BenvenutoTU</a> <i
+							<li class="nav__dropdown"><a href="#">Benvenuto <%=utente.getNome() +" "+utente.getCognome() %></a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
-									<li><a href="portfolio-4.html">Modifica Account</a></li>
-									<li><a href="portfolio-single.html">Logout</a></li>
+									<li><a href="AccountView.jsp">Modifica Account</a></li>
+									<li><a href="logout.jsp">Logout</a></li>
 								</ul></li>
 						</ul>
 						<!-- end menu -->
@@ -134,7 +136,7 @@
 								<h4>Lista Progetti Formativo</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="#">Read More</a>
+								<a href="ListaProgettiFormativiServlet">Read More</a>
 							</div>
 						</div>
 					</div>

@@ -22,15 +22,17 @@ public class Logout extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     HttpSession session = request.getSession();
-    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+   
     session.removeAttribute("username");
     session.removeAttribute("password");
     session.invalidate();
+   
     PrintWriter out = response.getWriter();
     out.println("<script>");
     out.println("alert('SEI USCITO!')");
     out.println("window.open('http://localhost:8080/HomePageViewGenerale.jsp");
     out.println("</script>");
+    
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)

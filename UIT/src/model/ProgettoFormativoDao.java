@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProgettoFormativoDao {
 
@@ -33,6 +34,7 @@ public class ProgettoFormativoDao {
       + "? WHERE ID_ProgettoFormativo = ?";
   private final String editConvalidaTu = "UPDATE ProgettoFormativo SET ConvalidaTU ="
       + "? WHERE ID_ProgettoFormativo = ?";
+  private final String listaAziende= "SELECT * FROM ProgettoFormativo WHERE tutoruniversitario_utente_id_Utente=?";
 
   //****COSTRUTTORE****\\
   public ProgettoFormativoDao() throws SQLException {
@@ -163,5 +165,25 @@ public class ProgettoFormativoDao {
     }
     return false;
   }
-  
+  public ArrayList<ProgettoFormativo> listaProgetti(int idTutorUniversitario) throws SQLException{
+    preparedStatement = connection.prepareStatement(listaAziende);
+    preparedStatement.setInt(1, idTutorUniversitario);
+    ResultSet rs = preparedStatement.executeQuery();
+    ArrayList<ProgettoFormativo> lista= new ArrayList<ProgettoFormativo>();
+    while(rs.next()) {
+      ProgettoFormativo progetto=new ProgettoFormativo();
+      progetto.setTutorAziendale_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
+      progetto.setTutorUniversitario_Utente_idUtente(
+          rs.getInt("tutorUniversitario_utente_id_Utente"));
+      progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));
+      progetto.setId_progetto(rs.getInt("ID_ProgettoFormativo"));
+      progetto.setDirettoreDipartimento_idDirettoreDipartimento(
+          rs.getInt("direttoreDipartimento_utente_id_Utente"));
+      progetto.setConvalidaDd(rs.getBoolean("ConvalidaDD"));
+      progetto.setConvalidaTu(rs.getBoolean("ConvalidaTU"));
+      progetto.setObiettivi(rs.getString("Obiettivi"));
+      lista.add(progetto);
+    }
+    return lista ;
+  }
 }

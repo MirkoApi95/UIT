@@ -67,7 +67,8 @@
 								class="logo logo--dark" src="img/logo2.png" alt="logo">
 							</a>
 						</div>
-
+						
+	
 						<button type="button" class="nav__icon-toggle"
 							id="nav__icon-toggle" data-toggle="collapse"
 							data-target="#navbar-collapse" aria-expanded="true">
@@ -82,36 +83,7 @@
 					<nav id="navbar-collapse"
 						class="nav__wrap navbar-collapse collapse in" aria-expanded="true"
 						style="">
-						<ul class="nav__menu">
-
-							<li class="nav__dropdown active"></li>
-
-							<li class="nav__dropdown"><a href="#">Login</a> <i
-								class="fa fa-angle-down nav__dropdown-trigger"></i>
-								<ul class="nav__dropdown-menu">
-									<!--<li><a href="services.html">Services</a></li>
-                  <li><a href="about-us.html">About Us</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="404.html">404</a></li>-->
-									<li>
-										<form action="Login" method="post">
-											E-mail:<br> <input type="text" name="emailLogin"
-												value=""> <br> Password:<br> <input
-												type="text" name="passwordLogin" value=""><br>
-											<input type="submit" value="Entra">
-										</form>
-									</li>
-								</ul></li>
-
-							<li class="nav__dropdown"><a href="#">Registrati</a> <i
-								class="fa fa-angle-down nav__dropdown-trigger"></i>
-								<ul class="nav__dropdown-menu">
-									<li><a href="portfolio-4.html">4 Columns</a></li>
-									<li><a href="portfolio-3.html">3 Columns</a></li>
-									<li><a href="portfolio-2.html">2 Columns</a></li>
-									<li><a href="portfolio-single.html">Single Project</a></li>
-								</ul></li>
-						</ul>
+						
 						<!-- end menu -->
 
 					</nav>

@@ -1,9 +1,18 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entity.ProgettoFormativo"%>
+	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.Utente" scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
-<title>Canna | Contact</title>
+<title>Lista progetti formativi</title>
+
+<% 
+	@SuppressWarnings("unchecked")
+	ArrayList<ProgettoFormativo> vettore=(ArrayList<ProgettoFormativo>)request.getAttribute("lista"); 
+%>
 
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -93,9 +102,6 @@
 									<li><a href="services.html">Modifica account</a></li>
 									<li><a href="about-us.html">Logout</a></li>
 								</ul></li>
-
-
-
 						</ul>
 						<!-- end menu -->
 
@@ -114,18 +120,19 @@
 	<table>
 		<tr>
 			<th>Numero Pratica</th>
-			<th>Nome e cognome tirocinante</th>
+			<th>Identificativo utente</th>
 			<th>Stato TU</th>
 			<th>Stato DD</th>
 			<th>Visualizza</th>
 		</tr>
-		<tr>
-			<td>214</td>
-			<td>Luciano Califano</td>
-			<td>button</td>
-			<td>button</td>
-			<td>button</td>
-		</tr>
+		<%for(int j=0; j<vettore.size();j++){ %>
+		<tr> 
+			<td><%=vettore.get(j).getId_progetto() %></td>
+			<td><%=vettore.get(j).getTirocinante_Utente_idUtente()%></td>
+			<td><%=vettore.get(j).getConvalidaTu() %></td>
+			<td><%=vettore.get(j).getConvalidaDd() %></td>
+			<td></td>
+		</tr><%} %>
 
 	</table>
 	<div></div>
@@ -141,7 +148,7 @@
 				<div class="row">
 
 					<div class="col-sm-6 col-xs-12 text-sm-center">
-						<span class="copyright"> © 2017 Canna Theme | Made by <a
+						<span class="copyright"> 2017 Canna Theme | Made by <a
 							href="https://deothemes.com">DeoThemes</a>
 						</span>
 					</div>

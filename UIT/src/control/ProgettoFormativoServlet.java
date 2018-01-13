@@ -59,6 +59,9 @@ public class ProgettoFormativoServlet extends HttpServlet {
     try {
       ProgettoFormativoDao pdao = new ProgettoFormativoDao();
       pdao.upLoadProject(project);
+      boolean check=(boolean)sessione.getAttribute("check2");
+      check=true;
+      sessione.setAttribute("check2", check);
       System.out.println("fatto.");
       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
           "/HomePageTirocinanteView.jsp");

@@ -56,7 +56,8 @@ public class Login extends HttpServlet {
         if (u.getPassword().equals(password) && u.getEmail().equals(email)) {
           
           session.setAttribute("utente", u);
-          boolean check = false;
+          boolean check1 = false;
+          boolean check2 = false;
           int ini = email.indexOf('@');
           dominio = email.substring(ini);
           switch (dominio) {
@@ -68,9 +69,11 @@ public class Login extends HttpServlet {
               ProgettoFormativoDao pjdao = new ProgettoFormativoDao();
               ProgettoFormativo pj= pjdao.doRetrieveByKeyUtente(u.getId());
               if(pj.getId_progetto()!=0) {
-                check=true;
+                check1=true;
+                check2=true;
               }
-              request.setAttribute("check", check);
+              session.setAttribute("check1", check1);
+              session.setAttribute("check2", check2);
               request.getRequestDispatcher("/HomePageTirocinanteView.jsp").forward(
                   request, response);
               break;
@@ -82,7 +85,7 @@ public class Login extends HttpServlet {
               request.getRequestDispatcher("/HomePageTutorAziendaleView.jsp").forward(
                   request, response);
               break;
-            case "@direttoredip.unisa.it":
+            case "@direttoredipartimento.unisa.it":
               request.getRequestDispatcher("/HomePageDirettoreDipView.jsp").forward(
                   request, response);
               break;

@@ -1,3 +1,4 @@
+
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
@@ -63,7 +64,7 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
-							<a href="index.html" class="logo__link"> <img
+							<a href="HomePageTirocinanteView.jsp" class="logo__link"> <img
 								class="logo logo--dark" src="img/logo2.png" alt="logo">
 							</a>
 						</div>
@@ -140,8 +141,9 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-									<% boolean c=(boolean) request.getAttribute("check"); %>
-									<% if(c==false) {%>
+									<% boolean c1=(boolean) session.getAttribute("check1"); %>
+									<% boolean c2=(boolean) session.getAttribute("check2"); %>
+									<% if(c1==false) {%>
 								<a href="VisualizzaAzienda">Vai</a>
 								<%} else{ %>
 								<span>Hai già espresso una preferenza</span>
@@ -158,7 +160,7 @@
 								<h4>Progetto Formativo</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-									<% if(c==false) {%>
+									<% if(c2==false) {%>
 								<a href="CompilaProgettoFormativoView.jsp">Compila la tua pratica</a>
 								<%} else{ %>
 								<span>Hai già compilato un progetto formativo</span>
@@ -175,7 +177,7 @@
 								<h4>Questionari</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-									<% if(c==true) {%>
+									<% if(c2==true) {%>
 								<a href="">Compila Questionario</a>
 								<%} else{ %>
 								<span>Questionario non disponibile</span>
