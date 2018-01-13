@@ -19,6 +19,7 @@ public class ProgettoFormativoDao {
   
   private final String selectFromIdSql = "select * FROM ProgettoFormativo WHERE"
       + "ProgettoFormativo.ID_ProgettoFormativo= ?";
+  private final String selectFromIsUtente ="SELECT * FORM ProgettoFormativo WHERE tirocinante_utente_id_Utente =?";
   private final String insertProgetto = "INSERT INTO ProgettoFormativo("
       + "ConvalidaDD,"
       + "ConvalidaTU,"
@@ -51,6 +52,29 @@ public class ProgettoFormativoDao {
   public ProgettoFormativo doRetrieveByKey(int id) {
     try {
       preparedStatement = connection.prepareStatement(selectFromIdSql);
+      preparedStatement.setInt(1, id);
+      ResultSet rs = preparedStatement.executeQuery();
+      while (rs.next()) {
+        progetto.setTirocinante_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
+        progetto.setTutorUniversitario_Utente_idUtente(
+            rs.getInt("tutorUniversitario_utente_id_Utente"));
+        progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));
+        progetto.setId_progetto(rs.getInt("ID_ProgettoFormativo"));
+        progetto.setDirettoreDipartimento_idDirettoreDipartimento(
+            rs.getInt("direttoreDipartimento_utente_id_Utente"));
+        progetto.setConvalidaDd(rs.getBoolean("ConvalidaDD"));
+        progetto.setConvalidaTu(rs.getBoolean("ConvalidaTU"));
+        progetto.setObiettivi(rs.getString("Obiettivi"));
+      }
+    } catch (SQLException e1) {
+      e1.printStackTrace();
+    }
+    return progetto;
+  }
+//****METODI DI DOWNLOAD****\\
+  public ProgettoFormativo doRetrieveByKeyUtente(int id) {
+    try {
+      preparedStatement = connection.prepareStatement(selectFromIsUtente);
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
       while (rs.next()) {
@@ -139,4 +163,5 @@ public class ProgettoFormativoDao {
     }
     return false;
   }
+  
 }

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import entity.TutorAziendale;
 import entity.TutorUniversitario;
+import entity.Utente;
 
 public class TutorUniversitarioDao extends UtenteDao {
 
@@ -90,4 +91,5 @@ public class TutorUniversitarioDao extends UtenteDao {
 }catch(SQLException e) { e.printStackTrace();}
     return risultato;
 }
+
 }

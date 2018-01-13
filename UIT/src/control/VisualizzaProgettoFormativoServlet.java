@@ -2,15 +2,20 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import entity.ProgettoFormativo;
+import entity.TutorAziendale;
 import entity.TutorUniversitario;
+import entity.Utente;
 import model.ProgettoFormativoDao;
+import model.TutorAziendaleDao;
+import model.TutorUniversitarioDao;
+import model.UtenteDao;
 
 
 @WebServlet("/VisualizzaProgettoFormativoServlet")
@@ -27,11 +32,30 @@ public class VisualizzaProgettoFormativoServlet extends HttpServlet {
   }
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    HttpSession session = request.getSession();
+    ProgettoFormativoDao daopf;
+    try {
+      daopf = new ProgettoFormativoDao();
+      Utente u=(Utente) session.getAttribute("utente");
+      UtenteDao daou= new UtenteDao();
+      ProgettoFormativo project=(ProgettoFormativo) daopf.doRetrieveByKeyUtente(u.getId());
+      TutorAziendale ta;
+      TutorUniversitario tu;
+      TutorAziendaleDao daota=new TutorAziendaleDao();
+      ta=daota.doRetrieveByKey(project.getTutorAziendale_Utente_idUtente());
+      tu=(TutorUniversitario)daou.doRetrieveByKey(project.getTutorUniversitario_Utente_idUtente());
+      
+      request.setAttribute("progetto", project);
+      request.setAttribute("tutorUniversitario", tu);
+      request.setAttribute("tutorAziendale", ta);
+      
+    } catch (SQLException e) {
+      
+      e.printStackTrace();
+    }
     
     
-    
-    
-    request.getRequestDispatcher("/??????????????????????VisualizzaProgettoFormativoView.jsp").forward(request, response);
+    request.getRequestDispatcher("/ProgettoFormativoView.jsp").forward(request, response);
   }
 
 }
