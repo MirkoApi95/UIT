@@ -5,9 +5,8 @@
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
 <jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
-<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale"
-	scope="session"></jsp:useBean>
-<jsp:useBean id="tutorUniversitario" class="entity.TutorUniversitario"
+<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.Utente"
 	scope="session"></jsp:useBean>
 
 	
@@ -113,7 +112,7 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Name">Nome</label>
 						<div class="col-md-5">
-							<input id="Name" name="Name" type="text" value="<%=tirocinante.getNome() %>"
+							<input id="Name" name="Name" type="text" value="<%=utente.getNome() %>"
 								class="form-control input-md" readonly>
 
 						</div>
@@ -123,8 +122,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="passwordinput">Cognome</label>
 						<div class="col-md-5">
-							<input id="surnameinput" name="surnameinput" type="text"
-								class="form-control input-md" required="">
+							<input id="surnameinput" name="surnameinput" type="text" value="<%=utente.getCognome() %>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -132,8 +131,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="address">Matricola</label>
 						<div class="col-md-5">
-							<input id="matricola" name="matricola" type="text"
-								class="form-control input-md" required="">
+							<input id="matricola" name="matricola" type="text" value="<%=tirocinante.getMatricola() %>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -142,7 +141,7 @@
 						<label class="col-md-4 control-label" for="address">CFU
 							Acquisiti</label>
 						<div class="col-md-4 col-lg-5">
-							<input type="text" class="form-control" id="cfu" name="cfu">
+							<input type="text" value="<%=tirocinante.getNumeroCfu() %>" class="form-control" id="cfu" name="cfu" readonly>
 						</div>
 					</div>
 

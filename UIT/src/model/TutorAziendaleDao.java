@@ -46,6 +46,7 @@ public class TutorAziendaleDao extends UtenteDao {
       preparedStatement = connection.prepareStatement(selectfromIdSql);
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
+      rs.next();
       otherUser.setNomeazienda(rs.getString("NomeAzienda"));
       otherUser.setSede(rs.getString("Sede"));
       return otherUser;

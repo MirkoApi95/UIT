@@ -16,7 +16,7 @@ public class TirocinanteDao extends UtenteDao {
       + "AnnoIscrizione,CFU,utente_id_utente,matricola)" + "VALUES(?,?,?,?)";
   private final String selectDatiUnisa = "SELECT AnnoIscrizione,CFU,"
       + "matricola FROM university WHERE Email=?";
-  private final String selectDatiTirocinanteUit = "SELECT * FROM tirocinante WHERE utente_id_Utente=?";
+  private final String selectDatiTirocinanteUit = "SELECT AnnoIscrizione,CFU,Matricola FROM tirocinante WHERE utente_id_Utente=?";
   //****VARIABILI DELLA CLASSE****\\
 
   private Connection connectionUit;
@@ -69,9 +69,10 @@ public class TirocinanteDao extends UtenteDao {
       preparedStatement = connectionUit.prepareStatement(selectDatiTirocinanteUit);
       preparedStatement.setInt(1, u.getId());
       ResultSet rs = preparedStatement.executeQuery();
+      rs.next();
+      t.setAnno(rs.getString("AnnoIscrizione"));
       t.setNumeroCfu(rs.getInt("CFU"));
       t.setMatricola(rs.getInt("Matricola"));
-      t.setAnno(rs.getDate("AnnoIscrizione"));
       return t;
     } catch (SQLException e) {
 

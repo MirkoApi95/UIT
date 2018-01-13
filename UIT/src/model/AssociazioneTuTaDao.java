@@ -52,7 +52,7 @@ public class AssociazioneTuTaDao {
       }
       connection.prepareStatement(listaTuAssociati);
       ResultSet rs1 = preparedStatement.executeQuery();
-
+      rs1.next();
       for (int i = 0; i < lista.size(); i++) {
         lista.get(i).setNome(rs1.getString(1));
         lista.get(i).setCognome(rs1.getString(2));

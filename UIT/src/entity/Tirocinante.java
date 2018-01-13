@@ -69,8 +69,8 @@ public class Tirocinante extends Utente {
   public void setNumeroCfu(int numeroCfu) {
     this.numeroCfu = numeroCfu;
   }
-  public void setAnno(Date date) {
-    this.annoIscrizione=date;
+  public void setAnno(String date) {
+    annoIscrizione=java.sql.Date.valueOf(date);
 
   }
   public Date getAnno() {

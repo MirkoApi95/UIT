@@ -2,8 +2,11 @@
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import entity.Tirocinante;
 import entity.TutorAziendale;
 import entity.TutorUniversitario;
+import entity.Utente;
+import model.TirocinanteDao;
 import model.TutorAziendaleDao;
 import model.TutorUniversitarioDao;
 
@@ -13,17 +16,13 @@ import model.TutorUniversitarioDao;
 public class main {
   public static void main(String[] args) throws SQLException {
 
-    String nome = null;
-    int id;
-    int index = 0;
-    String nomeId ="opera ciao 13342";
+    TirocinanteDao dao=new TirocinanteDao();
+    Tirocinante t = new Tirocinante();
+    Utente u = new Utente();
+    u.setId(6);
+    t=dao.getTirocinante(u);
 
-    index=nomeId.lastIndexOf(' ');
-    nome=nomeId.substring(0, index);
-    nomeId=nomeId.substring(index+1);
-    id=Integer.parseInt(nomeId);
-    System.out.println(id);
-    
+    System.out.println(t.getMatricola());
   }
 
 }
