@@ -45,12 +45,13 @@ public class TirocinanteDao extends UtenteDao {
       preparedStatement = connectionUit.prepareStatement(selectId);
       preparedStatement.setString(1, Email);
       ResultSet rs = preparedStatement.executeQuery();
-      
+      rs.next();
       preparedStatement = connectionUnisa.prepareStatement(selectDatiUnisa);
       preparedStatement.setString(1, Email);
       ResultSet rs1 = preparedStatement.executeQuery();
-      
+      rs1.next();
       preparedStatement = connectionUit.prepareStatement(inserimentoId);
+      
       preparedStatement.setDate(1, rs1.getDate(1));
       preparedStatement.setInt(2, rs1.getInt(2));
       preparedStatement.setInt(3,rs.getInt(1));

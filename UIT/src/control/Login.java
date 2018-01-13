@@ -1,5 +1,6 @@
 package control;
 
+import entity.ProgettoFormativo;
 import entity.Tirocinante;
 import entity.Utente;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.ProgettoFormativoDao;
 import model.TirocinanteDao;
 import model.UtenteDao;
 /**
@@ -54,6 +56,7 @@ public class Login extends HttpServlet {
         if (u.getPassword().equals(password) && u.getEmail().equals(email)) {
           
           session.setAttribute("utente", u);
+          boolean check = false;
           int ini = email.indexOf('@');
           dominio = email.substring(ini);
           switch (dominio) {
@@ -62,6 +65,12 @@ public class Login extends HttpServlet {
               TirocinanteDao daot = new TirocinanteDao();
               tirocinante=daot.getTirocinante(u);
               session.setAttribute("tirocinante", tirocinante);
+              ProgettoFormativoDao pjdao = new ProgettoFormativoDao();
+              ProgettoFormativo pj= pjdao.doRetrieveByKeyUtente(u.getId());
+              if(pj.getId_progetto()!=0) {
+                check=true;
+              }
+              request.setAttribute("check", check);
               request.getRequestDispatcher("/HomePageTirocinanteView.jsp").forward(
                   request, response);
               break;

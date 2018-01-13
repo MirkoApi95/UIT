@@ -85,13 +85,11 @@
 						<ul class="nav__menu">
 
 							<li class="nav__dropdown active"></li>
-							<li class="nav__dropdown"><a href="#">Benvenuto</a> <i
+							<li class="nav__dropdown"><a href="#">Benvenuto <%=utente.getNome() +" " +utente.getCognome()%></a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
 									<li><a href="VisualizzaProgettoFormativoServlet">Visualizza Progetto Formativo</a></li>
 									<li><a href="AccountView.jsp">Modifica Account</a></li>
-									<li><a href="StatoProgettoView.jsp">Stato Progetto
-											Formativo</a></li>
 									<li><a href="">Registro di tirocinio</a></li>
 									<li><a href="logout.jsp">Logout</a></li>
 								</ul></li>
@@ -142,7 +140,12 @@
 								<h4>Le Aziende</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
+									<% boolean c=(boolean) request.getAttribute("check"); %>
+									<% if(c==false) {%>
 								<a href="VisualizzaAzienda">Vai</a>
+								<%} else{ %>
+								<span>Hai già espresso una preferenza</span>
+								<%} %>
 							</div>
 						</div>
 					</div>
@@ -155,7 +158,11 @@
 								<h4>Progetto Formativo</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
-								<a href="CompilaProgettoFormativoView.jsp">Read More</a>
+									<% if(c==false) {%>
+								<a href="CompilaProgettoFormativoView.jsp">Compila la tua pratica</a>
+								<%} else{ %>
+								<span>Hai già compilato un progetto formativo</span>
+								<%} %>
 							</div>
 						</div>
 					</div>
@@ -168,7 +175,11 @@
 								<h4>Questionari</h4>
 								<p>We possess within us two minds. So far I have written
 									only of the conscious mind. Your subconscious mind contains.</p>
+									<% if(c==true) {%>
 								<a href="">Compila Questionario</a>
+								<%} else{ %>
+								<span>Questionario non disponibile</span>
+								<%} %>
 							</div>
 						</div>
 					</div>

@@ -29,6 +29,7 @@ public class UtenteDao {
   private final String checkUtente = "SELECT Email FROM university "
       + "WHERE Email=?";
   private final String datiUnisa = "SELECT Nome,Cognome,Indirizzo FROM university WHERE Email=?";
+  private final String checkCuf="SELECT CFU From university WHERE EMAIL=?";
   //****COSTRUTTORE****\\
   public UtenteDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();
@@ -186,5 +187,20 @@ public class UtenteDao {
       e.printStackTrace();
     }
     return false;
+  }
+  public boolean testCfu(String email) {
+    try {
+      Connection conUnisa = DriverManagerConnectionPoolUnisa.getConnection();
+      preparedStatement = conUnisa.prepareStatement(checkCuf);
+      preparedStatement.setString(1, email);
+      ResultSet rs = preparedStatement.executeQuery();
+      rs.next();
+      if(rs.getInt("CFU")<135)return false;
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }return true;
+
+    
   }
 }
