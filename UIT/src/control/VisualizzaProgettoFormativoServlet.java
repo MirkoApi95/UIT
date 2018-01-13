@@ -14,10 +14,10 @@ import model.ProgettoFormativoDao;
 
 
 @WebServlet("/ProgettoFormativoServlet")
-public class ProgettoFormativoServlet extends HttpServlet {
+public class VisualizzaProgettoFormativoServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
-  public ProgettoFormativoServlet() {
+  public VisualizzaProgettoFormativoServlet() {
     super();
   }
   
@@ -28,13 +28,10 @@ public class ProgettoFormativoServlet extends HttpServlet {
   
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-    String nominativo=(String) request.getParameter("dropdown");
-    HttpSession session=request.getSession();
-    session.setAttribute("tutorUni", nominativo);
     
     
     
-    request.getRequestDispatcher("/CompilaProgettoFormativoView.jsp").forward(request, response);
+    request.getRequestDispatcher("/??????????????????????VisualizzaProgettoFormativoView.jsp").forward(request, response);
   }
 
 }
