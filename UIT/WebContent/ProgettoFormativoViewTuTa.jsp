@@ -7,9 +7,8 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
-<jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
 <jsp:useBean id="tutorAziendale" class="entity.TutorAziendale" scope="session"></jsp:useBean>
-<jsp:useBean id="tutorUniversitario" class="entity.TutorUniversitario" scope="session"></jsp:useBean>
+
 	
 
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
@@ -111,10 +110,11 @@
 					<!-- Form Name -->
 					<legend> Progetto Formativo e di Orientamento</legend>
 					<!-- Text input-->
+					<%Utente utentet=(Utente)request.getAttribute("datiUtenteTirocinante");%>
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Name">Nome</label>
 						<div class="col-md-5">
-							<input id="Name" name="Name" type="text" value="<%=utente.getNome() %>"
+							<input id="Name" name="Name" type="text" value="<%=utentet.getNome() %>"
 								class="form-control input-md" readonly>
 
 						</div>
@@ -124,12 +124,13 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="passwordinput">Cognome</label>
 						<div class="col-md-5">
-							<input id="surnameinput" name="surnameinput" type="text" value="<%=utente.getCognome() %>"
+							<input id="surnameinput" name="surnameinput" type="text" value="<%=utentet.getCognome() %>"
 								class="form-control input-md" readonly>
 						</div>
 					</div>
 
 					<!-- Address input-->
+					<%Tirocinante tirocinante=(Tirocinante)request.getAttribute("datiTirocinante");%>
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="address">Matricola</label>
 						<div class="col-md-5">
@@ -172,7 +173,7 @@
 						<label class="col-md-4 control-label" for="azienda">Azienda/Ente
 							Ospitante</label>
 						<div class="col-md-5 col-lg-5">
-						<%TutorAziendale ta=(TutorAziendale)request.getAttribute("tutorAziendale");%>
+						<%TutorAziendale ta=(TutorAziendale)request.getAttribute("datiAzienda");%>
 
 							<input id="azienda" name="azienda" type="text" value="<%=ta.getNomeazienda()%>"
 								class="form-control input-md" readonly>
@@ -184,8 +185,8 @@
 						<label class="col-md-4 control-label" for="Tutor Accademico">Tutor
 							Accademico</label>
 						<div class="col-md-5 col-lg-5">
-						<%Utente tu=(Utente)request.getAttribute("tutorUniversitario");%>
-							<input id="tutoraccademico" name="tutoraccademico" type="text" value="<%=tu.getCognome() +" "+ tu.getNome()%>"
+						<%Utente tu=(Utente)request.getAttribute("datiUtenteTirocinante");%>
+							<input id="tutoraccademico" name="tutoraccademico" type="text" value="<%=utente.getCognome() +" "+ utente.getNome()%>"
 								class="form-control input-md" readonly>
 						</div>
 					</div>

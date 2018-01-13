@@ -2,16 +2,17 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entity.ProgettoFormativo"%>
-	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
-<jsp:useBean id="tutorUniversitario" class="entity.Utente" scope="session"></jsp:useBean>
+<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.Utente"
+	scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en" class="mediaqueries matchmedia">
 <head>
 <title>Lista progetti formativi</title>
 
-<% 
+<%
 	@SuppressWarnings("unchecked")
-	ArrayList<ProgettoFormativo> vettore=(ArrayList<ProgettoFormativo>)request.getAttribute("lista"); 
+	ArrayList<ProgettoFormativo> vettore = (ArrayList<ProgettoFormativo>) request.getAttribute("lista");
 %>
 
 <meta charset="utf-8">
@@ -117,6 +118,7 @@
 	</header>
 	<!-- end navigation -->
 	<main class="main oh">
+	<form class="form-horizontal" action="VisualizzaProgettoFormativoTuDdServlet" method="get">
 	<table>
 		<tr>
 			<th>Numero Pratica</th>
@@ -125,17 +127,32 @@
 			<th>Stato DD</th>
 			<th>Visualizza</th>
 		</tr>
-		<%for(int j=0; j<vettore.size();j++){ %>
-		<tr> 
-			<td><%=vettore.get(j).getId_progetto() %></td>
+		<%
+			for (int j = 0; j < vettore.size(); j++) {
+		%>
+		<tr>
+			<td><input id="idProgetto" name="idProgetto" type="text" value="<%=vettore.get(j).getId_progetto()%>"
+								class="form-control input-md" readonly></td>
 			<td><%=vettore.get(j).getTirocinante_Utente_idUtente()%></td>
-			<td><%=vettore.get(j).getConvalidaTu() %></td>
-			<td><%=vettore.get(j).getConvalidaDd() %></td>
-			<td><input type="button" onclick="ProgettoFormativoViewTuTa.jsp" value="Visualizza"></td>
-		</tr><%} %>
+			<td><%=vettore.get(j).getConvalidaTu()%></td>
+			<td><%=vettore.get(j).getConvalidaDd()%></td>
+			<td>
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="submit"></label>
+					<div class="col-md-4 col-lg-1">
+						<button id="submit" name="submit" class="btn btn-success">Submit</button>
+					</div>
+				</div>
+				
+			</td>
+		</tr>
+		<%
+			}
+		%>
 
 	</table>
-	<div></div>
+	</form>
+
 	<div class="gmap gmap-hidden" id="google-map"
 		data-address="V Tytana St, Manila, Philippines"></div>
 
@@ -189,64 +206,59 @@
 
 	<!-- Google Map -->
 	<script type="text/javascript">
-    $(document).ready( function(){
+		$(document).ready(function() {
 
-      function initMap() {
+			function initMap() {
 
-        var gmapDiv = $("#google-map");
-        var gmapMarker = gmapDiv.attr("data-address");
+				var gmapDiv = $("#google-map");
+				var gmapMarker = gmapDiv.attr("data-address");
 
-        gmapDiv.gmap3({
-          zoom: 16,
-          address: gmapMarker,
-          oomControl: true,
-          navigationControl: true,
-          scrollwheel: false,
-          styles: [
-            {
-            "featureType":"all",
-            "elementType":"all",
-              "stylers":[
-                { "saturation":"0" }
-              ]
-          }]
-        })
-        .marker({
-          address: gmapMarker,
-          icon: "img/map_pin.png"
-        })
-        .infowindow({
-          content: "V Tytana St, Manila, Philippines"
-        })
-        .then(function (infowindow) {
-          var map = this.get(0);
-          var marker = this.get(1);
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-        });
-      }
+				gmapDiv.gmap3({
+					zoom : 16,
+					address : gmapMarker,
+					oomControl : true,
+					navigationControl : true,
+					scrollwheel : false,
+					styles : [ {
+						"featureType" : "all",
+						"elementType" : "all",
+						"stylers" : [ {
+							"saturation" : "0"
+						} ]
+					} ]
+				}).marker({
+					address : gmapMarker,
+					icon : "img/map_pin.png"
+				}).infowindow({
+					content : "V Tytana St, Manila, Philippines"
+				}).then(function(infowindow) {
+					var map = this.get(0);
+					var marker = this.get(1);
+					marker.addListener('click', function() {
+						infowindow.open(map, marker);
+					});
+				});
+			}
 
+			// Map Button
+			$(".gmap-btn").on("click", function() {
 
-      // Map Button
-      $(".gmap-btn").on("click", function() {
+				$(".gmap").slideToggle();
 
-        $(".gmap").slideToggle();
+				if ($(this).text() == "Close Map")
+					$(this).text("Open Map")
+				else
+					$(this).text("Close Map");
+			});
 
-        if ($(this).text() == "Close Map")
-         $(this).text("Open Map")
-        else
-         $(this).text("Close Map");
-      });
+			$(".gmap-btn").one("click", function() {
+				setTimeout(function() {
+					initMap();
+				}, 500);
+			});
 
-      $(".gmap-btn").one("click", function() {
-        setTimeout(function(){
-          initMap();
-        }, 500);
-      });
-
-    });
-  </script>
+		});
+	</script>
 
 </body>
 </html>

@@ -18,10 +18,9 @@ public class ProgettoFormativoDao {
 
   //****QUERY****\\
   
-  private final String selectFromIdSql = "select * FROM ProgettoFormativo WHERE"
-      + "ProgettoFormativo.ID_ProgettoFormativo= ?";
-  private final String selectFromIsUtente ="SELECT * FROM ProgettoFormativo WHERE tirocinante_utente_id_Utente =?";
-  private final String insertProgetto = "INSERT INTO ProgettoFormativo("
+  private final String selectFromIdSql = "SELECT * FROM progettoformativo WHERE ID_ProgettoFormativo=?";
+  private final String selectFromIsUtente ="SELECT * FROM progettoformativo WHERE tirocinante_utente_id_Utente =?";
+  private final String insertProgetto = "INSERT INTO progettoformativo("
       + "ConvalidaDD,"
       + "ConvalidaTU,"
       + "Obiettivi,"
@@ -30,12 +29,12 @@ public class ProgettoFormativoDao {
       + "tutorAziendale1_utente_id_Utente,"
       + "tirocinante_utente_id_Utente)"
       + "VALUES(?,?,?,?,?,?,?)";
-  private final String editConvalidaDd = "UPDATE ProgettoFormativo SET ConvalidaDD ="
+  private final String editConvalidaDd = "UPDATE progettoformativo SET ConvalidaDD ="
       + "? WHERE ID_ProgettoFormativo = ?";
-  private final String editConvalidaTu = "UPDATE ProgettoFormativo SET ConvalidaTU ="
+  private final String editConvalidaTu = "UPDATE progettoformativo SET ConvalidaTU ="
       + "? WHERE ID_ProgettoFormativo = ?";
-  private final String listaAziendetu= "SELECT * FROM ProgettoFormativo WHERE tutoruniversitario_utente_id_Utente=?";
-  private final String listaAziende= "SELECT * FROM ProgettoFormativo";
+  private final String listaAziendetu= "SELECT * FROM progettoformativo WHERE tutoruniversitario_utente_id_Utente=?";
+  private final String listaAziende= "SELECT * FROM progettoformativo";
 
   //****COSTRUTTORE****\\
   public ProgettoFormativoDao() throws SQLException {
@@ -57,18 +56,16 @@ public class ProgettoFormativoDao {
       preparedStatement = connection.prepareStatement(selectFromIdSql);
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
-      while (rs.next()) {
+     rs.next();
         progetto.setTutorAziendale_Utente_idUtente(rs.getInt("tutorAziendale1_utente_id_Utente"));
-        progetto.setTutorUniversitario_Utente_idUtente(
-            rs.getInt("tutorUniversitario_utente_id_Utente"));
+        progetto.setTutorUniversitario_Utente_idUtente(rs.getInt("tutorUniversitario_utente_id_Utente"));
         progetto.setTirocinante_Utente_idUtente(rs.getInt("tirocinante_utente_id_Utente"));
         progetto.setId_progetto(rs.getInt("ID_ProgettoFormativo"));
-        progetto.setDirettoreDipartimento_idDirettoreDipartimento(
-            rs.getInt("direttoreDipartimento_utente_id_Utente"));
+        progetto.setDirettoreDipartimento_idDirettoreDipartimento(rs.getInt("direttoreDipartimento_utente_id_Utente"));
         progetto.setConvalidaDd(rs.getBoolean("ConvalidaDD"));
         progetto.setConvalidaTu(rs.getBoolean("ConvalidaTU"));
         progetto.setObiettivi(rs.getString("Obiettivi"));
-      }
+      
     } catch (SQLException e1) {
       e1.printStackTrace();
     }

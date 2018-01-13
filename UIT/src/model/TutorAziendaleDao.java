@@ -40,7 +40,7 @@ public class TutorAziendaleDao extends UtenteDao {
   }
 
   //****METODI DI DOWNLOAD****\\
-  public TutorAziendale doRetrieveByKey(int id) {
+  public TutorAziendale doRetrieveByKeyTA(int id) {
    TutorAziendale otherUser=new TutorAziendale();   
     try {
       preparedStatement = connection.prepareStatement(selectfromIdSql);
