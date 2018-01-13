@@ -13,7 +13,7 @@ import entity.TutorUniversitario;
 import model.ProgettoFormativoDao;
 
 
-@WebServlet("/ProgettoFormativoServlet")
+@WebServlet("/VisualizzaProgettoFormativoServlet")
 public class VisualizzaProgettoFormativoServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   

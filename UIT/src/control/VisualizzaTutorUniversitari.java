@@ -56,6 +56,7 @@ public class VisualizzaTutorUniversitari extends HttpServlet {
         TutorAziendale ta=new TutorAziendale();
         TutorAziendaleDao daota= new TutorAziendaleDao();
         ta= daota.doRetrieveByKey(id);
+        ta.setId(id);
 	      listatu=TutorUniversitarioDao.selectTutorNames(nome);
 	      request.setAttribute("listatutoruni", listatu);
 	      session.setAttribute("tutorAziendale", ta);

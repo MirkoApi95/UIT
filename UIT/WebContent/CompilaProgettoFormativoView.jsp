@@ -199,7 +199,7 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="submit"></label>
 						<div class="col-md-4 col-lg-1">
-							<button id="submit" name="submit" class="btn btn-success">Submit</button>
+							<button type="submit" name="submit" class="btn btn-success">Conferma</button>
 						</div>
 					</div>
 
