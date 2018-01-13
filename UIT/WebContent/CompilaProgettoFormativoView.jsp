@@ -3,12 +3,13 @@
 <%@page import="entity.Tirocinante"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-	<jsp:useBean id="tu" class="entity.TutorUniversitario" scope="session"></jsp:useBean>
-	<%String prova=(String)session.getAttribute("tutorUni");%>
-	<%String prova1=(String)session.getAttribute("tutoraziendale");%>
-	<%System.out.println("Stampofgg---" +prova);%>
-	<%System.out.println("Stampofgg1---" +prova1);%>
+<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+<jsp:useBean id="tirocinante" class="entity.Tirocinante" scope="session"></jsp:useBean>
+<jsp:useBean id="tutorAziendale" class="entity.TutorAziendale"
+	scope="session"></jsp:useBean>
+<jsp:useBean id="tutorUniversitario" class="entity.TutorUniversitario"
+	scope="session"></jsp:useBean>
+
 	
 <html lang="en" class="mediaqueries matchmedia mediaqueries matchmedia">
 <head>
@@ -112,8 +113,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="Name">Nome</label>
 						<div class="col-md-5">
-							<input id="Name" name="Name" type="text"
-								class="form-control input-md" required="">
+							<input id="Name" name="Name" type="text" value="<%=tirocinante.getNome() %>"
+								class="form-control input-md" readonly>
 
 						</div>
 					</div>

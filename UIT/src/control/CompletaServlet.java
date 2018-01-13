@@ -58,7 +58,7 @@ public class CompletaServlet extends HttpServlet {
 	        try {
             UtenteDao daoutu= new UtenteDao();
             tutorUniversitario=daoutu.doRetrieveByKey(id);
-            session.setAttribute("tutorUni", tutorUniversitario);
+            session.setAttribute("tutorUniversitario", tutorUniversitario);
           } catch (SQLException e) {
             e.printStackTrace();
           }
