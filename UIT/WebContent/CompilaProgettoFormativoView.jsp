@@ -150,8 +150,8 @@
 						<label class="col-md-4 control-label" for="emailId">Anno
 							Iscrizione</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="annoiscr" name="annoiscr" type="text"
-								class="form-control input-md" required="">
+							<input id="annoiscr" name="annoiscr" type="text" value="<%=tirocinante.getAnno()%>"
+								class="form-control input-md" readonly >
 						</div>
 					</div>
 
@@ -160,8 +160,8 @@
 						<label class="col-md-4 control-label" for="emailId">Anno
 							in corso</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="annocorso" name="annocorso" type="text"
-								class="form-control input-md" required="">
+							<input id="annocorso" name="annocorso" type="text" value="2018"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -170,18 +170,8 @@
 						<label class="col-md-4 control-label" for="azienda">Azienda/Ente
 							Ospitante</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="azienda" name="azienda" type="text"
-								class="form-control input-md" required="">
-						</div>
-					</div>
-
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="tutoraziendale">Tutor
-							Aziendale</label>
-						<div class="col-md-5 col-lg-5">
-							<input id="tutoraziendale" name="tutoraziendale" type="text"
-								class="form-control input-md" required="">
+							<input id="azienda" name="azienda" type="text" value="<%=tutorAziendale.getNomeazienda() %>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
@@ -190,8 +180,8 @@
 						<label class="col-md-4 control-label" for="Tutor Accademico">Tutor
 							Accademico</label>
 						<div class="col-md-5 col-lg-5">
-							<input id="tutoraccademico" name="tutoraccademico" type="text"
-								class="form-control input-md" required="">
+							<input id="tutoraccademico" name="tutoraccademico" type="text" value="<%=tutorUniversitario.getNome()+ tutorUniversitario.getCognome()%>"
+								class="form-control input-md" readonly>
 						</div>
 					</div>
 
