@@ -41,16 +41,13 @@ public class TutorAziendaleDao extends UtenteDao {
 
   //****METODI DI DOWNLOAD****\\
   public TutorAziendale doRetrieveByKey(int id) {
-    Utente user;
-    user = super.doRetrieveByKey(id);
-    TutorAziendale otherUser = (TutorAziendale) user;
+   TutorAziendale otherUser=new TutorAziendale();   
     try {
       preparedStatement = connection.prepareStatement(selectfromIdSql);
       preparedStatement.setInt(1, id);
       ResultSet rs = preparedStatement.executeQuery();
       otherUser.setNomeazienda(rs.getString("NomeAzienda"));
       otherUser.setSede(rs.getString("Sede"));
-      otherUser.setId(id);
       return otherUser;
     } catch (SQLException e) {
       e.printStackTrace();

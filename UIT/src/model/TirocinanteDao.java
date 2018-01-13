@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import entity.Tirocinante;
+import entity.Utente;
 
 public class TirocinanteDao extends UtenteDao {
   //****QUERY****\\
@@ -14,6 +16,7 @@ public class TirocinanteDao extends UtenteDao {
       + "AnnoIscrizione,CFU,utente_id_utente,matricola)" + "VALUES(?,?,?,?)";
   private final String selectDatiUnisa = "SELECT AnnoIscrizione,CFU,"
       + "matricola FROM university WHERE Email=?";
+  private final String selectDatiTirocinanteUit = "SELECT * FROM tirocinante WHERE utente_id_Utente=?";
   //****VARIABILI DELLA CLASSE****\\
 
   private Connection connectionUit;
@@ -42,11 +45,11 @@ public class TirocinanteDao extends UtenteDao {
       preparedStatement = connectionUit.prepareStatement(selectId);
       preparedStatement.setString(1, Email);
       ResultSet rs = preparedStatement.executeQuery();
-      rs.next();
+      
       preparedStatement = connectionUnisa.prepareStatement(selectDatiUnisa);
       preparedStatement.setString(1, Email);
       ResultSet rs1 = preparedStatement.executeQuery();
-      rs1.next();
+      
       preparedStatement = connectionUit.prepareStatement(inserimentoId);
       preparedStatement.setDate(1, rs1.getDate(1));
       preparedStatement.setInt(2, rs1.getInt(2));
@@ -59,5 +62,22 @@ public class TirocinanteDao extends UtenteDao {
       e.printStackTrace();
     }
     return false;
+  }
+  public Tirocinante getTirocinante(Utente u) {
+    try {
+      Tirocinante t = new Tirocinante();
+      preparedStatement = connectionUit.prepareStatement(selectDatiTirocinanteUit);
+      preparedStatement.setInt(1, u.getId());
+      ResultSet rs = preparedStatement.executeQuery();
+      t.setNumeroCfu(rs.getInt("CFU"));
+      t.setMatricola(rs.getInt("Matricola"));
+      t.setAnno(rs.getDate("AnnoIscrizione"));
+      return t;
+    } catch (SQLException e) {
+
+      e.printStackTrace();
+    }
+    return null;
+
   }
 }

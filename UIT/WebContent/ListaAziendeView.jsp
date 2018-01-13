@@ -6,8 +6,8 @@
 <%@page import="control.SelezioneAzienda" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-	<jsp:useBean id="ta" class="entity.TutorAziendale" scope="session"></jsp:useBean>
+	<jsp:useBean id="utente" class="entity.Utente" scope="session"></jsp:useBean>
+
 <%
 	@SuppressWarnings("unchecked")
 	ArrayList<TutorAziendale> lista = (ArrayList<TutorAziendale>)request.getAttribute("arrayaziende");

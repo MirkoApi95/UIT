@@ -1,5 +1,6 @@
 package control;
 
+import entity.Tirocinante;
 import entity.Utente;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.TirocinanteDao;
 import model.UtenteDao;
 /**
  * Servlet implementation class Login
@@ -56,6 +58,10 @@ public class Login extends HttpServlet {
           dominio = email.substring(ini);
           switch (dominio) {
             case "@studenti.unisa.it": 
+              Tirocinante tirocinante= new Tirocinante();
+              TirocinanteDao daot = new TirocinanteDao();
+              tirocinante=daot.getTirocinante(u);
+              session.setAttribute("tirocinante", tirocinante);
               request.getRequestDispatcher("/HomePageTirocinanteView.jsp").forward(
                   request, response);
               break;

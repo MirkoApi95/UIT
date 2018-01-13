@@ -9,7 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import entity.TutorAziendale;
 import entity.TutorUniversitario;
+import model.TutorAziendaleDao;
 import model.TutorUniversitarioDao;
 
 /**
@@ -42,7 +45,7 @@ public class VisualizzaTutorUniversitari extends HttpServlet {
 	    String nomeId=(String) request.getParameter("dropdown");
         ArrayList<TutorUniversitario> listatu=null;
 	  try {
-
+	    HttpSession session = request.getSession();
 	    String nome;
         int id=0;
         int index = 0;
@@ -50,8 +53,12 @@ public class VisualizzaTutorUniversitari extends HttpServlet {
         nome=nomeId.substring(0, index);
         nomeId=nomeId.substring(index+1);
         id=Integer.parseInt(nomeId);
+        TutorAziendale ta=new TutorAziendale();
+        TutorAziendaleDao daota= new TutorAziendaleDao();
+        ta= daota.doRetrieveByKey(id);
 	      listatu=TutorUniversitarioDao.selectTutorNames(nome);
 	      request.setAttribute("listatutoruni", listatu);
+	      session.setAttribute("tutorAziendale", ta);
 	      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListaTutorUniversitarioView.jsp");
 	      dispatcher.forward(request, response);
 	    } catch (SQLException e) {

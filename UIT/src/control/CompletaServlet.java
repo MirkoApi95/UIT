@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import entity.TutorUniversitario;
+import entity.Utente;
+import model.TutorUniversitarioDao;
+import model.UtenteDao;
 
 /**
  * Servlet implementation class CompletaServlet
@@ -38,7 +43,7 @@ public class CompletaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    String nominativo=(String) request.getParameter("dropdown");
 	    HttpSession session=request.getSession();
-	    session.setAttribute("tutorUni", nominativo);
+	    
 
 	        String nome;
 	        int id=0;
@@ -49,6 +54,14 @@ public class CompletaServlet extends HttpServlet {
 	        id=Integer.parseInt(nominativo);
 	        System.out.println(nome);
 	        System.out.println(id);
+	        Utente tutorUniversitario=new Utente();
+	        try {
+            UtenteDao daoutu= new UtenteDao();
+            tutorUniversitario=daoutu.doRetrieveByKey(id);
+            session.setAttribute("tutorUni", tutorUniversitario);
+          } catch (SQLException e) {
+            e.printStackTrace();
+          }
 	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Completato.jsp");
         dispatcher.forward(request, response);
 	}
