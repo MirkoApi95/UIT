@@ -199,10 +199,11 @@
 							Accademico</label>
 						<div class="col-md-5 col-lg-5">
 							<%
-								Utente tu = (Utente) request.getAttribute("datiUtenteTirocinante");
+								Utente tu = (Utente) request.getAttribute("datiUtenteTu");
 							%>
 							<input id="tutoraccademico" name="tutoraccademico" type="text"
-								value="<%=utente.getCognome() + " " + utente.getNome()%>"
+							<% %>
+								value="<%=tu.getCognome() + " " + tu.getNome()%>"
 								class="form-control input-md" readonly>
 						</div>
 					</div>

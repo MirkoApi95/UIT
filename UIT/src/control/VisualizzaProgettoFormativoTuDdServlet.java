@@ -41,15 +41,17 @@ public class VisualizzaProgettoFormativoTuDdServlet extends HttpServlet {
     String iD =  request.getParameter("idProgetto");
     HttpSession session =request.getSession();
     Utente utentetirocinante = null;
+    Utente utenteTutorUniversitario=null;
     Tirocinante tirocinante = null;
     ProgettoFormativo progetto= null;
     try {
       UtenteDao udao=new UtenteDao();;
       ProgettoFormativoDao pjdao=new ProgettoFormativoDao();
+      
       int iDprogetto=Integer.parseInt(iD);
       System.out.println("l'id da cercare è"+ iDprogetto);
       progetto=pjdao.doRetrieveByKey(iDprogetto);
-      
+      utenteTutorUniversitario=udao.doRetrieveByKey(progetto.getTutorUniversitario_Utente_idUtente());
       System.out.println("l'id da cercare è secondo"+ progetto.getTirocinante_Utente_idUtente());
       TutorAziendaleDao daota = new TutorAziendaleDao();
       udao = new  UtenteDao();
@@ -62,6 +64,7 @@ public class VisualizzaProgettoFormativoTuDdServlet extends HttpServlet {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+    request.setAttribute("datiUtenteTu", utenteTutorUniversitario);
     request.setAttribute("datiTirocinante", tirocinante);
     request.setAttribute("datiAzienda", ta);
     request.setAttribute("datiUtenteTirocinante", utentetirocinante);
