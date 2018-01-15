@@ -133,8 +133,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Lista richiesta di tirocinio</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista delle richieste di partecipazione al tirocinio degli studenti.</p>
 								<a href="#">Read More</a>
 							</div>
 						</div>
@@ -146,8 +145,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Lista registri tirocini</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista di tutti i registri di tirocinio.</p>
 								<a href="#">Read More</a>
 							</div>
 						</div>
@@ -159,8 +157,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Risultati Questionari</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Risultato dei questionari svolti dai Tirocinanti</p>
 								<a href="#">Read More</a>
 							</div>
 						</div>

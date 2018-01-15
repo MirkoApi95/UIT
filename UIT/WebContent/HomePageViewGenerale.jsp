@@ -145,8 +145,7 @@
 							<img src="img/mission/1.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Le Aziende</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista delle aziende convenzionate con l'Università degli studi di Salerno.</p>
 							</div>
 						</div>
 					</div>
@@ -157,8 +156,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Progetto Formativo</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista dei progetti formativi disponibili presso l'Università degli studi di Salerno.</p>
 							</div>
 						</div>
 					</div>
@@ -169,8 +167,7 @@
 							<img src="img/mission/3.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Questionari</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Questionari riservati agli studenti dell'Università degli studi di Salerno.</p>
 							</div>
 						</div>
 					</div>

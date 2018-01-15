@@ -134,8 +134,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Lista Progetti Formativo</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista dei progetti formativi Richiesti dai Tirocinanti.</p>
 								<a href="ListaProgettiFormativiServlet">Read More</a>
 							</div>
 						</div>

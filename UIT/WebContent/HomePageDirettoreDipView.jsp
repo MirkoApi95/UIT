@@ -134,8 +134,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Lista progetti formativi</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p> Lista dei progetti formativi Richiesti dai Tirocinanti.</p>
 								<a href="ListaProgettiFormativiServlet">Visualizza progetti
 									formativi</a>
 							</div>
@@ -148,8 +147,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Lista registri tirocini</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista di tutti i registri di tirocinio.</p>
 								<a href="">Visualizza registri di tirocinio</a>
 							</div>
 						</div>

@@ -139,8 +139,7 @@
 							<img src="img/mission/1.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Le Aziende</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista delle aziende convenzionate con l'Università degli studi di Salerno.</p>
 									<% boolean c1=(boolean) session.getAttribute("check1"); %>
 									<% boolean c2=(boolean) session.getAttribute("check2"); %>
 									<% if(c1==false) {%>
@@ -158,8 +157,7 @@
 							<img src="img/mission/2.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Progetto Formativo</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Lista dei progetti formativi disponibili presso l'Università degli studi di Salerno.</p>
 									<% if(c2==false) {%>
 								<a href="CompilaProgettoFormativoView.jsp">Compila la tua pratica</a>
 								<%} else{ %>
@@ -175,8 +173,7 @@
 							<img src="img/mission/3.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Questionari</h4>
-								<p>We possess within us two minds. So far I have written
-									only of the conscious mind. Your subconscious mind contains.</p>
+								<p>Compilazione del Questionario.</p>
 									<% if(c2==true) {%>
 								<a href="">Compila Questionario</a>
 								<%} else{ %>
