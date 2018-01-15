@@ -173,7 +173,8 @@
 							<img src="img/mission/3.png" class="img-fullwidth" alt="">
 							<div class="card">
 								<h4>Questionari</h4>
-								<p>Compilazione del Questionario.</p>
+								<p>Qui � possibile compilare il tuo questionario di valutazione delle aziende,
+								compilalo solo dopo aver completato il tuo tirocinio</p>
 									<% if(c2==true) {%>
 								<a href="">Compila Questionario</a>
 								<%} else{ %>
@@ -219,7 +220,7 @@
 					<div class="row">
 
 						<div class="col-sm-6 col-xs-12">
-							<span class="copyright"> © Made by UIT Team</a>
+							<span class="copyright"> © Made by UIT Team
 							</span>
 						</div>
 

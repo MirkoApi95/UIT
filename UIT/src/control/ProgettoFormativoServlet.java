@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class ProgettoFormativoServlet extends HttpServlet {
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String obiettivi=request.getParameter("obiettivi");
+    PrintWriter out = response.getWriter();
+    if(obiettivi.length()>=50) {
     System.out.println(obiettivi);	
     HttpSession sessione= request.getSession();
     Utente utente=(Utente)sessione.getAttribute("utente");
@@ -69,7 +72,12 @@ public class ProgettoFormativoServlet extends HttpServlet {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
+    }else
+      System.out.println("pratica non completata");
+    out.println("<script type=\"text/javascript\">");
+    out.println("alert('hai inserito meno di 50 caratteri nella sezione obiettivi');");
+    out.println("location='CompilaProgettoFormativoView.jsp';");
+    out.println("</script>");
   }
 
 }

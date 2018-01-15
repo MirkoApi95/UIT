@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,22 +41,42 @@ public class ModificaPassword extends HttpServlet {
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String nuovaPassword =request.getParameter("passwordinput");
-   
+    String confermaPassword =request.getParameter("confirm_password");
+    PrintWriter out = response.getWriter();
     try {
       UtenteDao udao= new UtenteDao();
       Utente u = (Utente)request.getSession().getAttribute("utente");
-      udao.modificaPassword(u, nuovaPassword);
+      boolean check = false;
+      if(!nuovaPassword.equals(confermaPassword)){
+        System.out.println("errore utente non inserito");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('La password di conferma è diversa dalla password inserita');");
+        out.println("location='AccountView.jsp';");
+        out.println("</script>");
+      } else if(nuovaPassword.length()<8) {
+        System.out.println("errore utente non inserito");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('La password è minore di 8 caratteri');");
+        out.println("location='AccountView.jsp';");
+        out.println("</script>");
+      }else {   
+        check=udao.modificaPassword(u, nuovaPassword);
+        HttpSession session = request.getSession();
+        session.invalidate();
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
+            "/HomePageViewGenerale.jsp");
+        dispatcher.forward(request, response);
+        }
       
-      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
-          "/HomePageViewGenerale.jsp");
-      dispatcher.forward(request, response);
-
-    } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-
-
-  }
-
-}
+      if(check==false) {
+        System.out.println("errore password non modificata");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('errore inserimento password');");
+        out.println("location='AccountView.jsp';");
+        out.println("</script>");
+      udao.modificaPassword(u, nuovaPassword);
+      }} catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+  }}

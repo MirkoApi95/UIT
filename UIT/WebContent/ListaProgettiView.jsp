@@ -118,7 +118,7 @@
 	</header>
 	<!-- end navigation -->
 	<main class="main oh">
-	<form class="form-horizontal" action="VisualizzaProgettoFormativoTuDdServlet" method="get">
+
 	<table>
 		<tr>
 			<th>Numero Pratica</th>
@@ -130,46 +130,34 @@
 		<%
 			for (int j = 0; j < vettore.size(); j++) {
 		%>
-		<tr>
-			<td><input id="idProgetto" name="idProgetto" type="text" value="<%=vettore.get(j).getId_progetto()%>"
-								class="form-control input-md" readonly></td>
-			<td><%=vettore.get(j).getTirocinante_Utente_idUtente()%></td>
-			<td><%=vettore.get(j).getConvalidaTu()%></td>
-			<td><%=vettore.get(j).getConvalidaDd()%></td>
-			<td>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="submit"></label>
-					<div class="col-md-4 col-lg-1">
-						<button id="submit" name="submit" class="btn btn-success">Submit</button>
-					</div>
-				</div>
-				
-			</td>
-		</tr>
-		<%
-			}
-		%>
-
+				<tr>
+				<td><%=vettore.get(j).getId_progetto()%></td>
+				<td><%=vettore.get(j).getTirocinante_Utente_idUtente()%></td>
+				<td><%=vettore.get(j).getConvalidaTu()%></td>
+				<td><%=vettore.get(j).getConvalidaDd()%></td>
+				<td>
+				<form action="VisualizzaProgettoFormativoTuDdServlet" method="get">
+				<input id="idProgetto" type="hidden" name="idProgetto" value="<%=vettore.get(j).getId_progetto()%>" readonly>
+				<button id="submit" type="submit" name="button" value="Visualizza" class="btn btn-success"> Visualizza</button>
+				</form>				
+				</td>
+			</tr>
+			<%
+				}
+			%>
+		
 	</table>
-	</form>
-
 	<div class="gmap gmap-hidden" id="google-map"
 		data-address="V Tytana St, Manila, Philippines"></div>
-
-
 	<!-- Footer --> <footer class="footer">
-
-
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-
 					<div class="col-sm-6 col-xs-12 text-sm-center">
 						<span class="copyright"> 2017 Canna Theme | Made by <a
 							href="https://deothemes.com">DeoThemes</a>
 						</span>
 					</div>
-
 					<div
 						class="col-sm-4 col-sm-offset-2 col-xs-12 text-right text-sm-center">
 						<div class="socials socials--nobase footer__socials clearfix">
@@ -181,7 +169,6 @@
 								class="fa fa-instagram"></i></a>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -191,7 +178,6 @@
 	<div id="back-to-top" class="">
 		<a href="#top"><i class="fa fa-angle-up"></i></a>
 	</div>
-
 	</main>
 	<!-- end main-wrapper -->
 
@@ -202,7 +188,6 @@
 	<script type="text/javascript" src="js/gmap3.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
-
 
 	<!-- Google Map -->
 	<script type="text/javascript">
@@ -259,6 +244,5 @@
 
 		});
 	</script>
-
 </body>
 </html>
