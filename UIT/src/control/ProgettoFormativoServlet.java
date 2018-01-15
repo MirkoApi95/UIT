@@ -29,6 +29,7 @@ public class ProgettoFormativoServlet extends HttpServlet {
       HttpServletResponse response) throws ServletException, IOException {
     String obiettivi = request.getParameter("obiettivi");
     PrintWriter out = response.getWriter();
+<<<<<<< HEAD
     if (obiettivi.length() >= 50) {
       HttpSession sessione = request.getSession();
       Utente utente = (Utente)sessione.getAttribute("utente");
@@ -56,6 +57,37 @@ public class ProgettoFormativoServlet extends HttpServlet {
         e.printStackTrace();
       }
     } else {
+=======
+    if(obiettivi.length()>=50) {
+    System.out.println(obiettivi);	
+    HttpSession sessione= request.getSession();
+    Utente utente=(Utente)sessione.getAttribute("utente");
+    Utente tutorUniversitario=(Utente)sessione.getAttribute("tutorUniversitario");
+    TutorAziendale tutorAziendale=(TutorAziendale)sessione.getAttribute("tutorAziendale");
+    ProgettoFormativo project = new ProgettoFormativo();
+    project.setConvalidaDd(false);
+    project.setConvalidaTu(false);
+    project.setObiettivi(obiettivi);
+    project.setDirettoreDipartimento_idDirettoreDipartimento(13);
+    project.setTirocinante_Utente_idUtente(utente.getId());
+    project.setTutorUniversitario_Utente_idUtente(tutorUniversitario.getId());
+    System.out.println("L'id è:"+tutorAziendale.getId());
+    project.setTutorAziendale_Utente_idUtente(tutorAziendale.getId());
+    try {
+      ProgettoFormativoDao pdao = new ProgettoFormativoDao();
+      pdao.upLoadProject(project);
+      boolean check=(boolean)sessione.getAttribute("check2");
+      check=true;
+      sessione.setAttribute("check2", check);
+      System.out.println("fatto.");
+      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
+          "/HomePageTirocinanteView.jsp");
+      dispatcher.forward(request, response);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    }else
+>>>>>>> e968c2945171c977d2a9540c440a96b328b2d246
       System.out.println("pratica non completata");
     }
     out.println("<script type=\"text/javascript\">");
