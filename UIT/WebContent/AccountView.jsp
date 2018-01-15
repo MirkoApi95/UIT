@@ -59,10 +59,42 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
+						
 							<!-- effettuare controllo su sessione per vedere a quale home ricondurre -->
-							<a href="HomePageTirocinanteView.jsp" class="logo__link"> <img class="logo logo--dark"
+							
+							<%String email =utente.getEmail();
+							String dominio;
+							int ini = email.indexOf('@');
+							dominio = email.substring(ini);
+							switch (dominio) {
+				            case "@studenti.unisa.it": 
+				            	%>
+				            	<a href=HomePageTirocinanteView.jsp class="logo__link"> <img class="logo logo--dark"
 								src="img/logo2.png" alt="logo">
-							</a>
+							   </a><%
+							    break;
+				            case "@docenti.unisa.it":
+				            	 %>
+				            	<a href=HomePageTutorUniversitarioView.jsp class="logo__link"> <img class="logo logo--dark"
+								src="img/logo2.png" alt="logo"></a>
+				            	<% 
+				              break;
+				            case "@azienda.unisa.it":
+				            	%> <a href=HomePageTutorAziendaleView.jsp class="logo__link"> <img class="logo logo--dark"
+										src="img/logo2.png" alt="logo"></a>
+				            	<%
+				              break;
+				            case "@direttoredipartimento.unisa.it":
+				            	%>
+				            	<a href=HomePageDirettoreDipView.jsp class="logo__link"> <img class="logo logo--dark"
+										src="img/logo2.png" alt="logo"></a>
+				            	<%
+				              break;
+				            default : break;
+				          }
+							%>
+							
+							
 						</div>
 						<button type="button" class="nav__icon-toggle"
 							id="nav__icon-toggle" data-toggle="collapse"
