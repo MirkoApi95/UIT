@@ -47,7 +47,6 @@ public class VisualizzaProgettoFormativoTuDdServlet extends HttpServlet {
     try {
       UtenteDao udao=new UtenteDao();;
       ProgettoFormativoDao pjdao=new ProgettoFormativoDao();
-      
       int iDprogetto=Integer.parseInt(iD);
       System.out.println("l'id da cercare è"+ iDprogetto);
       progetto=pjdao.doRetrieveByKey(iDprogetto);
