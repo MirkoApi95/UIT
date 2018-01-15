@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author Salvatore Mirko Apicella
- * Clesse che rappesenta l'entità nel database UIT AssociazioneTU_TA, serve per collegare i professori alle aziende
+ * Classe che rappesenta l'entità nel database UIT AssociazioneTU_TA, serve per collegare i professori alle aziende
  * viene utilizzata durante la scelta dell'azienda con un possibile tutor universitario
  */
 

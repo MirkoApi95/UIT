@@ -1,5 +1,8 @@
 package model;
-
+  /**
+   * Classe DAO che permette di popolare la tabella del tirocinante e che permette di prelevare i dati appartenenti al tirocinante
+   * @author fmanc
+   */
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import gestoreStorage.DriverManagerConnectionPoolUnisa;
 import java.sql.Connection;
@@ -22,7 +25,11 @@ public class TirocinanteDao extends UtenteDao {
   private Connection connectionUit;
   private Connection connectionUnisa;
   private PreparedStatement preparedStatement;
-
+  /**
+  * @param connectionUit variabile che istanzia la connessione al database UIT
+  * @param connectionUnisa variabile che istanzia la connessione al database universitario
+  * @param preparedStatement variabile che permette di eseguire la query
+  */
   //****COSTRUTTORE E CREAZIONE CONNESSIONE****\\
   public TirocinanteDao() throws SQLException {
     connectionUit = DriverManagerConnectionPoolUIT.getConnection();

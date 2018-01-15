@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Classe DAO che permette di visualizzare tutte le associazioni tra un Tutor Universitario ed un Tutor Aziendale.
+ * @author fmanc
+ **/
+
 import entity.TutorAziendale;
 import entity.TutorUniversitario;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
@@ -24,6 +29,14 @@ public class AssociazioneTuTaDao {
 
   private final String listaTuAssociati = "SELECT Nome,Cognome FROM Utente WHERE id_Utente =?";
 
+  
+  /**
+   * @param connection variabile che istanzia la connessione al database UIT
+   * @param preparedStatement variabile che permette di eseguire la query
+   * @param lista ArrayList di tipo TutorUniversitario che contiene tutti i Tutor Universitari associati ad un Tutor Aziendale specifico
+   * @param tu variabile che permette di aggiungere all'Array List l'elemento id
+   */
+  
   //****COSTRUTTORE****\\
   public AssociazioneTuTaDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();

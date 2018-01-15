@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Classe Dao che permette di selezionare i progetti formativi presenti nel database, di caricare un progetto formativo
+ * e di convalidare i progetti formativi da parte del Direttore di Dipartimento e del Tutor Universitario
+ * @author fmanc
+ */
+
 import entity.ProgettoFormativo;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import java.sql.Connection;
@@ -35,7 +41,11 @@ public class ProgettoFormativoDao {
       + "? WHERE ID_ProgettoFormativo = ?";
   private final String listaAziendetu= "SELECT * FROM progettoformativo WHERE tutoruniversitario_utente_id_Utente=?";
   private final String listaAziende= "SELECT * FROM progettoformativo";
-
+  /**
+  * @param connection variabile che istanzia la connessione al database UIT
+  * @param preparedStatement variabile che permette di eseguire la query
+  * @param progetto variabile di tipo Progetto Formativo che permette di settare i parametri per poi scaricarli
+  **/
   //****COSTRUTTORE****\\
   public ProgettoFormativoDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();

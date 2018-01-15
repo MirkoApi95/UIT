@@ -153,11 +153,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6 col-xs-12 text-sm-center">
-						<span class="copyright"> 2017 Canna Theme | Made by <a
-							href="https://deothemes.com">DeoThemes</a>
-						</span>
-					</div>
+					<div class="col-sm-6 col-xs-12 text-sm-center"></div>
 					<div
 						class="col-sm-4 col-sm-offset-2 col-xs-12 text-right text-sm-center">
 						<div class="socials socials--nobase footer__socials clearfix">

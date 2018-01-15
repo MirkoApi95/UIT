@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Classe DAO che permette di inserire un nuovo Tutor Universitario e permette di selezionare i Tutor Universitari in base
+ * al nome dell'azienda a cui è associato
+ * @author fmanc
+ */
+
 import gestoreStorage.DriverManagerConnectionPoolUIT;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +21,11 @@ public class TutorUniversitarioDao extends UtenteDao {
   //****VARIABILI DELLA CLASSE****\\
   private Connection connection = null;
   private PreparedStatement preparedStatement = null;
+  
+  /**
+   * @param connection variabile che istanzia la connessione al database UIT
+   * @param preparedStatement variabile che permette di eseguire la query
+   */
 
   //****QUERY****\\
 
@@ -73,23 +84,4 @@ public class TutorUniversitarioDao extends UtenteDao {
   }
     return tuList;
 }
-  public static synchronized int countTutor (String azienda) {
-    int risultato=0;
-    final String sqlcount="select count(*) from (SELECT Nome, Cognome FROM utente, tutoruniversitario, tutoraziendale, associazionetu_ta WHERE tutoruniversitario.utente_id_Utente=associazionetu_ta.tutoruniversitario_utente_id_Utente AND associazionetu_ta.tutorAziendale1_utente_id_Utente=tutoraziendale.utente_id_Utente AND utente.id_Utente=tutoruniversitario.utente_id_Utente AND tutoraziendale.NomeAzienda=?) as conteggio";
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    
-    try {
-      connection=DriverManagerConnectionPoolUIT.getConnection();
-      preparedStatement=connection.prepareStatement(sqlcount);
-      preparedStatement.setString(1, azienda);
-      ResultSet rs=preparedStatement.executeQuery();
-
-      while (rs.next()){
-        risultato=rs.getInt("count(*)");
-  }
-}catch(SQLException e) { e.printStackTrace();}
-    return risultato;
-}
-
 }

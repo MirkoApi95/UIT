@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Classe DAO che permette di selezionare un utente tramite l'identificativo corrispondente, permette di selezionare un'utente
+ * tramite la mail corrispondente, permette di inserire un nuovo utente, permette di modificare l'indirizzo di residenza, 
+ * permette di modificare la password e di prelevare il numero di CFU acquisiti da un determinato utente
+ * @author fmanc 
+ */
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +21,11 @@ public class UtenteDao {
 
   private Connection connection = null;
   private PreparedStatement preparedStatement = null;
+  
+  /**
+   * @param connection variabile che istanzia la connessione al database UIT
+   * @param preparedStatement variabile che permette di eseguire la query
+   */
 
   //****QUERY****\\
   private final String selectFromIdSql = "select * FROM Utente "

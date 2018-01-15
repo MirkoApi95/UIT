@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Classe Dao che permette di inserire un' azienda all'interno del database, permette di scaricare i dati relativi ad un'azienda tramite
+ * l'identificativo del tutor aziendale, permette di scaricare tutte le aziende presenti nel database, permette di scaricare l'identificativo
+ * ed il nome dell'azienda relativi ai tutor aziendali
+ * @author fmanc
+ */
+
 import entity.TutorAziendale;
 import entity.Utente;
 import gestoreStorage.DriverManagerConnectionPoolUIT;
@@ -23,7 +30,11 @@ public class TutorAziendaleDao extends UtenteDao {
       + "VALUES(?,?,?)";
   private final String listaAziende = "SELECT NomeAzienda,utente_id_Utente FROM  tutoraziendale";
 
-
+  /**
+   * @param connection variabile che istanzia la connessione al database UIT
+   * @param preparedStatement variabile che permette di eseguire la query
+   * @param ta variabile che permette di aggiungere all'Array List l'elemento id ed il nome dell'azienda
+   */
   //****COSTRUTTORE****\\
   public TutorAziendaleDao() throws SQLException {
     connection = DriverManagerConnectionPoolUIT.getConnection();
