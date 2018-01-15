@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +24,10 @@ import model.UtenteDao;
 
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {}
-
 
   /**
    *Classe servlet di registrazione.
@@ -42,38 +39,35 @@ public class RegistrationServlet extends HttpServlet {
    */
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-
     Utente user = new Utente();
     user.setEmail(req.getParameter("emailId"));
     user.setPassword(req.getParameter("passwordinput"));
 
-
     try {
-
       PrintWriter out = resp.getWriter();
       UtenteDao userDao = new UtenteDao();
-      boolean checkCfu=userDao.testCfu(user.getEmail());
+      boolean checkCfu = userDao.testCfu(user.getEmail());
       boolean check = false;
-      if(checkCfu==true) {
-        if((user.getPassword().equals(req.getParameter("confirm_password"))==false)){
+      if (checkCfu) {
+        if (!user.getPassword().equals(req.getParameter("confirm_password"))) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('La password di conferma è diversa dalla password inserita');");
+          out.println("alert('La password di conferma ï¿½ diversa dalla password inserita');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
-        } else if(user.getPassword().length()<8) {
+        } else if (user.getPassword().length() < 8) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('La password di conferma è minore di 8 caratteri');");
+          out.println("alert('La password di conferma ï¿½ minore di 8 caratteri');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
-        }else {   
-          check=userDao.upLoadUtente(user);
+        } else {   
+          check = userDao.upLoadUtente(user);
         }
-        if(check==false) {
+        if (!check) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('email già esistente o non presente nel database universitario');");
+          out.println("alert('email giï¿½ esistente o non presente nel database universitario');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
         } else {
@@ -92,8 +86,8 @@ public class RegistrationServlet extends HttpServlet {
               tu.inserisciTU(user.getId());
               break;
             default : break;
-            
-          }RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
+
+          } RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
               "/HomePageViewGenerale.jsp");
           dispatcher.forward(req, resp);
         }
@@ -104,9 +98,8 @@ public class RegistrationServlet extends HttpServlet {
         out.println("location='RegistrazioneView.jsp';");
         out.println("</script>");
       }
-    }catch (SQLException e) {
+    } catch (SQLException e) {
       e.printStackTrace();
     }
   }
 }
-

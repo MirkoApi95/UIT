@@ -1,5 +1,8 @@
 package control;
 
+import entity.ProgettoFormativo;
+import entity.TutorAziendale;
+import entity.Utente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -10,40 +13,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import entity.ProgettoFormativo;
-import entity.TutorAziendale;
-import entity.Utente;
 import model.ProgettoFormativoDao;
 
-/**
- * Servlet implementation class ProgettoFormativoServlet
- */
+/** Servlet implementation class ProgettoFormativoServlet. */
 @WebServlet("/ProgettoFormativoServlet")
 public class ProgettoFormativoServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * @see HttpServlet#HttpServlet()
-   */
-  public ProgettoFormativoServlet() {
-    super();
-    // TODO Auto-generated constructor stub
-  }
-
-  /**
-   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-   */
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     //TODO Auto-generated method stub
+  protected void doGet(HttpServletRequest request, 
+      HttpServletResponse response) throws ServletException, IOException {
     doPost(request,response);
   }
 
-  /**
-   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-   */
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String obiettivi=request.getParameter("obiettivi");
+  protected void doPost(HttpServletRequest request, 
+      HttpServletResponse response) throws ServletException, IOException {
+    String obiettivi = request.getParameter("obiettivi");
     PrintWriter out = response.getWriter();
+<<<<<<< HEAD
+    if (obiettivi.length() >= 50) {
+      HttpSession sessione = request.getSession();
+      Utente utente = (Utente)sessione.getAttribute("utente");
+      Utente tutorUniversitario = (Utente)sessione.getAttribute("tutorUniversitario");
+      TutorAziendale tutorAziendale = (TutorAziendale)sessione.getAttribute("tutorAziendale");
+      ProgettoFormativo project = new ProgettoFormativo();
+      project.setConvalidaDd(false);
+      project.setConvalidaTu(false);
+      project.setObiettivi(obiettivi);
+      project.setDirettoreDipartimento_idDirettoreDipartimento(4);
+      project.setTirocinante_Utente_idUtente(utente.getId());
+      project.setTutorUniversitario_Utente_idUtente(tutorUniversitario.getId());
+      project.setTutorAziendale_Utente_idUtente(tutorAziendale.getId());
+      try {
+        ProgettoFormativoDao pdao = new ProgettoFormativoDao();
+        pdao.upLoadProject(project);
+        boolean check = (boolean)sessione.getAttribute("check2");
+        check = true;
+        sessione.setAttribute("check2", check);
+        System.out.println("fatto.");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
+            "/HomePageTirocinanteView.jsp");
+        dispatcher.forward(request, response);
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+    } else {
+=======
     if(obiettivi.length()>=50) {
     System.out.println(obiettivi);	
     HttpSession sessione= request.getSession();
@@ -54,7 +68,7 @@ public class ProgettoFormativoServlet extends HttpServlet {
     project.setConvalidaDd(false);
     project.setConvalidaTu(false);
     project.setObiettivi(obiettivi);
-    project.setDirettoreDipartimento_idDirettoreDipartimento(4);
+    project.setDirettoreDipartimento_idDirettoreDipartimento(13);
     project.setTirocinante_Utente_idUtente(utente.getId());
     project.setTutorUniversitario_Utente_idUtente(tutorUniversitario.getId());
     System.out.println("L'id è:"+tutorAziendale.getId());
@@ -73,11 +87,12 @@ public class ProgettoFormativoServlet extends HttpServlet {
       e.printStackTrace();
     }
     }else
+>>>>>>> e968c2945171c977d2a9540c440a96b328b2d246
       System.out.println("pratica non completata");
+    }
     out.println("<script type=\"text/javascript\">");
     out.println("alert('hai inserito meno di 50 caratteri nella sezione obiettivi');");
     out.println("location='CompilaProgettoFormativoView.jsp';");
     out.println("</script>");
   }
-
 }
