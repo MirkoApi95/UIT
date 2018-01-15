@@ -54,7 +54,7 @@ public class ProgettoFormativoServlet extends HttpServlet {
     project.setConvalidaDd(false);
     project.setConvalidaTu(false);
     project.setObiettivi(obiettivi);
-    project.setDirettoreDipartimento_idDirettoreDipartimento(4);
+    project.setDirettoreDipartimento_idDirettoreDipartimento(13);
     project.setTirocinante_Utente_idUtente(utente.getId());
     project.setTutorUniversitario_Utente_idUtente(tutorUniversitario.getId());
     System.out.println("L'id è:"+tutorAziendale.getId());
