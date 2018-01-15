@@ -29,7 +29,6 @@ public class ProgettoFormativoServlet extends HttpServlet {
       HttpServletResponse response) throws ServletException, IOException {
     String obiettivi = request.getParameter("obiettivi");
     PrintWriter out = response.getWriter();
-<<<<<<< HEAD
     if (obiettivi.length() >= 50) {
       HttpSession sessione = request.getSession();
       Utente utente = (Utente)sessione.getAttribute("utente");
@@ -57,7 +56,6 @@ public class ProgettoFormativoServlet extends HttpServlet {
         e.printStackTrace();
       }
     } else {
-=======
     if(obiettivi.length()>=50) {
     System.out.println(obiettivi);	
     HttpSession sessione= request.getSession();
@@ -87,7 +85,6 @@ public class ProgettoFormativoServlet extends HttpServlet {
       e.printStackTrace();
     }
     }else
->>>>>>> e968c2945171c977d2a9540c440a96b328b2d246
       System.out.println("pratica non completata");
     }
     out.println("<script type=\"text/javascript\">");
