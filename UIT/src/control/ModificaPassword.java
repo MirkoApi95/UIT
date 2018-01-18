@@ -32,16 +32,16 @@ public class ModificaPassword extends HttpServlet {
       UtenteDao udao = new UtenteDao();
       Utente u = (Utente)request.getSession().getAttribute("utente");
       boolean check = false;
-      if (!nuovaPassword.equals(confermaPassword)) {
+      if (nuovaPassword.equals(confermaPassword)==false) {
         System.out.println("errore utente non inserito");
         out.println("<script type=\"text/javascript\">");
-        out.println("alert('La password di conferma � diversa dalla password inserita');");
+        out.println("alert('La password di conferma e' diversa dalla password inserita');");
         out.println("location='AccountView.jsp';");
         out.println("</script>");
       } else if (nuovaPassword.length() < 8) {
         System.out.println("errore utente non inserito");
         out.println("<script type=\"text/javascript\">");
-        out.println("alert('La password � minore di 8 caratteri');");
+        out.println("alert('La password e' minore di 8 caratteri');");
         out.println("location='AccountView.jsp';");
         out.println("</script>");
       } else {   
