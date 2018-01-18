@@ -52,13 +52,13 @@ public class RegistrationServlet extends HttpServlet {
         if (!user.getPassword().equals(req.getParameter("confirm_password"))) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('La password di conferma � diversa dalla password inserita');");
+          out.println("alert('La password di conferma e' diversa dalla password inserita');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
         } else if (user.getPassword().length() < 8) {
           System.out.println("errore utente non inserito");
           out.println("<script type=\"text/javascript\">");
-          out.println("alert('La password di conferma � minore di 8 caratteri');");
+          out.println("alert('La password di conferma e' minore di 8 caratteri');");
           out.println("location='RegistrazioneView.jsp';");
           out.println("</script>");
         } else {   
