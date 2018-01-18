@@ -97,14 +97,14 @@ public class Login extends HttpServlet {
           out.print("Password errata");
           out.println("<script>");
           out.println("alert('Password errata !')");
-          out.println("window.history.back()");
+         // out.println("window.history.back()");
           out.println("</script>");
         }
       } else {
         out.print("Email errata o inesistente");
         out.println("<script>");
         out.println("alert('Email errata o inesistente !')");
-        out.println("window.history.back()");
+      //  out.println("window.history.back()");
         out.println("</script>");
       }
     } catch (SQLException e) {
@@ -123,6 +123,3 @@ public class Login extends HttpServlet {
   }
 
 }
-
-
-

@@ -104,10 +104,4 @@ public class DriverManagerConnectionPoolUIT {
 
 	//lista delle connessioni libere
 	private static List<Connection> freeDBConnections;
-
-
-
-
-
-
 }
