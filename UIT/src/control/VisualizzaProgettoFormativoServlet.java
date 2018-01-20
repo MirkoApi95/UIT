@@ -34,9 +34,6 @@ public class VisualizzaProgettoFormativoServlet extends HttpServlet {
       TutorAziendaleDao daota = new TutorAziendaleDao();
       ta = daota.doRetrieveByKeyTA(project.getTutorAziendale_Utente_idUtente());
       tu = daou.doRetrieveByKey(project.getTutorUniversitario_Utente_idUtente());
-
-      System.out.println("ta=" + ta.getNomeazienda());
-
       request.setAttribute("progetto", project);
       request.setAttribute("tutorUniversitario", tu);
       request.setAttribute("tutorAziendale", ta);

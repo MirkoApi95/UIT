@@ -60,7 +60,7 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
-							<a href="HomePageDirettoreDipView.jsp" class="logo__link"> <img
+							<a href="BackHome" class="logo__link"> <img
 								class="logo logo--dark" src="img/logo2.png" alt="logo">
 							</a>
 						</div>
@@ -86,7 +86,7 @@
 								<i class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
 									<li><a href="AccountView.jsp">Modifica Account</a></li>
-									<li><a href="Logout.jsp">Logout</a></li>
+									<li><a href="logout.jsp">Logout</a></li>
 
 								</ul></li>
 						</ul>
@@ -148,7 +148,7 @@
 							<div class="card">
 								<h4>Lista registri tirocini</h4>
 								<p>Lista di tutti i registri di tirocinio.</p>
-								<a href="">Visualizza registri di tirocinio</a>
+								<!--<a href="">Visualizza registri di tirocinio</a>-->
 							</div>
 						</div>
 					</div>

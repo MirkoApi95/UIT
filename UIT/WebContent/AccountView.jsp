@@ -69,7 +69,7 @@
 							switch (dominio) {
 				            case "@studenti.unisa.it": 
 				            	%>
-				            	<a href=HomePageTirocinanteView.jsp class="logo__link"> <img class="logo logo--dark"
+				            	<a href=BackHome class="logo__link"> <img class="logo logo--dark"
 								src="img/logo2.png" alt="logo">
 							   </a><%
 							    break;

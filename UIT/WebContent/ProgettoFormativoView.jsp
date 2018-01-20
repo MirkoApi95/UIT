@@ -70,7 +70,7 @@
 					<div class="nav__header clearfix">
 						<!-- Logo -->
 						<div class="logo-wrap">
-							<a href="HomePageTirocinanteView.jsp" class="logo__link"> <img
+							<a href="BackHome" class="logo__link"> <img
 								class="logo logo--dark" src="img/logo2.png" alt="logo">
 							</a>
 						</div>
