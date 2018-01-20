@@ -31,36 +31,29 @@ public class ModificaPassword extends HttpServlet {
     try {
       UtenteDao udao = new UtenteDao();
       Utente u = (Utente)request.getSession().getAttribute("utente");
-      boolean check = false;
-      if (!nuovaPassword.equals(confermaPassword)) {
-        System.out.println("errore utente non inserito");
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('La password di conferma � diversa dalla password inserita');");
-        out.println("location='AccountView.jsp';");
-        out.println("</script>");
-      } else if (nuovaPassword.length() < 8) {
-        System.out.println("errore utente non inserito");
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('La password � minore di 8 caratteri');");
-        out.println("location='AccountView.jsp';");
-        out.println("</script>");
-      } else {   
-        check = udao.modificaPassword(u, nuovaPassword);
-        HttpSession session = request.getSession();
-        session.invalidate();
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(
-            "/HomePageViewGenerale.jsp");
-        dispatcher.forward(request, response);
-      }
 
-      if (!check) {
-        System.out.println("errore password non modificata");
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('errore inserimento password');");
-        out.println("location='AccountView.jsp';");
-        out.println("</script>");
-        udao.modificaPassword(u, nuovaPassword);
-      } 
+      if (nuovaPassword.equals(confermaPassword)== true && nuovaPassword.length() > 8== true) {
+          udao.modificaPassword(u, nuovaPassword);
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('password modificata');");
+          out.println("location='AccountView.jsp';");
+          out.println("</script>");
+          HttpSession session = request.getSession();
+          session.invalidate();
+          RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePageViewGenerale.jsp");
+          dispatcher.forward(request, response);
+        } else if (nuovaPassword.length() < 8== true){      
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('password corta');");
+          out.println("location='AccountView.jsp';");
+          out.println("</script>");
+        } else if (nuovaPassword.equals(confermaPassword)!= true) {
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('password diverse');");
+          out.println("location='AccountView.jsp';");
+          out.println("</script>");
+      }
+      
     } catch (SQLException e) {
       e.printStackTrace();
     }

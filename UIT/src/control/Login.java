@@ -44,9 +44,9 @@ public class Login extends HttpServlet {
     String password = request.getParameter("passwordLogin");
     PrintWriter out = response.getWriter();
     HttpSession session = request.getSession();
-    
+
     Utente u;
-    
+
     try {
       UtenteDao udao = new UtenteDao();
       u = udao.doRetrieveByMail(email);
@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
       String dominio;
       if (u != null) {
         if (u.getPassword().equals(password) && u.getEmail().equals(email)) {
-          
+
           session.setAttribute("utente", u);
           boolean check1 = false;
           boolean check2 = false;
@@ -91,20 +91,21 @@ public class Login extends HttpServlet {
               break;
             default : break;
           }
-
-        }
-        if (!u.getPassword().equals(password)) {
-          out.print("Password errata");
-          out.println("<script>");
-          out.println("alert('Password errata !')");
-          out.println("window.history.back()");
+        } else if (u.getPassword().equals(password)==false) {
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('password errata');");
+          out.println("location='HomePageViewGenerale.jsp';");
+          out.println("</script>");
+        } else {
+          out.println("<script type=\"text/javascript\">");
+          out.println("alert('Email errata o inesistente');");
+          out.println("location='HomePageViewGenerale.jsp';");
           out.println("</script>");
         }
       } else {
-        out.print("Email errata o inesistente");
-        out.println("<script>");
-        out.println("alert('Email errata o inesistente !')");
-        out.println("window.history.back()");
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('Campo email errato');");
+        out.println("location='HomePageViewGenerale.jsp';");
         out.println("</script>");
       }
     } catch (SQLException e) {
@@ -123,6 +124,3 @@ public class Login extends HttpServlet {
   }
 
 }
-
-
-

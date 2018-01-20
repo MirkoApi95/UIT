@@ -83,7 +83,7 @@
 
 							<li class="nav__dropdown active"></li>
 
-							<li class="nav__dropdown"><a href="#">Login</a> <i
+							<li id="log" class="nav__dropdown"><a href="#">Login</a> <i
 								class="fa fa-angle-down nav__dropdown-trigger"></i>
 								<ul class="nav__dropdown-menu">
 									<!--<li><a href="services.html">Services</a></li>

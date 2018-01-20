@@ -19,6 +19,9 @@ public class TC_1_2_4 {
     WebElement inputEmail;
     WebElement inputpassword;
     WebElement button;
+    WebElement menu;
+    menu= driver.findElement(By.id("log"));
+    menu.click();
     inputEmail= driver.findElement(By.id("emailId"));
     inputEmail.sendKeys("s.apicella99@studenti.unisa.it");
     inputpassword= driver.findElement(By.id("passwordinput"));

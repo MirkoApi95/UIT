@@ -159,7 +159,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="submit"></label>
 							<div class="col-md-4 col-lg-1">
-								<button id="conferma" type="submit" class="btn">Conferma</button>
+								<button id="confermapassword" type="submit" class="btn">Conferma</button>
 							</div>
 						</div>
 				</fieldset>
